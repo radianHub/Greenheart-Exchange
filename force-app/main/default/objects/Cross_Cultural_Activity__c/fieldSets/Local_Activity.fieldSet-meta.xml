@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Local_Activity</fullName>
+    <description>Teacher Portal via the Universal App: Cross-Cultural Activity page</description>
+    <displayedFields>
+        <field>Estimated_US_audience_in_Local_Activity__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Type_of_Local_Activity__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Local Activity</label>
+</FieldSet>
