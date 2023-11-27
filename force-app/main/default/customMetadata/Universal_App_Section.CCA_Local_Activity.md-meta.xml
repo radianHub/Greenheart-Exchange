@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CCA Local Activity</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">2</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Local_Activity</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:type="xsd:string">Local Activity</value>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Cross_cultural_Activity</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:type="xsd:string">{
+	&quot;Fields&quot;: [
+		{
+			&quot;controllingField&quot;: &quot;Type_of_Local_Activity__c&quot;,
+			&quot;controllingValue&quot;: &quot;Other&quot;,
+			&quot;actionSections&quot;: [
+				&quot;CCA_Other_Type_of_Activity&quot;
+			]
+		}
+	]
+}</value>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:type="xsd:string">{
+	&quot;Fields&quot;: [
+		{
+			&quot;api&quot;: &quot;If_Other_Please_specify__c&quot;,
+			&quot;controllingField&quot;: &quot;Type_of_Local_Activity__c&quot;,
+			&quot;controllingValues&quot;: [
+				&quot;Other&quot;
+			]
+		}
+	]
+}</value>
+    </values>
+</CustomMetadata>
