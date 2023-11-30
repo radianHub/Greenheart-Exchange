@@ -5,7 +5,7 @@
     <displayedFields>
         <field>Medication_List__c</field>
         <isFieldManaged>false</isFieldManaged>
-        <isRequired>true</isRequired>
+        <isRequired>false</isRequired>
     </displayedFields>
     <label>App Medical: Medication List</label>
 </FieldSet>

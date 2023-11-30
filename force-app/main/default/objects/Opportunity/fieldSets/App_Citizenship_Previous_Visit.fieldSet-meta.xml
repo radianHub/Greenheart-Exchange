@@ -5,12 +5,12 @@
     <displayedFields>
         <field>Visted_on_J1_VisA__c</field>
         <isFieldManaged>false</isFieldManaged>
-        <isRequired>true</isRequired>
+        <isRequired>false</isRequired>
     </displayedFields>
     <displayedFields>
         <field>Date_of_Departure__c</field>
         <isFieldManaged>false</isFieldManaged>
-        <isRequired>true</isRequired>
+        <isRequired>false</isRequired>
     </displayedFields>
     <label>App Citizenship: Previous Visit</label>
 </FieldSet>
