@@ -3,14 +3,14 @@
     padding-top: .25rem;
     margin-bottom: .125rem;
     display: flex;
-    width: 33%;
+    /*width: 33%;*/
 }
 
 .altLabelContainer {
     margin-bottom: .5rem;
     padding-left: .25rem;
     padding-right: .25rem;
-    display: flex;
+    /*display: flex;*/
 }
 
 .req {

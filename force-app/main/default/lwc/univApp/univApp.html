@@ -27,7 +27,7 @@
 			<template if:true={page}>
 				<lightning-record-edit-form object-api-name={appData.Object__c}>
 					<template for:each={currentPage} for:item="section">
-						<div key={section.data.Id} class="rh_section-div">
+						<div key={section.data.Id} class="rh_section-div slds-m-vertical_large" style={section.display}>
 							<header if:true={section.data.Section_Header__c} class="slds-text-heading_medium">
 								<h2 class="rh_section-h2 slds-align_absolute-center slds-hyphenate">{section.data.Section_Header__c}</h2>
 							</header>
@@ -40,48 +40,63 @@
 								<template for:each={section.rows} for:item="row">
 									<div key={row.id} class="rh_field-row slds-grid slds-gutters slds-wrap">
 										<template for:each={row.fields} for:item="field">
-											<div key={field.api} class={section.columnClass} style={section.display}>
+											<div key={field.api} class={section.columnClass}>
 												<template if:true={field.hasAltLabel}>
-												<template if:true={hasValue}>
+													<template if:true={hasValue}>
 														<div class="altLabelContainer">
-															<div class="altLabel slds-form-element__label">
+															<!--div class="altLabel slds-form-element__label">
 																<div if:false={field.isBool}>
 																	<div if:true={field.req} class="req">*</div>
 																</div>
 																<label> {field.altLabel} </label>
-															</div>
-													<lightning-input-field
-																class="slds-grow"
-														field-name={field.api}
-														required={field.req}
-																variant="label-hidden"
-														value={value}
-																onchange={onChangeHandler}
-														disabled={finished}></lightning-input-field>
-														</div>
-												</template>
-												<template if:false={hasValue}>
-														<div class="altLabelContainer">
+															</div-->																
 															<div class="altLabel slds-form-element__label">
+																<div if:false={field.isBool}>
+																	<div if:true={field.req} class="req">*</div>
+																</div>
+																<label for={field.api}>{field.altLabel}</label>
+															</div>
+													<lightning-input-field id={field.api}
+																class="slds-grow hideHelpText"
+																field-name={field.api}
+																required={field.req}
+																variant="label-hidden"
+																value={value}
+																onchange={onChangeHandler}
+																disabled={finished}></lightning-input-field>
+														</div>
+													</template>
+													<template if:false={hasValue}>
+														<div class="altLabelContainer">
+															<!--div class="altLabel slds-form-element__label">
 																<div if:false={field.isBool}>
 																<div if:true={field.req} class="req">*</div>
 																</div>
-																<label> {field.altLabel} </label>
+																<label {field.altLabel}</label>
+															</div-->
+															<!--label for={field.api}>{field.altLabel}</label-->
+															<div class="altLabel slds-form-element__label">
+																<div if:false={field.isBool}>
+																	<div if:true={field.req} class="req">*</div>
+																</div>
+																<label for={field.api}>{field.altLabel}</label>
 															</div>
-													<lightning-input-field
-																class="slds-grow"
-														field-name={field.api}
-														required={field.req}
-																variant="label-hidden"
-														value={field.value}
-																onchange={onChangeHandler}
-																disabled={finished}></lightning-input-field>
+															<lightning-input-field
+																		class="slds-grow hideHelpText"
+																		id={field.api}
+																		field-name={field.api}
+																		required={field.req}
+																		variant="label-hidden"
+																		value={field.value}
+																		onchange={onChangeHandler}
+																		disabled={finished}></lightning-input-field>
 														</div>
 													</template>
 												</template>
 												<template if:false={field.hasAltLabel}>
 													<template if:true={hasValue}>
 														<lightning-input-field
+															class="hideHelpText"
 															field-name={field.api}
 															required={field.req}
 															value={value}
@@ -90,6 +105,7 @@
 													</template>
 													<template if:false={hasValue}>
 														<lightning-input-field
+															class="hideHelpText"
 															field-name={field.api}
 															required={field.req}
 															value={field.value}
