@@ -61,6 +61,16 @@ export default class UnivApp extends LightningElement {
 			styleElem.innerHTML = this.appData.CSS__c;
 			this.template.querySelector('.rh_style').appendChild(styleElem);
 		}
+
+		//* HIDE HELPTEXT
+		const style = document.createElement('style');
+		style.innerText = '.hideHelpText div.slds-form-element__icon { display: none; }';
+		let qs = this.template.querySelectorAll('.hideHelpText');
+
+		for (let i = 0; i < qs.length; i++) {
+			const element = qs[i];
+			element.appendChild(style);
+		}
 	}
 
 	// # APEX
@@ -494,7 +504,7 @@ export default class UnivApp extends LightningElement {
 
 	// * DETERMINES WETHER OR NOT TO SHOW THE FINISH BUTTON
 	get showFinish() {
-		return this.pageCurrent == this.pageTotal && this.pageTotal > 1;
+		return this.pageCurrent === this.pageTotal && this.pageTotal > 0;
 	}
 
 	// * SETS THE ALERT BANNER COLOR
