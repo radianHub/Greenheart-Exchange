@@ -54,6 +54,16 @@
     </values>
     <values>
         <field>conditionalRequire__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">{
+	&quot;Fields&quot;: [
+		{
+			&quot;api&quot;: &quot;Will_you_appeal__c&quot;,
+			&quot;controllingField&quot;: &quot;Visa_Interview_Outcome__c&quot;,
+			&quot;controllingValues&quot;: [
+				&quot;Fail&quot;
+			]
+		}
+	]
+}</value>
     </values>
 </CustomMetadata>
