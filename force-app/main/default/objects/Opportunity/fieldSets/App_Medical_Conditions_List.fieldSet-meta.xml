@@ -5,7 +5,7 @@
     <displayedFields>
         <field>Conditions_List__c</field>
         <isFieldManaged>false</isFieldManaged>
-        <isRequired>true</isRequired>
+        <isRequired>false</isRequired>
     </displayedFields>
     <label>App Medical: Conditions List</label>
 </FieldSet>
