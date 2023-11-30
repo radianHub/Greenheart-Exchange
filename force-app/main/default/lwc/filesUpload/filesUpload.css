@@ -1,0 +1,8 @@
+.footerButton {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.hide {
+    display: none;
+}
