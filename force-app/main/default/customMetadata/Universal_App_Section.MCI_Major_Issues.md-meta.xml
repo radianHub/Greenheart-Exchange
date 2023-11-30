@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>MCI: Major Issues?</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">12.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">2</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Major_Issues</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Monthly_Check_In</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:type="xsd:string">{
+	&quot;Fields&quot;: [
+		{
+			&quot;controllingField&quot;: &quot;Major_Issues__c&quot;,
+			&quot;controllingValue&quot;: &quot;Yes&quot;,
+			&quot;actionSections&quot;: [
+				&quot;MCI_Major_Issues_Details&quot;
+			]
+		}
+	]
+}</value>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:type="xsd:string">{
+	&quot;Fields&quot;: [
+		{
+			&quot;api&quot;: &quot;Major_issues_Type__c&quot;,
+			&quot;controllingField&quot;: &quot;Major_Issues__c&quot;,
+			&quot;controllingValues&quot;: [
+				&quot;Yes&quot;
+			]
+		},
+		{
+			&quot;api&quot;: &quot;Details_on_Major_Issue__c&quot;,
+			&quot;controllingField&quot;: &quot;Major_Issues__c&quot;,
+			&quot;controllingValues&quot;: [
+				&quot;Yes&quot;
+			]
+		}
+	]
+}</value>
+    </values>
+</CustomMetadata>
