@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <description>Embed a video via url.</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Embedded Video</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__UtilityBar</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig
+            targets="lightningCommunity__Default,lightning__AppPage,lightning__FlowScreen,lightning__HomePage,lightning__RecordPage,lightning__UtilityBar">
+            <property name="url" label="Video Embed URL" type="String" default="" required="true"></property>
+            <property name="title" label="Title" type="String" default="" required="true"></property>
+            <property name="width" label="Width" type="String" default="100%" required="true"></property>
+            <property name="height" label="Height" type="String" default="500px" required="true"></property>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
