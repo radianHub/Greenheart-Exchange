@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>MCI: Major Issue Details</label>
+    <protected>false</protected>
+    <values>
+        <field>Expected_Field_Label__c</field>
+        <value xsi:type="xsd:string">Please provide additional information. Be as specific as possible.</value>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">Details_on_Major_Issue__c</value>
+    </values>
+    <values>
+        <field>Universal_App_Section__c</field>
+        <value xsi:type="xsd:string">MCI_Major_Issues_Details</value>
+    </values>
+</CustomMetadata>
