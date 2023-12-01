@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Program Cost Table 2</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25px;&gt;&lt;p&gt;b) Non-Refundable Fees:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+      &lt;td&gt;&lt;b&gt;Non-Refundable Fees&lt;/b&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;b&gt;Amount&lt;/b&gt;&lt;/p&gt;
+      &lt;td&gt;&lt;b&gt;Paid To&lt;/b&gt;&lt;/p&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+       &lt;td&gt;Application Fee&lt;/td&gt;
+       &lt;td&gt;$200&lt;/td&gt;
+       &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+        &lt;td&gt;Years 4/5 Extension Application Fee  &lt;/td&gt;
+        &lt;td&gt;$500&lt;/td&gt;
+        &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;tr&gt;
+        &lt;td&gt;J-2 Dependent Administrative Fee&lt;/td&gt;
+        &lt;td&gt;$450&lt;/td&gt;
+        &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+         &lt;td&gt;Flat Rate International Courier Fee&lt;/td&gt;
+         &lt;td&gt;$60/shipment&lt;/td&gt;
+         &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;tr&gt;
+         &lt;td&gt;Flat Rate Domestic Courier Fee&lt;/td&gt;
+         &lt;td&gt;$20/shipment&lt;/td&gt;
+         &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;tr&gt;
+         &lt;td&gt;State Teaching License&lt;/td&gt;
+         &lt;td&gt;Varies&lt;/td&gt;
+         &lt;td&gt;State Licensing Authority&lt;/td&gt;
+  &lt;tr&gt;
+         &lt;td&gt;Travel Authorization Administrative Fee&lt;/td&gt;
+         &lt;td&gt;$20 + courier&lt;/td&gt;
+         &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;tr&gt;
+         &lt;td&gt;SEVIS Status Change&lt;/td&gt;
+         &lt;td&gt;$100&lt;/td&gt;
+         &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;tr&gt;
+         &lt;td&gt;Program Date Change&lt;/td&gt;
+         &lt;td&gt;$50 + courier&lt;/td&gt;
+         &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;tr&gt;
+         &lt;td&gt;Replace Lost/Destroyed DS-2019 Form&lt;/td&gt;
+         &lt;td&gt;$50 + courier&lt;/td&gt;
+         &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;tr&gt;
+         &lt;td&gt;Foreign Credential Fee (with Spantran)&lt;/td&gt;
+         &lt;td&gt;$60&lt;/td&gt;
+         &lt;td&gt;Spantran&lt;/td&gt;
+  &lt;tr&gt;
+         &lt;td&gt;Change of Host School Fee&lt;/td&gt;
+         &lt;td&gt;$500&lt;/td&gt;
+         &lt;td&gt;Greenheart Exchange&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt; *All fees are subject to change. **J-2 Dependent Fees are subject to change at the end of each calendar year.&lt;/p&gt;
+&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

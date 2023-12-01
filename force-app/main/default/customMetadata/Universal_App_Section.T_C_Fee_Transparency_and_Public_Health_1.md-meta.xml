@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Fee Transparency and Public Health 1</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">4.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25px;&gt;&lt;h2&gt;&lt;b&gt;Acknowledgement of Fee Transparency&lt;/b&gt;&lt;/h2&gt;&lt;p&gt;I have received all the following information before entering into any agreement and/or paying any nonrefundable fees:
+&lt;br&gt;&lt;br&gt;
+(a) Clear explanations of program activities and the terms and conditions of the program, including the terms and conditions of any anticipated and typical employment activities (e.g., teaching duties, number of teaching hours, stipend and compensation, deductions for housing, transportation, teaching, and uniforms or equipment).
+&lt;br&gt;&lt;br&gt;
+(b)An itemized list of all fees charged to me (e.g., fees paid to the sponsor and sending agency).
+&lt;br&gt;&lt;br&gt;
+(c)Other topical costs, conditions, and restrictions of the exchange visitor program.
+&lt;br&gt;&lt;br&gt;
+(d)The type, duration, nature, and importance of the cultural components of the program.&lt;/p&gt;&lt;/div&gt;
+
+&lt;div style=padding:25px;&gt;&lt;h2&gt;&lt;b&gt;Conditions Related to Pandemics and Public Health&lt;/b&gt;&lt;/h2&gt;&lt;p&gt;(a) I understand that I must follow the U.S. federal, state, and local mandates regarding vaccination and other health-relevant matters.
+&lt;br&gt;&lt;br&gt;
+(b) I may be subject to a period of self-isolation or quarantine after my arrival in the U.S. or at any time while I am in the U.S. due to possible viral exposure or as the result of governmental or other health order. I confirm that I have the financial resources to support myself for a period of two weeks or longer in isolation, including paying for my housing, food, and personal needs (i.e., access to funds of $2,000 or more in addition to the $1,000 that I am required to bring as stated in the Code of Conduct).
+&lt;br&gt;&lt;br&gt;
+(c) I may not be able to continue my program through the scheduled end date, and I may be required to return to my home country sooner than I planned. I have the financial resources to return to my country at any time, specifically to pay for a flight to my home country. I also confirm that I will abide by any directive from Greenheart Exchange, as my J-1 visa sponsor, from any part of the U.S. government, or from the government of my home country to return home.
+&lt;br&gt;&lt;br&gt;
+(d) If I am unable to return to my home country after the end of my program due to travel and other restrictions, I will be responsible for supporting myself during any extra time that I spend in the U.S., even if I am not able to earn an income. I will ensure that I have medical insurance throughout my stay in the U.S., and I will pay to extend my medical insurance if my time in the U.S. is extended beyond the visa sponsorship dates. If my time in the U.S. is extended, I will also communicate regularly with Greenheart Exchange: I will inform Greenheart Exchange of any changes to my situation or my health; I will keep Greenheart Exchange informed of my plans to return to my home country; and I will confirm to Greenheart Exchange when I have successfully repatriated to my home country.&lt;/p&gt;&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

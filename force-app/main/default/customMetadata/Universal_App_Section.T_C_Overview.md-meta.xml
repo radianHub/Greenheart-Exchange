@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Overview</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25px;&gt;&lt;h2&gt;&lt;b&gt;Overview&lt;/b&gt;&lt;/h2&gt;&lt;br&gt;&lt;p&gt;(a)I understand that Greenheart Exchange is my visa sponsor for the J-1 Teacher exchange visitor program, I accept all decisions made by Greenheart Exchange regarding all aspects of my visa sponsorship.
+&lt;br&gt;&lt;br&gt;
+(b) As an Exchange Visitor sponsored by Greenheart Exchange, I understand that it is my responsibility to be aware of and abide by all the rules and regulations associated with this program (22 CFR part 62); https://greenheartexchange.org/professional-exchange/teach-in-a-u-s-school/#/tab/regulation).
+&lt;br&gt;&lt;br&gt;
+(c)I understand that the J-1 Teacher program must not displace United States (U.S.). employees and/or be a conduit to permanent work and residency in the U.S.
+&lt;br&gt;&lt;br&gt;
+(d) I am responsible for completing and adhering to all the information presented in the mandatory Participant Virtual Orientation, which I must complete before I travel to the U.S.
+&lt;br&gt;&lt;br&gt;
+(e) I will be respectful of all people regardless of their race, religion, nationality, culture, gender, or sexual orientation.
+&lt;br&gt;&lt;br&gt;
+(f) Greenheart Exchange reserves the right to terminate my visa sponsorship if I am found to have misrepresented myself or provided false information in the program application or otherwise.
+&lt;br&gt;&lt;br&gt;
+(g) If I bring J-2 dependents on my program, my J-2 dependents and I will abide by all program and Greenheart Exchange regulations and rules.
+&lt;br&gt;&lt;br&gt;
+(h) If my program is shortened for any reason, I will not receive a refund for my program fees.&lt;/p&gt;
+&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

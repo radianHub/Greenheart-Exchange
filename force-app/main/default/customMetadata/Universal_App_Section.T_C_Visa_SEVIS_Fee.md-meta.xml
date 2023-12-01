@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Visa/SEVIS Fee</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">4.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25px;&gt;&lt;p&gt;c) Visa/SEVIS Fees:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+       &lt;td&gt;&lt;b&gt;Visa/SEVIS Fees&lt;/b&gt;&lt;/td&gt;
+       &lt;td&gt;&lt;b&gt;Amount&lt;/b&gt;&lt;/p&gt;
+       &lt;td&gt;&lt;b&gt;Paid To&lt;/b&gt;&lt;/p&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+       &lt;td&gt;SEVIS Fee&lt;/td&gt;
+       &lt;td&gt;$220&lt;/td&gt;
+       &lt;td&gt;U.S. Department of Homeland Security&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+       &lt;td&gt;Visa Interview Fee&lt;/td&gt;
+       &lt;td&gt;$160&lt;/td&gt;
+       &lt;td&gt;U.S. Embassy or Consulate&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+       &lt;td&gt;Reciprocity Fee&lt;/td&gt;
+       &lt;td&gt;Varies&lt;/td&gt;
+       &lt;td&gt;U.S. Embassy or Consulate&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt; *All fees are subject to change 
+&lt;br&gt;
+&lt;br&gt;
+d) Program Fees Include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;J-1 visa sponsorship (DS-2019 form)&lt;/li&gt;
+  &lt;li&gt;Access to discounted Foreign Credential Evaluation (FCE) services&lt;/li&gt;
+  &lt;li&gt;24/7 in-country support from Greenheart Exchange&lt;/li&gt;
+  &lt;li&gt;Insurance coverage for the duration of the participant’s program &lt;/li&gt;
+  &lt;li&gt;Placement with an approved and accredited U.S. host school (for Full Program participants) &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; Program Fees Do Not Include: &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sending partner fees&lt;/li&gt;
+  &lt;li&gt;Foreign Credential Evaluation (FCE)&lt;/li&gt;
+  &lt;li&gt;Airfare to and from the U.S.&lt;/li&gt;
+  &lt;li&gt;Housing, transportation, meals, and personal expenses &lt;/li&gt;
+  &lt;li&gt;U.S. state teaching license/certificate fees (variable by state, typically ranging from $50 to $150)&lt;/li&gt;
+  &lt;li&gt;Subsidized medical insurance premiums for insurance plans offered through your school &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

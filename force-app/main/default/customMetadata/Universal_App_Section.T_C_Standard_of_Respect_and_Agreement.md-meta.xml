@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Standard of Respect and Agreement</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">6.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">4.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25px;&gt;&lt;h2&gt;&lt;b&gt;Greenheart Standards of Respect&lt;/b&gt;&lt;/h2&gt;&lt;p&gt;Greenheart Exchange is committed to cultivating and institutionalizing a culture of inclusion that encourages collaboration, flexibility, accountability, and fairness, in order to enable individuals to contribute at their full potential. Greenheart Exchange representatives, stakeholders, and participants have a responsibility to treat others with dignity and respect, and to exhibit conduct that reflects inclusion in their interactions with others involved with Greenheart Exchange and their local communities. Greenheart Exchange expects all staff, participants, local coordinators, hosts, contracted partners, and other program stakeholders to be respectful of other races, religions, nationalities, cultures, sexual orientations, and gender identities. Greenheart Exchange does not tolerate comments, jokes, or behaviors that demean or disrespect individuals or groups.&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;h2&gt;&lt;b&gt;Recognition of Agreement&lt;/b&gt;&lt;/h2&gt;&lt;br&gt;&lt;p&gt;By signing and submitting this form as part of my application, I confirm that have read and agree to abide by the conditions outlined herein. There is no reason (e.g., pre-existing health condition, emotional, or behavioral problems) why I should not be able to participate in the program. I confirm that I have not been convicted of any felony and understand that falsifying or withholding of any information on the application could result in the program dismissal.&lt;/p&gt;&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">2</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

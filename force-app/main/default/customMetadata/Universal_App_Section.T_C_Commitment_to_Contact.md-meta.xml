@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Commitment to Contact</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25px;&lt;/div&gt;&lt;p&gt;&lt;b&gt;Commitment to Contact Greenheart Exchange&lt;/b&gt;&lt;/p&gt;&lt;br&gt;&lt;p&gt;(a) I will submit my visa interview date, visa interview outcome, and flight information to Greenheart Exchange promptly.:
+&lt;br&gt;&lt;br&gt;
+(b) I will notify Greenheart Exchange of any delays in my arrival, and provide regular updates.
+&lt;br&gt;&lt;br&gt;
+(c) I will validate my program by submitting my U.S. housing address to Greenheart Exchange within 7 days after my DS-2019 form start date. Failure to validate my program within the given deadline can result in my falling into NO SHOW status in SEVIS and may result in my program being terminated.
+&lt;br&gt;&lt;br&gt;
+(d) While in the U.S., I agree to contact Greenheart Exchange within 24 hours if: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I experience any major medical or mental health issue, or any criminal incident.&lt;/li&gt;
+&lt;li&gt;The terms of my teaching contract change, are not being met, or my contract is terminated&lt;/li&gt;
+&lt;li&gt;My housing address, my telephone number, or the location of my teaching changes.&lt;/li&gt;
+&lt;li&gt;I must check in with Greenheart Exchange at least once every 30 days during my program. If I fail to complete required check-ins, Greenheart Exchange my terminate my program sponsorship can be terminated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(e) I must confirm annually my desire to continue the program each academic year- either through the renewal process or via the extension process.
+&lt;br&gt;&lt;br&gt;
+(f) I understand that certain circumstances may require Greenheart Exchange to place me on “additional monitoring” status. When this happens, I am required to be in more frequent communication.
+&lt;br&gt;&lt;br&gt;
+(g) I will meet all deadlines given to me by Greenheart Exchange.&lt;/p&gt;
+&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>
