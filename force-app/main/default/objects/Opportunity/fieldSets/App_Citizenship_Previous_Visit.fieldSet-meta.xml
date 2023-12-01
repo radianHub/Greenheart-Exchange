@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>App_Citizenship_Previous_Visit</fullName>
+    <description>Teacher Portal via the Universal App: Teach USA Application page</description>
+    <displayedFields>
+        <field>Visted_on_J1_VisA__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Date_of_Departure__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>App Citizenship: Previous Visit</label>
+</FieldSet>
