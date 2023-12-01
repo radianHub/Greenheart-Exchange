@@ -7,11 +7,15 @@
         <value xsi:type="xsd:string">Flight Number</value>
     </values>
     <values>
+        <field>FieldName__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Field_Name__c</field>
         <value xsi:type="xsd:string">Flight_Name__c</value>
     </values>
     <values>
         <field>Universal_App_Section__c</field>
-        <value xsi:type="xsd:string">Fight_Info_Arrival_Airline</value>
+        <value xsi:type="xsd:string">Flight_Info_Arrival_Airline</value>
     </values>
 </CustomMetadata>
