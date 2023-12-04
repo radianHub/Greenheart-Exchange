@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>App: Medical Acknowledgement</label>
+    <protected>false</protected>
+    <values>
+        <field>Expected_Field_Label__c</field>
+        <value xsi:type="xsd:string">I understand that my 90-day health insurance policy through Point Comfort Insurance does not cover pre-existing conditions. If I receive treatment for a pre-existing condition, I understand that I will be responsible for all medical bills and fees.</value>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">Policy_Acknowledgement__c</value>
+    </values>
+    <values>
+        <field>Universal_App_Section__c</field>
+        <value xsi:type="xsd:string">App_Medical_Acknowledgement</value>
+    </values>
+</CustomMetadata>
