@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Type_of_Activity</fullName>
+    <description>Teacher Portal via the Universal App: Cross-Cultural Activity page</description>
+    <displayedFields>
+        <field>If_Other_Please_specify__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Other Type of Activity</label>
+</FieldSet>
