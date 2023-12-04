@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>J2 App: Header</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;br/&gt;
+Greenheart Exchange is able to sponsor J-2 Dependents for J-1 Participant Teachers who wish to bring their dependent(s) with them to the United States during their program. A qualifying “dependent” is defined as one of the following:&lt;br/&gt;
+- Legal spouse of a J-1 participant&lt;br/&gt;
+- Unmarried minor children (under the age of 21) of the J-1 participant.&lt;br/&gt;
+&lt;br/&gt;
+I understand and my J-2 meets one of the above requirements.&lt;br/&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">2</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:type="xsd:string">J2 Dependant Visa Application and Terms and Conditions</value>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">J2_Application</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>J2_App_Spouse_Working</fullName>
+    <description>Teacher Portal on the Universal App: J2 Application</description>
+    <displayedFields>
+        <field>J2_Plans_to_Work__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>J2 App: Spouse Working</label>
+</FieldSet>
