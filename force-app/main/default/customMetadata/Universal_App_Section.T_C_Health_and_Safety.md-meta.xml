@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Health and Safety</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">6.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25px;&gt;&lt;p&gt;&lt;b&gt;Health and Safety&lt;/b&gt;&lt;/p&gt;&lt;br&gt;&lt;p&gt;(a)I am aware of the details of my health insurance policy including all coverage, limitations, and exclusions, such as pre-existing conditions and pregnancy. I have read the insurance brochure to review the full list of limitations and exclusions.
+&lt;br&gt;&lt;br&gt;
+(b)I must have medical insurance coverage during the entire time that I am in the U.S. Greenheart Exchange will arrange short-term travel insurance, meeting program regulations, covering the dates of my program (from the program start date until the program end date, as indicated on my DS-2019 form).
+&lt;br&gt;&lt;br&gt;
+(c) I know that I may choose to enroll in another insurance plan, such as one offered through my host school or independently, so long as that plan meets program regulations.
+&lt;br&gt;&lt;br&gt;
+(d) If I would like to optout of the insurance provided by Greenheart, I must confirm that the health insurance I have purchased meets Department of State requirements by submitting the opt-out form with your annual program renewal.
+&lt;br&gt;&lt;br&gt;
+(e) If I am found to be unable to teach and, therefore unable to participate in and fulfill the purpose of the program but I am medically cleared to travel, I will return to my home country at my own expense immediately.
+&lt;br&gt;&lt;br&gt;
+(f)I understand that I must abide by local, state, and federal laws and orders regarding public health and safety, including but not limited to mandatory evacuation and stay-at-home or quarantine orders.
+&lt;br&gt;&lt;br&gt;
+(g) I understand the importance of bicycle safety while in the United States, and that it is my responsibility to wear a helmet and to abide by local bicycle laws and by rules of common sense.
+&lt;br&gt;&lt;br&gt;
+(h) I understand that if I drive, I must contact the Department of Motor Vehicles in the relevant state to find out what their requirements are for obtaining a driver’s license.
+&lt;br&gt;&lt;br&gt;
+(i) I understand if I drive, I must also obtain separate drivers&apos; insurance.
+&lt;br&gt;&lt;br&gt;
+(j) I will not operate any motor vehicle after using any legal or illegal drug that may impair my ability to operate a motor vehicle. I will not get in a motor vehicle with a driver who is under the influence of alcohol or drugs.
+&lt;br&gt;&lt;br&gt;
+(k) I understand that driving under the influence of any substance that impairs my driving ability comes with potential legal consequences.
+&lt;br&gt;&lt;br&gt;
+(l) I understand that I may smoke tobacco, but only in accordance with the rules of my workplace and my housing facility and applicable state, federal and local laws.
+&lt;br&gt;&lt;br&gt;
+(m) I understand that the legal age to consume alcohol in the United States is 21 years old.
+&lt;br&gt;&lt;br&gt;
+(n) I understand that I must obey all national, state, and local laws at all times, and the rules of Greenheart Exchange, the Host Organization, and the host community. The breaking of any laws or rules can result in program termination.&lt;/p&gt;
+&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employment_Changes</fullName>
+    <description>Teacher Portal on the Universal App: Monthly Check-In</description>
+    <displayedFields>
+        <field>Challenges1__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Employment Changes</label>
+</FieldSet>
