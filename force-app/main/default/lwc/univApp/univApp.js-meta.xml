@@ -16,7 +16,8 @@
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default,lightning__AppPage,lightning__FlowScreen,lightning__HomePage,lightning__RecordPage,lightning__UtilityBar">
             <property name="recordId" type="String"></property>
-            <property name="appDevName" type="String"></property>
+            <property label="Opportunity Id" name="oppId" type="String"></property>
+            <property label="App MDT API Name" name="appDevName" type="String"></property>
             <property name="canShowRestart" type="Boolean"></property>
         </targetConfig>
     </targetConfigs>

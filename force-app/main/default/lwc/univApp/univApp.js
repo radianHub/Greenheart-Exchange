@@ -3,10 +3,13 @@ import { CurrentPageReference } from 'lightning/navigation';
 import getApp from '@salesforce/apex/UniversalApp.retrieveApp';
 import submitSObj from '@salesforce/apex/UniversalApp.submitApp';
 import getBoolFieldValue from '@salesforce/apex/UniversalApp.queryForBoolean';
+import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUserAccountContactOpportunity';
+import TickerSymbol from '@salesforce/schema/Account.TickerSymbol';
 
 export default class UnivApp extends LightningElement {
 	// # PUBLIC PROPERTIES
 	@api recordId;
+	@api oppId; //J1 Opportunity that this UA data is related to
 	@api appDevName;
 	@api canShowRestart;
 
@@ -35,6 +38,12 @@ export default class UnivApp extends LightningElement {
 	_pageHasValue; // [false, true, ...] looks at sObj.hasOwnProperty('Custom__c')
 	_valueIndex = 0;
 	_pageValues; // [001abc..., value1, ...]
+
+	// # USER RECORDS
+	user;
+	userAccount;
+	userContact;
+	userOpportunity;
 
 	// # ERROR/SUCCESS MESSAGING
 	alert;
@@ -83,6 +92,22 @@ export default class UnivApp extends LightningElement {
 			this.recordId = urlValue;
 		} else {
 			this.recordId = null;
+		}
+	}
+
+	// * WIRED APEX
+	@wire(getCurrentUserRecords)
+	wiredUser({ error, data }) {
+		if (data) {
+			this.user = data;
+			this.userAccount = data?.Contact?.AccountId;
+			this.userContact = data?.ContactId;
+			this.userOpportunity = data?.Contact?.J1_Opportunity__c;
+
+			this.error = undefined;
+		} else if (error) {
+			this.showError(error);
+			this.user = undefined;
 		}
 	}
 
@@ -475,6 +500,13 @@ export default class UnivApp extends LightningElement {
 			}
 			if (!this.alert) {
 				this.sObj.sobjectType = this.appData.Object__c;
+				if (this.appData.ParentOppField__c) {
+					if (this.oppId) {
+						this.sObj[this.appData.ParentOppField__c] = this.oppId;
+					} else if (this.userOpportunity) {
+						this.sObj[this.appData.ParentOppField__c] = this.userOpportunity;
+					}
+				}
 				if (this.recordId) {
 					this.sObj.Id = this.recordId;
 				}

@@ -15,19 +15,20 @@ public with sharing class UniversalApp {
 	// Input    - String DeveloperName of CustomMetadata 'Universal App'
 	private static void queryApps(String appDevName) {
 		apps = [
-			SELECT 
-				Id, 
-				CSS__c, 
-				DeveloperName, 
-				Logo_URL__c, 
-				MasterLabel, 
-				Object__c, 
-				Post_Submit_Fields__c, 
-				Page_Redirect__c, 
-				Object_with_Boolean__c, 
-				Boolean_Field__c, 
-				Page_Redirect_if_True__c, 
-				Page_Redirect_if_False__c
+			SELECT
+				Id,
+				CSS__c,
+				DeveloperName,
+				Logo_URL__c,
+				MasterLabel,
+				Object__c,
+				Post_Submit_Fields__c,
+				Page_Redirect__c,
+				Object_with_Boolean__c,
+				Boolean_Field__c,
+				Page_Redirect_if_True__c,
+				Page_Redirect_if_False__c,
+				ParentOppField__c
 			FROM Universal_App__mdt
 			WHERE DeveloperName = :appDevName
 		];
@@ -70,18 +71,22 @@ public with sharing class UniversalApp {
 	}
 
 	/**
-	* @description : Query all fields in a sObject and return the results.
-	* @author Zachary Csotya | 06/28/2022 
-	* @param Id rId 
-	* @param String objName 
-	* @return sObject 
-	**/
+	 * @description : Query all fields in a sObject and return the results.
+	 * @author Zachary Csotya | 06/28/2022
+	 * @param Id rId
+	 * @param String objName
+	 * @return sObject
+	 **/
 	public static sObject queryRecord(Id rId, String objName) {
-		Map<String, Schema.SObjectField> fields = ((SObject) Type.forName('Schema', objName)?.newInstance())?.getSObjectType()?.getDescribe()?.fields?.getMap();
+		Map<String, Schema.SObjectField> fields = ((SObject) Type.forName('Schema', objName)?.newInstance())
+			?.getSObjectType()
+			?.getDescribe()
+			?.fields
+			?.getMap();
 
 		String expr = ' ';
 		SObject obj = null;
-		for (Integer i = 0 ; i < fields.values().size() - 1 ; i++) {
+		for (Integer i = 0; i < fields.values().size() - 1; i++) {
 			expr += fields.values()[i] + ', ';
 		}
 		expr += fields.values()[fields.values().size() - 1];
@@ -92,26 +97,26 @@ public with sharing class UniversalApp {
 	}
 
 	/**
-	* @description : Query all fields in a sObject and return the results.
-	* @author Zachary Csotya | 08/02/2022 
-	* @param String fieldName
-	* @param String objName 
-	* @param String recordId 
-	* @return sObject 
-	**/
-    @AuraEnabled
+	 * @description : Query all fields in a sObject and return the results.
+	 * @author Zachary Csotya | 08/02/2022
+	 * @param String fieldName
+	 * @param String objName
+	 * @param String recordId
+	 * @return sObject
+	 **/
+	@AuraEnabled
 	public static sObject queryForBoolean(String fieldName, String objName, String recordId) {
 		List<SObject> obj = null;
 		String qry = 'SELECT ' + fieldName + ' FROM ' + objName + ' WHERE Id = ' + '\'' + recordId + '\'';
-        system.debug(qry);
+		system.debug(qry);
 		obj = Database.query(qry);
-        system.debug('Queried Records '+obj.size());
+		system.debug('Queried Records ' + obj.size());
 
-        if (obj.size() == 1) {
-            return obj[0];     
-        } else {
-            return null;
-        }
+		if (obj.size() == 1) {
+			return obj[0];
+		} else {
+			return null;
+		}
 	}
 
 	// Method   - retrieveApp
@@ -143,7 +148,11 @@ public with sharing class UniversalApp {
 				} else {
 					Map<String, List<Object>> fieldsetmap = new Map<String, List<Object>>();
 
-					Map<String, Schema.FieldSet> objectFieldSetMap = ((SObject) Type.forName('Schema', application.Object__c)?.newInstance())
+					Map<String, Schema.FieldSet> objectFieldSetMap = ((SObject) Type.forName(
+								'Schema',
+								application.Object__c
+							)
+							?.newInstance())
 						?.getSObjectType()
 						?.getDescribe()
 						?.fieldSets
@@ -162,12 +171,18 @@ public with sharing class UniversalApp {
 									if (fieldSetting.Universal_App_Section__c == s.Id) {
 										if (mapFieldSetting.containsKey(sfs)) {
 											if (!mapFieldSetting.get(sfs).containsKey(fieldSetting.Field_Name__c)) {
-												mapFieldSetting.get(sfs).put(fieldSetting.Field_Name__c, fieldSetting.Expected_Field_Label__c);
+												mapFieldSetting.get(sfs)
+													.put(
+														fieldSetting.Field_Name__c,
+														fieldSetting.Expected_Field_Label__c
+													);
 											}
 										} else {
 											mapFieldSetting.put(
 												sfs,
-												new Map<String, String>{ fieldSetting.Field_Name__c => fieldSetting.Expected_Field_Label__c }
+												new Map<String, String>{
+													fieldSetting.Field_Name__c => fieldSetting.Expected_Field_Label__c
+												}
 											);
 										}
 									}
@@ -213,7 +228,7 @@ public with sharing class UniversalApp {
 										'hasAltLabel' => hasAltLabel,
 										'altLabel' => altLabel,
 										'isBool' => member.getType().name() == 'BOOLEAN' ? true : false
-									};	
+									};
 									if (recordId != null) {
 										fieldMember.put('value', fieldValues.get(member.getFieldPath()));
 									}
@@ -230,7 +245,14 @@ public with sharing class UniversalApp {
 							ret.put('error', String.format(NULL_FIELDSETS, new List<Object>{ nullFieldSets }));
 						}
 
-						ret.put('data', new Map<String, Object>{ 'application' => application, 'sections' => sects, 'fieldsetmap' => fieldsetmap });
+						ret.put(
+							'data',
+							new Map<String, Object>{
+								'application' => application,
+								'sections' => sects,
+								'fieldsetmap' => fieldsetmap
+							}
+						);
 					}
 				}
 			}
