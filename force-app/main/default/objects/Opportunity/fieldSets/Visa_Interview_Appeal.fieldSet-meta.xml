@@ -5,7 +5,7 @@
     <displayedFields>
         <field>Will_you_appeal__c</field>
         <isFieldManaged>false</isFieldManaged>
-        <isRequired>true</isRequired>
+        <isRequired>false</isRequired>
     </displayedFields>
     <label>Visa Interview: Appeal</label>
 </FieldSet>
