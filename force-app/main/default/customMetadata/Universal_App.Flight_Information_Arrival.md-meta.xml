@@ -35,6 +35,10 @@
         <value xsi:nil="true"/>
     </values>
     <values>
+        <field>ParentOppField__c</field>
+        <value xsi:type="xsd:string">Name__c</value>
+    </values>
+    <values>
         <field>Post_Submit_Fields__c</field>
         <value xsi:nil="true"/>
     </values>
