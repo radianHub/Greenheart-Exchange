@@ -11,6 +11,9 @@
 				</div>
 			</header>
 		</div>
+		<div if:true={showSpinner} style="height: 100px">
+			<lightning-spinner variant="base" size="medium"></lightning-spinner>
+		</div>
 
 		<div class="rh_page-inner slds-card__body slds-card__body_inner">
 			<div if:true={alert} class={alertClass} role="status">
