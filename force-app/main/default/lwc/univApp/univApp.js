@@ -3,10 +3,12 @@ import { CurrentPageReference } from 'lightning/navigation';
 import getApp from '@salesforce/apex/UniversalApp.retrieveApp';
 import submitSObj from '@salesforce/apex/UniversalApp.submitApp';
 import getBoolFieldValue from '@salesforce/apex/UniversalApp.queryForBoolean';
+import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUserAccountContactOpportunity';
 
 export default class UnivApp extends LightningElement {
 	// # PUBLIC PROPERTIES
 	@api recordId;
+	@api oppId; //J1 Opportunity that this UA data is related to
 	@api appDevName;
 	@api canShowRestart;
 
@@ -23,6 +25,7 @@ export default class UnivApp extends LightningElement {
 	falsePage;
 	boolObject;
 	boolField;
+	showSpinner = true;
 	finished; // After submission - set fields to read-only
 	_cssLoaded;
 
@@ -35,6 +38,12 @@ export default class UnivApp extends LightningElement {
 	_pageHasValue; // [false, true, ...] looks at sObj.hasOwnProperty('Custom__c')
 	_valueIndex = 0;
 	_pageValues; // [001abc..., value1, ...]
+
+	// # USER RECORDS
+	user;
+	userAccount;
+	userContact;
+	userOpportunity;
 
 	// # ERROR/SUCCESS MESSAGING
 	alert;
@@ -71,6 +80,7 @@ export default class UnivApp extends LightningElement {
 			const element = qs[i];
 			element.appendChild(style);
 		}
+		//this.showSpinner = false;
 	}
 
 	// # APEX
@@ -86,6 +96,24 @@ export default class UnivApp extends LightningElement {
 		}
 	}
 
+	// * WIRED APEX
+	@wire(getCurrentUserRecords)
+	wiredUser({ error, data }) {
+		if (data) {
+			this.user = data;
+			this.userAccount = data?.Contact?.AccountId;
+			this.userContact = data?.ContactId;
+			this.userOpportunity = data?.Contact?.J1_Opportunity__c;
+
+			this.error = undefined;
+		} else if (error) {
+			console.log('getCurrentUserRecords error', error);
+			this.alert = `Hmm.. Something's not right. Please refresh the page or contact Greenheart directly for assistance.`;
+			this.alertType = 'error';
+			this.user = undefined;
+		}
+	}
+
 	getApp() {
 		getApp({ appDevName: this.appDevName, recordId: this.recordId })
 			.then((result) => {
@@ -93,6 +121,7 @@ export default class UnivApp extends LightningElement {
 				if (result.error) {
 					this.alert = result.error;
 					this.alertType = 'error';
+					this.showSpinner = false;
 				} else if (result.data) {
 					console.log(result.data);
 					this.originalData = result.data;
@@ -117,11 +146,13 @@ export default class UnivApp extends LightningElement {
 					this.falsePage = this.appData.Page_Redirect_if_False__c;
 					this.page = this.sections[this.pageIndex[0]];
 					this.fieldsetmap = cloneData.fieldsetmap;
+					this.showSpinner = false;
 				}
 			})
 			.catch((error) => {
 				this.alert = JSON.stringify(error);
 				this.alertType = 'error';
+				this.showSpinner = false;
 			});
 	}
 
@@ -131,10 +162,10 @@ export default class UnivApp extends LightningElement {
 		submitSObj({ sObj: this.sObj })
 			.then((result) => {
 				console.log('Submission RecordId ' + result.data);
+				this.showSpinner = false;
 				if (result.data) {
 					this.alert = this.FLOW_SUCCESS;
 					this.alertType = 'success';
-					this.finished = true;
 					urlRecordId = result.data;
 					if (this.boolField != null && this.boolObject != null) {
 						getBoolFieldValue({
@@ -151,10 +182,12 @@ export default class UnivApp extends LightningElement {
 									console.log('False Value, Page: ' + this.falsePage);
 									this.lwcRedirect(this.falsePage);
 								}
+								this.showSpinner = false;
 							})
 							.catch((error) => {
 								this.alert = JSON.stringify(error);
 								this.alertType = 'error';
+								this.showSpinner = false;
 							});
 					}
 				} else if (result.error) {
@@ -165,6 +198,8 @@ export default class UnivApp extends LightningElement {
 			.catch((error) => {
 				this.alert = JSON.stringify(error);
 				this.alertType = 'error';
+				this.finished = false;
+				this.showSpinner = false;
 			})
 			.finally(() => this.clearPagePopulation());
 		// console.log('Global RecordId '+this.recordId);
@@ -461,6 +496,8 @@ export default class UnivApp extends LightningElement {
 	// * SETS THE RECORD ID IF AVAILABLE AND HANDLES THE SUBMISSION OF THE RECORD
 	finish() {
 		this.alert = '';
+		this.finished = true;
+		this.showSpinner = true;
 		if (this.setObjectFields(this.REQUIRED_FIELDS, 'error')) {
 			//this.canShowRestart = true;
 			if (this.appData.Post_Submit_Fields__c) {
@@ -471,10 +508,19 @@ export default class UnivApp extends LightningElement {
 				} catch (error) {
 					this.alert = error.toString();
 					this.alertType = 'error';
+					this.finished = false;
+					this.showSpinner = false;
 				}
 			}
 			if (!this.alert) {
 				this.sObj.sobjectType = this.appData.Object__c;
+				if (this.appData.ParentOppField__c) {
+					if (this.oppId) {
+						this.sObj[this.appData.ParentOppField__c] = this.oppId;
+					} else if (this.userOpportunity) {
+						this.sObj[this.appData.ParentOppField__c] = this.userOpportunity;
+					}
+				}
 				if (this.recordId) {
 					this.sObj.Id = this.recordId;
 				}
@@ -624,6 +670,7 @@ export default class UnivApp extends LightningElement {
 				}),
 			];
 		}
+		this.showSpinner = false;
 		return curPage;
 	}
 }

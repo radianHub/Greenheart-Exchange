@@ -11,6 +11,9 @@
 				</div>
 			</header>
 		</div>
+		<div if:true={showSpinner} style="height: 100px">
+			<lightning-spinner variant="base" size="medium"></lightning-spinner>
+		</div>
 
 		<div class="rh_page-inner slds-card__body slds-card__body_inner">
 			<div if:true={alert} class={alertClass} role="status">
@@ -44,18 +47,20 @@
 												<template if:true={field.hasAltLabel}>
 													<template if:true={hasValue}>
 														<div class="altLabelContainer">
-															<!--div class="altLabel slds-form-element__label">
-																<div if:false={field.isBool}>
-																	<div if:true={field.req} class="req">*</div>
-																</div>
-																<label> {field.altLabel} </label>
-															</div-->																
+															<!-- ALT LABEL FOR EXPERIENCE SITE -->
 															<div class="altLabel slds-form-element__label">
 																<div if:false={field.isBool}>
 																	<div if:true={field.req} class="req">*</div>
 																</div>
-																<label for={field.api}>{field.altLabel}</label>
+																<label> {field.altLabel} </label>
 															</div>
+															<!-- ALT LABEL FOR LIGHTNING APP PAGE -->
+															<!--div class="altLabel slds-form-element__label">
+																<div if:false={field.isBool}>
+																	<div if:true={field.req} class="req">*</div>
+																</div>
+																<label for={field.api}>{field.altLabel}</label>
+															</div-->
 													<lightning-input-field id={field.api}
 																class="slds-grow hideHelpText"
 																field-name={field.api}
@@ -68,19 +73,20 @@
 													</template>
 													<template if:false={hasValue}>
 														<div class="altLabelContainer">
-															<!--div class="altLabel slds-form-element__label">
-																<div if:false={field.isBool}>
-																<div if:true={field.req} class="req">*</div>
-																</div>
-																<label {field.altLabel}</label>
-															</div-->
-															<!--label for={field.api}>{field.altLabel}</label-->
+															<!-- ALT LABEL FOR EXPERIENCE SITE -->
 															<div class="altLabel slds-form-element__label">
 																<div if:false={field.isBool}>
 																	<div if:true={field.req} class="req">*</div>
 																</div>
-																<label for={field.api}>{field.altLabel}</label>
+																<label> {field.altLabel} </label>
 															</div>
+															<!-- ALT LABEL FOR LIGHTNING APP PAGE -->
+															<!--div class="altLabel slds-form-element__label">
+																<div if:false={field.isBool}>
+																	<div if:true={field.req} class="req">*</div>
+																</div>
+																<label for={field.api}>{field.altLabel}</label>
+															</div-->
 															<lightning-input-field
 																		class="slds-grow hideHelpText"
 																		id={field.api}
