@@ -6,7 +6,23 @@
     <picklistValues>
         <picklist>Type__c</picklist>
         <values>
+            <fullName>Contract Letter</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Cross-Cultural Activity %28Photo%2FDocumentation%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cultural Reference Letter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Enrollment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Policy</fullName>
             <default>false</default>
         </values>
         <values>
@@ -15,6 +31,10 @@
         </values>
         <values>
             <fullName>Passport</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>School Reference Letter</fullName>
             <default>false</default>
         </values>
     </picklistValues>
