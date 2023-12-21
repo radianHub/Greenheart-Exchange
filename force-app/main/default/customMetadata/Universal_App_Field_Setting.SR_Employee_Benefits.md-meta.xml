@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SR: Employee Benefits</label>
+    <protected>false</protected>
+    <values>
+        <field>Accepted_File_Types__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Expected_Field_Label__c</field>
+        <value xsi:type="xsd:string">Does your district/school offer health benefits that meet the following requirements:
+Medical benefits of at least $100,000 per accident or illness
+A deductible not to exceed $500</value>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">Benefits__c</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Text</value>
+    </values>
+    <values>
+        <field>Universal_App_Section__c</field>
+        <value xsi:type="xsd:string">SR_Employee_Teacher_Insurance</value>
+    </values>
+</CustomMetadata>
