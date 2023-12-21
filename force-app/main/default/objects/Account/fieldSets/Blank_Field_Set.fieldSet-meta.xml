@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Blank_Field_Set</fullName>
+    <description>Blank field set used for sections in the universal application.</description>
+    <label>Blank Field Set</label>
+</FieldSet>
