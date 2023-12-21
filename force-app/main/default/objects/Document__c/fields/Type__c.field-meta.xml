@@ -37,9 +37,119 @@
                 <label>Proof of Insurance</label>
             </value>
             <value>
-                <fullName>Workers&apos; Comp Verification</fullName>
+                <fullName>Certificate of Liability Insurance</fullName>
                 <default>false</default>
-                <label>Workers&apos; Comp Verification</label>
+                <label>Certificate of Liability Insurance</label>
+            </value>
+            <value>
+                <fullName>Contract Letter</fullName>
+                <default>false</default>
+                <label>Contract Letter</label>
+            </value>
+            <value>
+                <fullName>School Reference Letter</fullName>
+                <default>false</default>
+                <label>School Reference Letter</label>
+            </value>
+            <value>
+                <fullName>Cultural Reference Letter</fullName>
+                <default>false</default>
+                <label>Cultural Reference Letter</label>
+            </value>
+            <value>
+                <fullName>Insurance Policy</fullName>
+                <default>false</default>
+                <label>Insurance Policy</label>
+            </value>
+            <value>
+                <fullName>Insurance Enrollment</fullName>
+                <default>false</default>
+                <label>Insurance Enrollment</label>
+            </value>
+            <value>
+                <fullName>Proof of Funds</fullName>
+                <default>false</default>
+                <label>Proof of Funds</label>
+            </value>
+            <value>
+                <fullName>Proof of Relationship</fullName>
+                <default>false</default>
+                <label>Proof of Relationship</label>
+            </value>
+            <value>
+                <fullName>Background Check</fullName>
+                <default>false</default>
+                <label>Background Check</label>
+            </value>
+            <value>
+                <fullName>Bank Statement</fullName>
+                <default>false</default>
+                <label>Bank Statement</label>
+            </value>
+            <value>
+                <fullName>Foreign Credential Evaluation</fullName>
+                <default>false</default>
+                <label>Foreign Credential Evaluation</label>
+            </value>
+            <value>
+                <fullName>Passport-style Photo</fullName>
+                <default>false</default>
+                <label>Passport-style Photo</label>
+            </value>
+            <value>
+                <fullName>Reference</fullName>
+                <default>false</default>
+                <label>Reference</label>
+            </value>
+            <value>
+                <fullName>Resume</fullName>
+                <default>false</default>
+                <label>Resume</label>
+            </value>
+            <value>
+                <fullName>School Reference</fullName>
+                <default>false</default>
+                <label>School Reference</label>
+            </value>
+            <value>
+                <fullName>Teaching Credential</fullName>
+                <default>false</default>
+                <label>Teaching Credential</label>
+            </value>
+            <value>
+                <fullName>Diploma/Degree</fullName>
+                <default>false</default>
+                <label>Diploma/Degree</label>
+            </value>
+            <value>
+                <fullName>Language Test Result</fullName>
+                <default>false</default>
+                <label>Language Test Result</label>
+            </value>
+            <value>
+                <fullName>Contract Addendum</fullName>
+                <default>false</default>
+                <label>Contract Addendum</label>
+            </value>
+            <value>
+                <fullName>Employment Contract</fullName>
+                <default>false</default>
+                <label>Employment Contract</label>
+            </value>
+            <value>
+                <fullName>Insurance Opt Out Form</fullName>
+                <default>false</default>
+                <label>Insurance Opt Out Form</label>
+            </value>
+            <value>
+                <fullName>Employee Medical Insurance Policy</fullName>
+                <default>false</default>
+                <label>Employee Medical Insurance Policy</label>
+            </value>
+            <value>
+                <fullName>Academic Salary Schedule</fullName>
+                <default>false</default>
+                <label>Academic Salary Schedule</label>
             </value>
         </valueSetDefinition>
     </valueSet>

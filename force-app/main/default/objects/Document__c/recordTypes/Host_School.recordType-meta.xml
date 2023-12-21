@@ -6,15 +6,31 @@
     <picklistValues>
         <picklist>Type__c</picklist>
         <values>
+            <fullName>Academic Salary Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certificate of Liability Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Medical Insurance Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Enrollment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Proof of Accreditation</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Proof of Insurance</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Workers%27 Comp Verification</fullName>
             <default>false</default>
         </values>
     </picklistValues>
