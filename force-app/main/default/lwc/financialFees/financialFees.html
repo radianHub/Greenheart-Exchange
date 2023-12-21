@@ -1,0 +1,52 @@
+<template>
+	<lightning-card>
+		<template lwc:if={isLoading}>
+			<!-- Show spinner when loading -->
+			<div>
+				<div class="slds-is-relative slds-p-around_small slds-p-bottom_medium">
+					<lightning-spinner
+						alternative-text="Loading"
+						size="small"
+						variant="brand"></lightning-spinner>
+				</div>
+			</div>
+		</template>
+		<template lwc:else>
+			<template lwc:if={opportunityId}>
+				<div class="slds-p-around_small">
+					<div>
+						<h1 class="slds-text-align_center slds-text-heading_medium slds-p-bottom_medium">
+							Your Program Fees
+						</h1>
+					</div>
+					<div class="slds-m-top_medium slds-p-around_medium">
+						<lightning-record-view-form
+							record-id={opportunityId}
+							object-api-name="Opportunity">
+							<div class="slds-grid slds-wrap">
+								<div
+									class="slds-col slds-size_1-of-2 slds-max-small-size_1-of-1 slds-medium-size_1-of-2">
+									<lightning-output-field field-name="Amount"></lightning-output-field>
+									<lightning-output-field field-name="Total_Amount_Paid__c"></lightning-output-field>
+								</div>
+								<div
+									class="slds-col slds-size_1-of-2 slds-max-small-size_1-of-1 slds-medium-size_1-of-2">
+									<lightning-output-field field-name="Balance__c"></lightning-output-field>
+									<lightning-output-field
+										field-name="Extension_Confirmed_Until__c"></lightning-output-field>
+								</div>
+							</div>
+						</lightning-record-view-form>
+					</div>
+				</div>
+			</template>
+			<template lwc:else>
+				<div class="slds-align_absolute-center">
+					<p class="slds-text-align_center slds-text-heading_medium slds-p-bottom_medium">
+						No Service Fees Available
+					</p>
+				</div>
+			</template>
+		</template>
+	</lightning-card>
+</template>
