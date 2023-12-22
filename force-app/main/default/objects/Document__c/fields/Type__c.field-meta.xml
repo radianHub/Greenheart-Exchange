@@ -8,7 +8,6 @@
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
-        <restricted>true</restricted>
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
@@ -150,11 +149,6 @@
                 <fullName>Academic Salary Schedule</fullName>
                 <default>false</default>
                 <label>Academic Salary Schedule</label>
-            </value>
-            <value>
-                <fullName>Insurance Policy</fullName>
-                <default>false</default>
-                <label>Insurance Policy</label>
             </value>
         </valueSetDefinition>
     </valueSet>
