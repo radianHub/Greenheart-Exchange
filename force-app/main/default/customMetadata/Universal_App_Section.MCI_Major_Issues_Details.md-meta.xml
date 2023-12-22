@@ -3,6 +3,26 @@
     <label>MCI: Major Issues Details</label>
     <protected>false</protected>
     <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>DisplayByDefault__c</field>
         <value xsi:type="xsd:boolean">false</value>
     </values>
@@ -13,6 +33,10 @@
     <values>
         <field>Page__c</field>
         <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Section_Body__c</field>
@@ -44,6 +68,27 @@
     </values>
     <values>
         <field>conditionalRequire__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">{
+	&quot;Fields&quot;: [
+		{
+			&quot;api&quot;: &quot;Major_issues_Type__c&quot;,
+			&quot;controllingField&quot;: &quot;Major_Issues__c&quot;,
+			&quot;controllingValues&quot;: [
+				&quot;Yes&quot;
+			]
+		},
+		{
+			&quot;api&quot;: &quot;Details_on_Major_Issue__c&quot;,
+			&quot;controllingField&quot;: &quot;Major_Issues__c&quot;,
+			&quot;controllingValues&quot;: [
+				&quot;Yes&quot;
+			]
+		}
+	]
+}</value>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
 </CustomMetadata>

@@ -3,12 +3,24 @@
     <label>MCI: Zip Update</label>
     <protected>false</protected>
     <values>
+        <field>Accepted_File_Types__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DocumentType__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Expected_Field_Label__c</field>
         <value xsi:type="xsd:string">Zip Code</value>
     </values>
     <values>
         <field>Field_Name__c</field>
         <value xsi:type="xsd:string">Zip_Code_Update__c</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Universal_App_Section__c</field>
