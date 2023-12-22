@@ -4,7 +4,11 @@
     <protected>true</protected>
     <values>
         <field>Accepted_File_Types__c</field>
-        <value xsi:type="xsd:string">.pdf, .csv, .doc,</value>
+        <value xsi:type="xsd:string">.png, .jpg, .jpeg, .pdf, .docx, .doc</value>
+    </values>
+    <values>
+        <field>DocumentType__c</field>
+        <value xsi:type="xsd:string">Certificate of Liability Insurance</value>
     </values>
     <values>
         <field>Expected_Field_Label__c</field>
