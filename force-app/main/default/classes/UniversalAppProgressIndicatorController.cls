@@ -1,5 +1,5 @@
 // RadianHub - Developer EBS
-// Apex class for a LWC based universal application progress indicator dependent on custom metadata and object field sets
+// Apex class for the LWC Universal Application Progress Indicator, dependent on Custom Metadata and Object Field Sets
 
 public with sharing class UniversalAppProgressIndicatorController {
 	public final static String INDICATOR_NOT_FOUND = 'No Settings found for Indicator {0}.';
