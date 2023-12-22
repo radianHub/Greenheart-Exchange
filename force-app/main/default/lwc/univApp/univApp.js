@@ -1,14 +1,17 @@
-import { LightningElement, api, wire } from 'lwc';
-import { CurrentPageReference } from 'lightning/navigation';
+import { LightningElement, api, wire, track } from 'lwc';
+import { CurrentPageReference, NavigationMixin } from 'lightning/navigation';
+
 import getApp from '@salesforce/apex/UniversalApp.retrieveApp';
 import submitSObj from '@salesforce/apex/UniversalApp.submitApp';
 import getBoolFieldValue from '@salesforce/apex/UniversalApp.queryForBoolean';
+import submitChildObjects from '@salesforce/apex/UniversalApp.submitChildObjects';
 import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUserAccountContactOpportunity';
 
-export default class UnivApp extends LightningElement {
+export default class UnivApp extends NavigationMixin(LightningElement) {
 	// # PUBLIC PROPERTIES
 	@api recordId;
 	@api oppId; //J1 Opportunity that this UA data is related to
+	@api acctId; //Account Id to relate this record to. Primarily for Host Schools to relate records to their account.
 	@api appDevName;
 	@api canShowRestart;
 
@@ -38,6 +41,9 @@ export default class UnivApp extends LightningElement {
 	_pageHasValue; // [false, true, ...] looks at sObj.hasOwnProperty('Custom__c')
 	_valueIndex = 0;
 	_pageValues; // [001abc..., value1, ...]
+
+	// # CHILD OBJECT DATA
+	childObjects = new Map();
 
 	// # USER RECORDS
 	user;
@@ -158,15 +164,48 @@ export default class UnivApp extends LightningElement {
 
 	// * SUBMITS THE RECORD AND CALLS A PAGE REDIRECT BASED ON A RETURNED BOOLEAN VALUE
 	submitSObj() {
+		this.showSpinner = true;
+
 		let urlRecordId;
-		submitSObj({ sObj: this.sObj })
+
+		for (const fieldApiName of Object.keys(this.files)) {
+			this.sObj[fieldApiName] = true;
+		}
+
+		submitSObj({
+			sObj: this.sObj,
+			application: this.appDevName,
+			filesString: JSON.stringify(Object.values(this.files)),
+		})
 			.then((result) => {
 				console.log('Submission RecordId ' + result.data);
-				this.showSpinner = false;
 				if (result.data) {
 					this.alert = this.FLOW_SUCCESS;
 					this.alertType = 'success';
 					urlRecordId = result.data;
+
+					if (this.childObjects.size > 0) {
+						let childObjs = [];
+						this.childObjects.forEach((value, key) => {
+							let obj = {
+								objectName: key,
+								parentField: value.get('parentField'),
+								records: value.get('records'),
+							};
+							childObjs.push(obj);
+						});
+						// * SAVE CHILD OBJECTS
+						//console.log(childObjs);
+						submitChildObjects({ childObjs: childObjs, parentId: result.data })
+							.then((childResult) => {
+								console.log(childResult);
+							})
+							.catch((err) => {
+								this.alert = JSON.stringify(err);
+								this.alertType = 'error';
+							});
+					}
+
 					if (this.boolField != null && this.boolObject != null) {
 						getBoolFieldValue({
 							fieldName: this.boolField,
@@ -182,17 +221,17 @@ export default class UnivApp extends LightningElement {
 									console.log('False Value, Page: ' + this.falsePage);
 									this.lwcRedirect(this.falsePage);
 								}
-								this.showSpinner = false;
 							})
 							.catch((error) => {
 								this.alert = JSON.stringify(error);
 								this.alertType = 'error';
-								this.showSpinner = false;
 							});
 					}
+					this.showSpinner = false;
 				} else if (result.error) {
 					this.alert = result.error;
 					this.alertType = 'error';
+					this.showSpinner = false;
 				}
 			})
 			.catch((error) => {
@@ -209,11 +248,20 @@ export default class UnivApp extends LightningElement {
 
 	// * REDIRECTS TO DIFFERENT APP/VF_PAGE
 	lwcRedirect(/*recordId, */ vfPage) {
-		console.log('LWC Redirect');
-		console.log(window.location.origin + '/apex/' + vfPage /*+ '?id=' + recordId*/);
+		console.log('Redirecting to VF Page: ' + vfPage);
 		this.pageUrl = window.location.origin + '/apex/' + vfPage /*+ '?id=' + recordId*/;
-		console.log('Redirect to: ' + this.pageUrl);
 		window.location.assign(this.pageUrl);
+	}
+
+	// * REDIRECTS TO DIFFERENT APP/COMMUNITY_PAGE
+	lwcCommPageRedirect(commPage) {
+		console.log('Redirecting to Community Page: ' + commPage);
+		this[NavigationMixin.Navigate]({
+			type: 'comm__namedPage',
+			attributes: {
+				name: commPage,
+			},
+		});
 	}
 
 	// * PREPARES PROPERTIES FOR UPCOMING VALUES
@@ -265,6 +313,8 @@ export default class UnivApp extends LightningElement {
 		if (!isValid && alert) {
 			this.alert = alert;
 			this.alertType = alertType;
+			this.showSpinner = false;
+			this.finished = false;
 		}
 
 		return isValid;
@@ -424,27 +474,13 @@ export default class UnivApp extends LightningElement {
 			});
 		});
 
-		if (sectionRender.length > 0) {
-			sectionRender.forEach((s) => {
-				console.log('Sections ' + s);
-				const sectionToRender = this.template.querySelectorAll('.' + s);
-				sectionToRender.forEach((a) => {
-					a.style = 'display:block';
-				});
-				this.page.forEach((p) => {
-					if (p.DeveloperName === s) {
-						p.DisplayByDefault__c = true;
-					}
-				});
-			});
-		}
 		if (sectionUnrender.length > 0) {
 			sectionUnrender.forEach((s) => {
 				console.log('Sections ' + s);
-				const sectionToUnrender = this.template.querySelectorAll('.' + s);
+				/*const sectionToUnrender = this.template.querySelectorAll('.' + s);
 				sectionToUnrender.forEach((a) => {
 					a.style = 'display:none';
-				});
+				});*/
 				this.page.forEach((p) => {
 					if (p.DeveloperName === s) {
 						p.DisplayByDefault__c = false;
@@ -452,9 +488,69 @@ export default class UnivApp extends LightningElement {
 				});
 			});
 		}
+		if (sectionRender.length > 0) {
+			sectionRender.forEach((s) => {
+				console.log('Sections ' + s);
+				/*const sectionToRender = this.template.querySelectorAll('.' + s);
+				sectionToRender.forEach((a) => {
+					a.style = 'display:block';
+				});*/
+				this.page.forEach((p) => {
+					if (p.DeveloperName === s) {
+						p.DisplayByDefault__c = true;
+					}
+				});
+			});
+		}
 	}
 
 	// # HANDLERS
+
+	@track files = {};
+
+	handleSelectFile(event) {
+		const apiName = event.detail.fieldApiName;
+		const fieldLabel = event.detail.fieldLabel;
+		const fieldDocumentType = event.detail.fieldDocumentType;
+		const file = event.detail.file;
+
+		let reader = new FileReader();
+		let base64;
+		let filename = fieldLabel + ' - ' + file.name;
+
+		reader.onload = () => {
+			base64 = reader.result.split(',')[1];
+			let obj = { ...this.files };
+			obj[apiName] = { fileName: filename, base64: base64, documentType: fieldDocumentType };
+			this.files = obj;
+		};
+		reader.readAsDataURL(file);
+	}
+
+	// * HANDLES A CUSTOM ALERT EVENT
+	handleAlert(event) {
+		this.alert = event.detail.alert;
+		this.alertType = event.detail.alertType;
+	}
+
+	// * BUILDS A MAP OF CHILD OBJECT RECORDS
+	updateChild(e) {
+		const objName = e.detail.objectName;
+		const parentField = e.detail.parentField;
+		const data = e.detail.records;
+
+		const childDataMap = new Map();
+		childDataMap.set('parentField', parentField);
+		childDataMap.set('records', data);
+
+		if (data.length > 0) {
+			this.childObjects.set(objName, childDataMap);
+		} else {
+			if (this.childObjects.get(objName)) {
+				this.childObjects.remove(objName);
+			}
+		}
+	}
 
 	// * HANDLES THE DYNAMIC RENDERING AND REQUIRE OF FIELDS
 	onChangeHandler(event) {
@@ -519,6 +615,13 @@ export default class UnivApp extends LightningElement {
 						this.sObj[this.appData.ParentOppField__c] = this.oppId;
 					} else if (this.userOpportunity) {
 						this.sObj[this.appData.ParentOppField__c] = this.userOpportunity;
+					}
+				}
+				if (this.appData.ParentAcctField__c) {
+					if (this.acctId) {
+						this.sObj[this.appData.ParentAcctField__c] = this.acctId;
+					} else if (this.userAccount) {
+						this.sObj[this.appData.ParentAcctField__c] = this.userAccount;
 					}
 				}
 				if (this.recordId) {
@@ -622,9 +725,9 @@ export default class UnivApp extends LightningElement {
 			curPage = [
 				...this.page.map((s) => {
 					let sect = { data: s };
-					if (!s.DisplayByDefault__c) {
+					/*if (!s.DisplayByDefault__c) {
 						sect.display = 'display:none';
-					}
+					}*/
 
 					if (s.Section_Field_Set__c) {
 						sect.columnClass =
