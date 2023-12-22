@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldOverrides>
+        <field>Candidate_Contact__c</field>
+        <formula>$User.ContactId</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>I_would_like_to_apply_to_this_position__c</field>
+        <formula>true</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>School__c</field>
+        <formula>Position__c.School__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>School_District__c</field>
+        <formula>Position__c.School_District__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Stage__c</field>
+        <literalValue>Applicant Applied</literalValue>
+    </fieldOverrides>
+    <label>Apply to Position</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>Positions__c</field>
+                <uiBehavior>Readonly</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>I_would_like_to_apply_to_this_position__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+    </quickActionLayout>
+    <targetObject>Interview__c</targetObject>
+    <targetParentField>Positions__c</targetParentField>
+    <type>Create</type>
+</QuickAction>
