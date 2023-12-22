@@ -18,6 +18,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Insurance Enrollment</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Insurance Policy</fullName>
             <default>false</default>
         </values>
