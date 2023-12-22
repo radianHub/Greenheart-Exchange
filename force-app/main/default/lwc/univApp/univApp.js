@@ -313,6 +313,8 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		if (!isValid && alert) {
 			this.alert = alert;
 			this.alertType = alertType;
+			this.showSpinner = false;
+			this.finished = false;
 		}
 
 		return isValid;
