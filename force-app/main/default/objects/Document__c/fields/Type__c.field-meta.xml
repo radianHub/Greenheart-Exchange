@@ -166,11 +166,6 @@
                 <default>false</default>
                 <label>Insurance Policy</label>
             </value>
-            <value>
-                <fullName>Insurance Enrollment</fullName>
-                <default>false</default>
-                <label>Insurance Enrollment</label>
-            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
