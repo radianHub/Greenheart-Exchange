@@ -6,6 +6,18 @@
     <picklistValues>
         <picklist>Type__c</picklist>
         <values>
+            <fullName>Background Check</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bank Statement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contract Addendum</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Contract Letter</fullName>
             <default>false</default>
         </values>
@@ -18,11 +30,23 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Diploma%2FDegree</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foreign Credential Evaluation</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Insurance Enrollment</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Insurance Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Language Test Result</fullName>
             <default>false</default>
         </values>
         <values>
@@ -34,7 +58,35 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Passport-style Photo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proof of Funds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proof of Relationship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reference</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resume</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>School Reference</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>School Reference Letter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Teaching Credential</fullName>
             <default>false</default>
         </values>
     </picklistValues>
