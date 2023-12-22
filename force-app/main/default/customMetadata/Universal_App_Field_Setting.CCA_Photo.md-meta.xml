@@ -7,6 +7,10 @@
         <value xsi:type="xsd:string">.png, .jpg, .jpeg, .pdf</value>
     </values>
     <values>
+        <field>DocumentType__c</field>
+        <value xsi:type="xsd:string">Cross-Cultural Activity (Photo/Documentation)</value>
+    </values>
+    <values>
         <field>Expected_Field_Label__c</field>
         <value xsi:type="xsd:string">Photo</value>
     </values>
