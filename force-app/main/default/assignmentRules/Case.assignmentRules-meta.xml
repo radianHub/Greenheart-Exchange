@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>Host School Case Assignments</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Host_School_Requests</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Issue With a Teacher</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Teacher Changed Positions</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Teacher Case Assignments</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>Teacher_Requests</assignedTo>
+            <assignedToType>Queue</assignedToType>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>
