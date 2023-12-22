@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Position</fullName>
+    <description>Used in the Universal Application for program renewals.</description>
+    <label>New Position</label>
+</FieldSet>
