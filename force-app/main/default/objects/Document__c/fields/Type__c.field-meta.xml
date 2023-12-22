@@ -152,11 +152,6 @@
                 <label>Academic Salary Schedule</label>
             </value>
             <value>
-                <fullName>School Reference Letter</fullName>
-                <default>false</default>
-                <label>School Reference Letter</label>
-            </value>
-            <value>
                 <fullName>Cultural Reference Letter</fullName>
                 <default>false</default>
                 <label>Cultural Reference Letter</label>
