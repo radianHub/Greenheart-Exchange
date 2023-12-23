@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Housing_1_Lead_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Housing 1 Lead Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+                <label>Hotel</label>
+            </value>
+            <value>
+                <fullName>Realtor/relocation service</fullName>
+                <default>false</default>
+                <label>Realtor/relocation service</label>
+            </value>
+            <value>
+                <fullName>Apartment complex</fullName>
+                <default>false</default>
+                <label>Apartment complex</label>
+            </value>
+            <value>
+                <fullName>Independent landlord</fullName>
+                <default>false</default>
+                <label>Independent landlord</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

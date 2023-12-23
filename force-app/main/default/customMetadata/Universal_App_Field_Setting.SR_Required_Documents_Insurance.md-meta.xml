@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SR: Required Documents Insurance</label>
+    <protected>true</protected>
+    <values>
+        <field>Accepted_File_Types__c</field>
+        <value xsi:type="xsd:string">.png, .jpg, .jpeg, .pdf, .docx, .doc</value>
+    </values>
+    <values>
+        <field>DocumentType__c</field>
+        <value xsi:type="xsd:string">Certificate of Liability Insurance</value>
+    </values>
+    <values>
+        <field>Expected_Field_Label__c</field>
+        <value xsi:type="xsd:string">Certification of Liability Insurance (ie: worker’s compensation policy).</value>
+    </values>
+    <values>
+        <field>Field_Name__c</field>
+        <value xsi:type="xsd:string">Certification_of_Liability_Insurance__c</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">File</value>
+    </values>
+    <values>
+        <field>Universal_App_Section__c</field>
+        <value xsi:type="xsd:string">SR_Required_Documents</value>
+    </values>
+</CustomMetadata>

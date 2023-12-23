@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employee_Teacher_Insurance_Section</fullName>
+    <description>Employee / Teacher Insurance section used in the Host School Renewal Universal App Form</description>
+    <displayedFields>
+        <field>Benefits__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Employee_Medical_Insurance_Policy__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Employee / Teacher Insurance Section</label>
+</FieldSet>

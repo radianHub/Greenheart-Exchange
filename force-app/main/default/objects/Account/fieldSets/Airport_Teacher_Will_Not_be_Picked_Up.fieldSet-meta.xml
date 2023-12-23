@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Airport_Teacher_Will_Not_be_Picked_Up</fullName>
+    <description>Fields used if the teacher pickup is yes in the Host School Renewal Universal App Form.</description>
+    <displayedFields>
+        <field>Recommended_transfer_company__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Transfer_company_website__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <label>Airport - Teacher Will Not be Picked Up</label>
+</FieldSet>

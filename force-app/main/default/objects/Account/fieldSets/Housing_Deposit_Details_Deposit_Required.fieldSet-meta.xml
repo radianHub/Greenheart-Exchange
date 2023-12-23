@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Housing_Deposit_Details_Deposit_Required</fullName>
+    <description>The Deposit Required on Arrival field in the Host School Renewal Universal App Form.</description>
+    <displayedFields>
+        <field>Deposit_required_upon_arrival__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <label>Housing Deposit Details - Deposit Required</label>
+</FieldSet>

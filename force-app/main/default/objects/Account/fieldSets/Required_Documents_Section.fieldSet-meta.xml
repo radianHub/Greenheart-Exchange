@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Documents_Section</fullName>
+    <description>Required Documents Section used in the Host School Renewal Universal App Form.</description>
+    <displayedFields>
+        <field>Certification_of_Liability_Insurance__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Proof_of_School_Accreditation__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <label>Required Documents Section</label>
+</FieldSet>
