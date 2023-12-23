@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Terms_and_Conditions_Section</fullName>
+    <description>Fields for the Terms and Conditions section in the Host School Program Renewal Universal Application Form.</description>
+    <displayedFields>
+        <field>Renewal_Submission_Date__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <label>Terms and Conditions Section</label>
+</FieldSet>

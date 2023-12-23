@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Housing_Deposit_Details_Refundable_Field</fullName>
+    <description>Fields shown if refund is available in the Host School Renewal Universal App Form.</description>
+    <displayedFields>
+        <field>How_will_the_deposit_be_refunded__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Refund_Deposit_Criteria__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Housing Deposit Details - Refundable Fields</label>
+</FieldSet>
