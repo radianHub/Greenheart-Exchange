@@ -88,66 +88,11 @@ If you have questions about completing your cross-cultural activity please conta
     </values>
     <values>
         <field>conditionalRequire__c</field>
-        <value xsi:type="xsd:string">{
-	&quot;Fields&quot;: [
-		{
-			&quot;api&quot;: &quot;Estimated_US_audience_in_Local_Activity__c&quot;,
-			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
-			&quot;controllingValues&quot;: [
-				&quot;Local&quot;
-			]
-		},
-		{
-			&quot;api&quot;: &quot;Type_of_Local_Activity__c&quot;,
-			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
-			&quot;controllingValues&quot;: [
-				&quot;Local&quot;
-			]
-		},
-		{
-			&quot;api&quot;: &quot;Type_of_International_Activity__c&quot;,
-			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
-			&quot;controllingValues&quot;: [
-				&quot;International&quot;
-			]
-		},
-		{
-			&quot;api&quot;: &quot;Name_of_International_School__c&quot;,
-			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
-			&quot;controllingValues&quot;: [
-				&quot;International&quot;
-			]
-		},
-		{
-			&quot;api&quot;: &quot;Country_of_International_School__c&quot;,
-			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
-			&quot;controllingValues&quot;: [
-				&quot;International&quot;
-			]
-		},
-		{
-			&quot;api&quot;: &quot;Estimated_US_audience_in_Intl_Activity__c&quot;,
-			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
-			&quot;controllingValues&quot;: [
-				&quot;International&quot;
-			]
-		},
-		{
-			&quot;api&quot;: &quot;If_Other_Please_specify__c&quot;,
-			&quot;controllingField&quot;: &quot;Type_of_International_Activity__c&quot;,
-			&quot;controllingValues&quot;: [
-				&quot;other&quot;
-			]
-		},
-		{
-			&quot;api&quot;: &quot;If_Other_Please_specify__c&quot;,
-			&quot;controllingField&quot;: &quot;Type_of_Local_Activity__c&quot;,
-			&quot;controllingValues&quot;: [
-				&quot;Other&quot;
-			]
-		}
-	]
-}</value>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>isEnableChildRecords__c</field>
