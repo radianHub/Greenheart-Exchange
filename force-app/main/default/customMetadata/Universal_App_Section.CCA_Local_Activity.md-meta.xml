@@ -3,6 +3,26 @@
     <label>CCA Local Activity</label>
     <protected>false</protected>
     <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>DisplayByDefault__c</field>
         <value xsi:type="xsd:boolean">false</value>
     </values>
@@ -13,6 +33,10 @@
     <values>
         <field>Page__c</field>
         <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Section_Body__c</field>
@@ -57,13 +81,24 @@
         <value xsi:type="xsd:string">{
 	&quot;Fields&quot;: [
 		{
-			&quot;api&quot;: &quot;If_Other_Please_specify__c&quot;,
-			&quot;controllingField&quot;: &quot;Type_of_Local_Activity__c&quot;,
+			&quot;api&quot;: &quot;Estimated_US_audience_in_Local_Activity__c&quot;,
+			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
 			&quot;controllingValues&quot;: [
-				&quot;Other&quot;
+				&quot;Local&quot;
+			]
+		},
+		{
+			&quot;api&quot;: &quot;Type_of_Local_Activity__c&quot;,
+			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
+			&quot;controllingValues&quot;: [
+				&quot;Local&quot;
 			]
 		}
 	]
 }</value>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
 </CustomMetadata>
