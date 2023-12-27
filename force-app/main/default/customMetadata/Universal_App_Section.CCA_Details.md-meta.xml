@@ -94,4 +94,8 @@ If you have questions about completing your cross-cultural activity please conta
         <field>isEnableChildRecords__c</field>
         <value xsi:type="xsd:boolean">false</value>
     </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
 </CustomMetadata>
