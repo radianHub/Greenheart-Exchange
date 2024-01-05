@@ -4,7 +4,12 @@ import getRecordData from '@salesforce/apex/DisplayRecordFromFieldSetController.
 export default class DisplayRecordFromFieldSet extends LightningElement {
 	@api recordId;
 	@api fieldSetApiName;
+	@api showTitle;
+	@api titleOverride;
+	@api showIcon;
+	@api titleIcon;
 	@api numberOfColumns;
+	@api conditionalHostSchool = false;
 
 	wrapper;
 	record;
@@ -15,10 +20,11 @@ export default class DisplayRecordFromFieldSet extends LightningElement {
 
 	// # APEX
 
-	// *
+	// * RETRIEVES SPECIFIED RECORD
 	@wire(getRecordData, {
 		stringId: '$recordToView',
 		fieldSetApiName: '$fieldSetApiName',
+		conditionalHostSchool: '$conditionalHostSchool',
 	})
 	wiredGetRecordData({ data, error }) {
 		if (data) {
@@ -37,7 +43,7 @@ export default class DisplayRecordFromFieldSet extends LightningElement {
 
 	// # GETTERS
 
-	// *
+	// * DETERMINES IF THERE IS A RETURNED RECORD
 	get recordToView() {
 		if (this.recordId) {
 			return this.recordId;
@@ -45,50 +51,55 @@ export default class DisplayRecordFromFieldSet extends LightningElement {
 		return null;
 	}
 
-	// *
+	// * GETS FIELDS FOR RECORD FORM
 	get fields() {
-		let fields = [...Object.keys(this.record)];
-
-		const index = fields.indexOf('Id');
-		if (index > -1) {
-			fields.splice(index, 1);
-		}
-
-		return fields;
+		return this.wrapper?.fields;
 	}
 
-	// *
+	// * RETURNS RECORD ID OF QUERIED RECORD
 	get retrievedRecordId() {
 		return this.record.Id;
 	}
 
-	// *
-	get recordName() {
+	// * RETURNS QUERIED RECORD NAME
+	get title() {
+		if (!this.showTitle) {
+			return null;
+		}
+
+		if (this.titleOverride) {
+			return this.titleOverride;
+		}
+
 		if (this.record?.Name) {
 			return this.record.Name;
 		}
 		return this.objectLabel;
 	}
 
-	// *
+	// * RETURNS QUERIED RECORD OBJECT API NAME
 	get objectApiName() {
 		return this.wrapper?.objectApiName;
 	}
 
-	// *
+	// * RETURNS QUERIED RECORD OBJECT LABEL
 	get objectLabel() {
 		return this.wrapper?.objectLabel;
 	}
 
-	// *
+	// * DETERMINES WHICH ICON TO DISPLAY
 	get iconName() {
+		if (!this.showTitle || !this.showIcon) {
+			return null;
+		}
+
 		if (this.objectApiName === undefined || this.objectApiName.includes('__c')) {
-			return 'standard:work_plan';
+			return this.titleIcon;
 		}
 		return 'standard:' + this.objectApiName.toLowerCase();
 	}
 
-	// *
+	// * DETERMINES IF FORM SHOULD BE DISPLAYED
 	get showRecordForm() {
 		if (this.record && this.fields?.length > 0) {
 			return true;
@@ -96,7 +107,12 @@ export default class DisplayRecordFromFieldSet extends LightningElement {
 		return false;
 	}
 
-	// *
+	// * DETERMINES IF THE ENTIRE COMPONENT SHOULD BE DISPLAYED
+	get displayRecord() {
+		return this.wrapper?.displayRecord;
+	}
+
+	// * DISPLAYS SPINNER
 	get isLoading() {
 		if (this.loadingData) {
 			return true;
