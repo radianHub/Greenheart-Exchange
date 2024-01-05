@@ -1,7 +1,8 @@
 <template>
 	<lightning-card
+		lwc:if={displayRecord}
 		class="slds-is-relative"
-		title={recordName}
+		title={title}
 		icon-name={iconName}>
 		<div class="body">
 			<lightning-spinner

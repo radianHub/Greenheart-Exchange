@@ -7,7 +7,7 @@ private class DisplayRecordFromFieldSetControllerTest {
 		DisplayRecordFromFieldSetController.Wrapper record;
 
 		Test.startTest();
-		record = DisplayRecordFromFieldSetController.getRecordData((String) account.Id, 'TestFieldSet');
+		record = DisplayRecordFromFieldSetController.getRecordData((String) account.Id, 'TestFieldSet', false);
 		Test.stopTest();
 
 		Assert.isNotNull(record, 'No data was returned');
@@ -48,7 +48,7 @@ private class DisplayRecordFromFieldSetControllerTest {
 		DisplayRecordFromFieldSetController.Wrapper record;
 		Test.startTest();
 		System.runAs(user) {
-			record = DisplayRecordFromFieldSetController.getRecordData(null, 'TestFieldSet');
+			record = DisplayRecordFromFieldSetController.getRecordData(null, 'TestFieldSet', false);
 		}
 		Test.stopTest();
 
