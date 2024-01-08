@@ -5,7 +5,7 @@ import getApp from '@salesforce/apex/UniversalApp.retrieveApp';
 import submitSObj from '@salesforce/apex/UniversalApp.submitApp';
 import getBoolFieldValue from '@salesforce/apex/UniversalApp.queryForBoolean';
 import submitChildObjects from '@salesforce/apex/UniversalApp.submitChildObjects';
-import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUserAccountContactOpportunity';
+import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUser';
 
 export default class UnivApp extends NavigationMixin(LightningElement) {
 	// # PUBLIC PROPERTIES
