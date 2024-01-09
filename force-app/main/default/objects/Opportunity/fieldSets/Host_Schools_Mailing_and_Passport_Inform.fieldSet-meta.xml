@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Host_Schools_Mailing_and_Passport_Inform</fullName>
+    <description>The mailing and passport information section and fields for the host school view of opportunities.</description>
+    <displayedFields>
+        <field>International_Phone_Number__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Host Schools - Mailing and Passport Information</label>
+</FieldSet>
