@@ -1,14 +1,10 @@
 import { LightningElement, api, wire } from 'lwc';
 
-import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUserAccountContactOpportunity';
+import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUser';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import STAGE_FIELD from '@salesforce/schema/Opportunity.StageName';
 
 const FIELDS = ['Opportunity.Id', 'Opportunity.StageName'];
-
-/**
- * @slot univApp
- */
 
 export default class UnivAppContainerConditional extends LightningElement {
 	@api recordId;
@@ -18,13 +14,11 @@ export default class UnivAppContainerConditional extends LightningElement {
 	@api appDevName;
 	@api canShowRestart;
 
-	//user;
 	userOpportunity;
 	oppId;
-	//opp;
 
 	// * WIRED APEX
-	@wire(getRecord, { recordId: '$providedOppId', fields: FIELDS })
+	@wire(getRecord, { recordId: '$oppId', fields: FIELDS })
 	opp;
 
 	@wire(getCurrentUserRecords)
@@ -47,13 +41,9 @@ export default class UnivAppContainerConditional extends LightningElement {
 		this.stageList = this.stages.split(',');
 	}
 
-	get showSlot() {
+	get showApp() {
 		return this.devMode || this.isStage;
 	}
-
-	/*get oppId() {
-		return this.providedOppId ? this.providedOppId : this.userOpportunity;
-	}*/
 
 	get isStage() {
 		console.log(this.stageList, this.oppStage);

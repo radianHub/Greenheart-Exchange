@@ -2,7 +2,7 @@
 // TODO: Update picklist for Type field on Document object. Update which picklist values are available by record type
 // TODO: onunload event, delete records on unload - ON HOLD
 // * SALESFORCE IMPORTS
-import { LightningElement, api, wire} from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 // * LIGHTNING DATA SERVICE IMPORTS
@@ -19,162 +19,164 @@ import recordEditForm from './recordEditForm.html';
 
 // * APEX IMPORTS
 import deleteContentDocumentAndDocument from '@salesforce/apex/FilesUploadController.deleteContentDocumentAndDocument';
-import getCurrentUserAccountContactOpportunity from '@salesforce/apex/UsersService.getCurrentUserAccountContactOpportunity';
+import getCurrentUserAccountContactOpportunity from '@salesforce/apex/UsersService.getCurrentUser';
 
 // * CONSTANTS
 const ERROR_TITLE = 'An error occurred on upload';
 const SUCCESS_TITLE = 'File(s) successfully uploaded';
 
-
 export default class FilesUpload extends LightningElement {
-    objectName = DOCUMENT_OBJECT;
-    fields = {
-        name: NAME_FIELD,
-        type: TYPE_FIELD,
-        contact: CONTACT_FIELD,
-        account: ACCOUNT_FIELD,
-        opportunity: OPPORTUNITY_FIELD 
-    };
+	objectName = DOCUMENT_OBJECT;
+	fields = {
+		name: NAME_FIELD,
+		type: TYPE_FIELD,
+		contact: CONTACT_FIELD,
+		account: ACCOUNT_FIELD,
+		opportunity: OPPORTUNITY_FIELD,
+	};
 
-    // * PUBLIC PROPERTIES
-    @api cardTitle;
-    @api buttonLabel;
-    @api buttonIcon;
-    @api defaultDocumentType;
-    @api hideDocumentType;
-    @api acceptedFileTypes;
+	// * PUBLIC PROPERTIES
+	@api recordId;
+	@api cardTitle;
+	@api buttonLabel;
+	@api buttonIcon;
+	@api defaultDocumentType;
+	@api hideDocumentType;
+	@api acceptedFileTypes;
 
-    // Document__c recordId. Populated in the handleSuccess method
-    doumentId;
+	// Document__c recordId. Populated in the handleSuccess method
+	doumentId;
 
-    // ContentDocument recordId. Populated when the Salesforce file is uploaded in the UI
-    contentDocumentId;
+	// ContentDocument recordId. Populated when the Salesforce file is uploaded in the UI
+	contentDocumentId;
 
-    // * Booleans
-    isProcessing = false;
-    isDone = false;
+	// * Booleans
+	isProcessing = false;
+	isDone = false;
 
-    selectedTemplate = 'filesUpload';
+	selectedTemplate = 'filesUpload';
 
-    documentName;
-    userSelectedDocumentType;
-    fileName;
+	documentName;
+	userSelectedDocumentType;
+	fileName;
 
-    // User information
-    user;
-    userAccount;
-    userContact;
-    userOpportunity;
+	// User information
+	user;
+	userAccount;
+	userContact;
+	userOpportunity;
 
-    // * LIFECYCLE METHODS
-    render(){
-        return this.selectedTemplate === 'filesUpload' ? filesUploadBase 
-        : this.selectedTemplate === 'recordEditForm' ? recordEditForm 
-        : finalTemplate;
-    }
+	// * LIFECYCLE METHODS
+	render() {
+		return this.selectedTemplate === 'filesUpload'
+			? filesUploadBase
+			: this.selectedTemplate === 'recordEditForm'
+			? recordEditForm
+			: finalTemplate;
+	}
 
-    // * WIRED APEX
-    @wire(getCurrentUserAccountContactOpportunity)
-    wiredUser({error, data}) {
-        if(data) {
-            this.user = data;
-            this.userAccount = data?.Contact?.AccountId;
-            this.userContact = data?.ContactId;
-            this.userOpportunity = data?.Contact?.J1_Opportunity__c;
-            
-            this.error = undefined;
-        } else if (error) {
-            this.showError(error);
-            this.user = undefined;
-        }
-    }
+	// * WIRED APEX
+	@wire(getCurrentUserAccountContactOpportunity)
+	wiredUser({ error, data }) {
+		if (data) {
+			this.user = data;
+			this.userAccount = data?.Contact?.AccountId;
+			this.userContact = data?.ContactId;
+			this.userOpportunity = data?.Contact?.J1_Opportunity__c;
 
-    // * IMPERATIVE APEX
-    deleteContentDocumentAndDocument(){
-        deleteContentDocumentAndDocument({contentDocumentId: this.contentDocumentId, documentId: this.documentId})
-        .then(() => {
-            console.log('Successfully delete the Document and ContentDocument records.');
-        })
-        .catch((error) => {
-            this.showError(error);
-        })
-        .finally(() => {
-            this.isProcessing = false;
-        })
-    }
+			this.error = undefined;
+		} else if (error) {
+			this.showError(error);
+			this.user = undefined;
+		}
+	}
 
-    // * HANDLERS
-    handleUploadFinished(event){
-        this.fileName = event.detail.files[0].name;
-        this.contentDocumentId = event.detail.files[0].documentId;
-    }
+	// * IMPERATIVE APEX
+	deleteContentDocumentAndDocument() {
+		deleteContentDocumentAndDocument({ contentDocumentId: this.contentDocumentId, documentId: this.documentId })
+			.then(() => {
+				console.log('Successfully delete the Document and ContentDocument records.');
+			})
+			.catch((error) => {
+				this.showError(error);
+			})
+			.finally(() => {
+				this.isProcessing = false;
+			});
+	}
 
-    handleSuccess(event){
-        this.documentId = event.detail.id;
-        // Set the template to the Lightning Record Edit form html file
-        this.selectedTemplate = 'recordEditForm';
-    }
+	// * HANDLERS
+	handleUploadFinished(event) {
+		this.fileName = event.detail.files[0].name;
+		this.contentDocumentId = event.detail.files[0].documentId;
+	}
 
-    handleDone(){
-        this.isDone = true;
-        this.showSuccess(SUCCESS_TITLE, 'Your file has been uploaded into the system.');
-        this.resetForm();
-    }
+	handleSuccess(event) {
+		this.documentId = event.detail.id;
+		// Set the template to the Lightning Record Edit form html file
+		this.selectedTemplate = 'recordEditForm';
+	}
 
-    handleCancel(){
-        // Call Apex to delete existing Document__c and ContentDocument that were just created
-        this.deleteContentDocumentAndDocument();
-        this.showInfo('Cancelled', 'Document creation was cancelled');
-        // deleteFileAndParentDocument(/* Pass in contentDocumentId to delete and documentId (custom object record) to delete */) 
-        this.resetForm();
-    }
+	handleDone() {
+		this.isDone = true;
+		this.showSuccess(SUCCESS_TITLE, 'Your file has been uploaded into the system.');
+		this.resetForm();
+	}
 
-    handleError(error){
-        this.showError(error);
-    }
+	handleCancel() {
+		// Call Apex to delete existing Document__c and ContentDocument that were just created
+		this.deleteContentDocumentAndDocument();
+		this.showInfo('Cancelled', 'Document creation was cancelled');
+		// deleteFileAndParentDocument(/* Pass in contentDocumentId to delete and documentId (custom object record) to delete */)
+		this.resetForm();
+	}
 
-    // * HELPERS
-    resetForm(){
-        // Switch to the base template
-        this.selectedTemplate = 'filesUpload';
-        // Reset the form
-        let inputFields = this.template.querySelectorAll('lightning-input-field');
-        this.documentId = '';
-        this.fileName = '';
-        this.isDone = false;
-        if(inputFields){
-            Array.from(inputFields).forEach(field => {
-                field.reset();
-            });
-        }
-    }
+	handleError(error) {
+		this.showError(error);
+	}
 
-    showToast(title, message, variant, mode='dismissable') {
-        const showToastEvt = new ShowToastEvent({
-            title,
-            message, 
-            variant,
-            mode
-         } );
-        this.dispatchEvent(showToastEvt);
-    }
+	// * HELPERS
+	resetForm() {
+		// Switch to the base template
+		this.selectedTemplate = 'filesUpload';
+		// Reset the form
+		let inputFields = this.template.querySelectorAll('lightning-input-field');
+		this.documentId = '';
+		this.fileName = '';
+		this.isDone = false;
+		if (inputFields) {
+			Array.from(inputFields).forEach((field) => {
+				field.reset();
+			});
+		}
+	}
 
-    showError(error){
-        this.showToast(ERROR_TITLE, error.body.message, 'error');
-    }
-    showSuccess(title, message){
-        this.showToast(title, message, 'success');
-    }
-    showInfo(title, message){
-        this.showToast(title, message, 'info');
-    }
+	showToast(title, message, variant, mode = 'dismissable') {
+		const showToastEvt = new ShowToastEvent({
+			title,
+			message,
+			variant,
+			mode,
+		});
+		this.dispatchEvent(showToastEvt);
+	}
 
-    // * GETTERS
-    get isLoading(){
-        return this.isProcessing ? true : false;
-    }
+	showError(error) {
+		this.showToast(ERROR_TITLE, error.body.message, 'error');
+	}
+	showSuccess(title, message) {
+		this.showToast(title, message, 'success');
+	}
+	showInfo(title, message) {
+		this.showToast(title, message, 'info');
+	}
 
-    get acceptedFormats(){
-        return this.acceptedFileTypes;
-    }
+	// * GETTERS
+	get isLoading() {
+		return this.isProcessing ? true : false;
+	}
+
+	get acceptedFormats() {
+		return this.acceptedFileTypes;
+	}
 }
