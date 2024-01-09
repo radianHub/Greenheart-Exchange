@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Host_Schools_Extension_Renewal_Details</fullName>
+    <description>The extension/renewal details section and fields for the host school view of opportunities.</description>
+    <displayedFields>
+        <field>Extension_Date_Last_Confirmed__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Extension_Request_Form_Received__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Extension_Approved_by_DOS__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Host Schools - Extension/Renewal Details</label>
+</FieldSet>
