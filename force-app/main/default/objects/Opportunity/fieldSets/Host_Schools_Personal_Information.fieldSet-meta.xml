@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Host_Schools_Personal_Information</fullName>
+    <description>The personal information section and fields for the host school view of opportunities.</description>
+    <displayedFields>
+        <field>Cell_Phone__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Spoken_Lan__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Host Schools - Personal Information</label>
+</FieldSet>
