@@ -1,6 +1,6 @@
 import { LightningElement, api, wire } from 'lwc';
 
-import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUserAccountContactOpportunity';
+import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUser';
 import getIndicatorSettings from '@salesforce/apex/UniversalAppProgressIndicatorController.getIndicatorSettings';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import STAGE_FIELD from '@salesforce/schema/Opportunity.StageName';
@@ -39,9 +39,9 @@ export default class UnivAppProgressIndicator extends LightningElement {
 	}
 
 	@wire(getIndicatorSettings, { mdtName: '$mdtName' })
-	getSettings({ error, data }) {
+	wiredSettings({ error, data }) {
 		if (error) {
-			console.log('getIndicatorSettings error', error);
+			console.error('getIndicatorSettings error', error);
 		} else if (data?.error) {
 			//this.handleAlert('error', data.error);
 			console.error(data.error);
@@ -51,7 +51,7 @@ export default class UnivAppProgressIndicator extends LightningElement {
 			console.log(data.steps);
 			this.steps = data.steps;
 		} else {
-			console.log('An unexpected error occured in getting Indicator Settings.');
+			console.error('An unexpected error occured in getting Indicator Settings.');
 			console.log(data);
 			console.log(error);
 		}
