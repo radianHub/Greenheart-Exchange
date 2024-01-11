@@ -83,4 +83,18 @@ private class OpportunityServiceTest {
 		OpportunityService.enablePartnerTeacher(new List<Opportunity>{ opp });
 		Test.stopTest();
 	}
+	@isTest
+	private static void createInvoiceNumberTest() {
+		Payment__c payment = (Payment__c) new SObjectBuilder(Payment__c.SObjectType)
+			.put(Payment__c.Name, 'Test')
+			.put(Payment__c.Invoice_Number__c, 'PF123-123-123')
+			.create()
+			.getRecord();
+
+		Test.startTest();
+		OpportunityService.createInvoiceNumber();
+		Test.stopTest();
+
+		// ASSERTIONS
+	}
 }

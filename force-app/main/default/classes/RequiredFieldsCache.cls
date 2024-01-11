@@ -17,7 +17,10 @@ public class RequiredFieldsCache {
 			AccountContactRole.AccountId => getGenericParentProvider(Account.sObjectType),
 			AccountContactRole.ContactId => getGenericParentProvider(Contact.sObjectType)
 		},
-		Asset.sObjectType => new Map<SObjectField, Object>{ Asset.AccountId => getGenericParentProvider(Account.sObjectType), Asset.Name => 'Some Asset' },
+		Asset.sObjectType => new Map<SObjectField, Object>{
+			Asset.AccountId => getGenericParentProvider(Account.sObjectType),
+			Asset.Name => 'Some Asset'
+		},
 		Attachment.sObjectType => new Map<SObjectField, Object>{
 			Attachment.ParentId => getGenericParentProvider(Account.sObjectType),
 			Attachment.Body => Blob.valueOf('body'),
@@ -28,7 +31,9 @@ public class RequiredFieldsCache {
 			CampaignMember.CampaignId => getGenericParentProvider(Campaign.sObjectType),
 			CampaignMember.ContactId => getGenericParentProvider(Contact.sObjectType)
 		},
-		CaseComment.sObjectType => new Map<SObjectField, Object>{ CaseComment.ParentId => getGenericParentProvider(Case.sObjectType) },
+		CaseComment.sObjectType => new Map<SObjectField, Object>{
+			CaseComment.ParentId => getGenericParentProvider(Case.sObjectType)
+		},
 		CaseContactRole.sObjectType => new Map<SObjectField, Object>{
 			CaseContactRole.CasesId => getGenericParentProvider(Case.sObjectType),
 			CaseContactRole.ContactId => getGenericParentProvider(Contact.sObjectType),
@@ -47,7 +52,9 @@ public class RequiredFieldsCache {
 			CaseTeamRole.Name => SObjectFactory.provideUniqueString('Some Role'),
 			CaseTeamRole.AccessLevel => 'Edit'
 		},
-		CaseTeamTemplate.sObjectType => new Map<SObjectField, Object>{ CaseTeamTemplate.Name => SObjectFactory.provideUniqueString('Some Template') },
+		CaseTeamTemplate.sObjectType => new Map<SObjectField, Object>{
+			CaseTeamTemplate.Name => SObjectFactory.provideUniqueString('Some Template')
+		},
 		CaseTeamTemplateMember.sObjectType => new Map<SObjectField, Object>{
 			CaseTeamTemplateMember.TeamTemplateId => getGenericParentProvider(CaseTeamTemplate.sObjectType),
 			CaseTeamTemplateMember.TeamRoleId => getGenericParentProvider(CaseTeamRole.sObjectType),
@@ -63,7 +70,9 @@ public class RequiredFieldsCache {
 			ContentVersion.PathOnClient => 'some/path',
 			ContentVersion.VersionData => Blob.valueOf('data')
 		},
-		Contract.sObjectType => new Map<SObjectField, Object>{ Contract.AccountId => getGenericParentProvider(Account.sObjectType) },
+		Contract.sObjectType => new Map<SObjectField, Object>{
+			Contract.AccountId => getGenericParentProvider(Account.sObjectType)
+		},
 		ContractContactRole.sObjectType => new Map<SObjectField, Object>{
 			ContractContactRole.ContractId => getGenericParentProvider(Contract.sObjectType),
 			ContractContactRole.ContactId => getGenericParentProvider(Contact.sObjectType)
@@ -72,16 +81,17 @@ public class RequiredFieldsCache {
 			Document.FolderId => getGenericParentProvider(User.sObjectType),
 			Document.Name => 'Some Document'
 		},
-		Document__c.sObjectType => new Map<SObjectField, Object>{
-			Document__c.Name => 'Some Document'
-		},
+		Document__c.sObjectType => new Map<SObjectField, Object>{ Document__c.Name => 'Some Document' },
 		EmailTemplate.sObjectType => new Map<SObjectField, Object>{
 			EmailTemplate.DeveloperName => SObjectFactory.provideUniqueString('Template'),
 			EmailTemplate.FolderId => getGenericParentProvider(User.sObjectType),
 			EmailTemplate.TemplateType => 'Text',
 			EmailTemplate.Name => 'Some Template'
 		},
-		Event.sObjectType => new Map<SObjectField, Object>{ Event.ActivityDateTime => Datetime.now(), Event.DurationInMinutes => 60 },
+		Event.sObjectType => new Map<SObjectField, Object>{
+			Event.ActivityDateTime => Datetime.now(),
+			Event.DurationInMinutes => 60
+		},
 		EventRelation.sObjectType => new Map<SObjectField, Object>{
 			EventRelation.EventId => getGenericParentProvider(Event.sObjectType),
 			EventRelation.RelationId => getGenericParentProvider(User.sObjectType)
@@ -99,15 +109,23 @@ public class RequiredFieldsCache {
 			GroupMember.GroupId => getGenericParentProvider(Group.sObjectType),
 			GroupMember.UserOrGroupId => getGenericParentProvider(User.sObjectType)
 		},
-		Holiday.sObjectType => new Map<SObjectField, Object>{ Holiday.Name => 'Some Holiday', Holiday.ActivityDate => Date.today() },
+		Holiday.sObjectType => new Map<SObjectField, Object>{
+			Holiday.Name => 'Some Holiday',
+			Holiday.ActivityDate => Date.today()
+		},
 		Idea.sObjectType => new Map<SObjectField, Object>{
 			Idea.CommunityId => SObjectFactory.provideQueriedParent(Community.sObjectType),
 			Idea.Categories => 'Training',
 			Idea.Title => 'Some Idea'
 		},
-		IdeaComment.sObjectType => new Map<SObjectField, Object>{ IdeaComment.IdeaId => getGenericParentProvider(Idea.sObjectType) },
+		IdeaComment.sObjectType => new Map<SObjectField, Object>{
+			IdeaComment.IdeaId => getGenericParentProvider(Idea.sObjectType)
+		},
 		Lead.sObjectType => new Map<SObjectField, Object>{ Lead.LastName => 'Doe', Lead.Company => 'ACME' },
-		Note.sObjectType => new Map<SObjectField, Object>{ Note.ParentId => getGenericParentProvider(Account.sObjectType), Note.Title => 'Some Note' },
+		Note.sObjectType => new Map<SObjectField, Object>{
+			Note.ParentId => getGenericParentProvider(Account.sObjectType),
+			Note.Title => 'Some Note'
+		},
 		SObjectType.ObjectPermissions.getSObjectType() => new Map<SObjectField, Object>{
 			ObjectPermissions.ParentId => getGenericParentProvider(PermissionSet.sObjectType),
 			ObjectPermissions.SObjectType => String.valueOf(Account.sObjectType),
@@ -136,6 +154,9 @@ public class RequiredFieldsCache {
 			Partner.AccountFromId => getGenericParentProvider(Account.sObjectType),
 			Partner.AccountToId => SObjectFactory.provideGenericParent(Account.sObjectType)
 		},
+		Payment__c.sObjectType => new Map<SObjectField, Object>{
+			Payment__c.Opportunity__c => SObjectFactory.provideGenericParent(Opportunity.SObjectType)
+		},
 		PermissionSet.sObjectType => new Map<SObjectField, Object>{
 			PermissionSet.Name => SObjectFactory.provideUniqueString('TestPermissions'),
 			PermissionSet.Label => SObjectFactory.provideUniqueString('Test Permissions')
@@ -161,13 +182,20 @@ public class RequiredFieldsCache {
 			QueueSobject.QueueId => SObjectFactory.provideGenericParent(Group.sObjectType, Group.Type, 'Queue'),
 			QueueSobject.SobjectType => String.valueOf(Case.sObjectType)
 		},
-		QuickText.sObjectType => new Map<SObjectField, Object>{ QuickText.Message => 'Some Message', QuickText.Name => 'Some Text' },
+		QuickText.sObjectType => new Map<SObjectField, Object>{
+			QuickText.Message => 'Some Message',
+			QuickText.Name => 'Some Text'
+		},
 		Solution.sObjectType => new Map<SObjectField, Object>{ Solution.SolutionName => 'Some Solution' },
 		SetupEntityAccess.sObjectType => new Map<SObjectField, Object>{
 			SetupEntityAccess.ParentId => getGenericParentProvider(PermissionSet.sObjectType),
-			SetupEntityAccess.SetupEntityId => SObjectFactory.provideQueriedParent('SELECT Id FROM ApexClass WHERE NamespacePrefix = null LIMIT 1')
+			SetupEntityAccess.SetupEntityId => SObjectFactory.provideQueriedParent(
+				'SELECT Id FROM ApexClass WHERE NamespacePrefix = null LIMIT 1'
+			)
 		},
-		StreamingChannel.sObjectType => new Map<SObjectField, Object>{ StreamingChannel.Name => SObjectFactory.provideUniqueString('/u/TestChannel') },
+		StreamingChannel.sObjectType => new Map<SObjectField, Object>{
+			StreamingChannel.Name => SObjectFactory.provideUniqueString('/u/TestChannel')
+		},
 		User.sObjectType => new Map<SObjectField, Object>{
 			User.LastName => 'Doe',
 			User.LocaleSidKey => 'en_US',
