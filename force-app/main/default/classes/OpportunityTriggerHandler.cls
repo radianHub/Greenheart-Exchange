@@ -4,6 +4,8 @@ public with sharing class OpportunityTriggerHandler extends TriggerHandler {
 	List<Opportunity> oldOpportunities;
 	Map<Id, Opportunity> oldOpportunitiesMap;
 
+	public Boolean isTriggerExecuting = false;
+
 	public OpportunityTriggerHandler() {
 		this.newOpportunities = (List<Opportunity>) Trigger.new;
 		this.newOpportunitiesMap = (Map<Id, Opportunity>) Trigger.newMap;
@@ -24,14 +26,18 @@ public with sharing class OpportunityTriggerHandler extends TriggerHandler {
 	}
 
 	public override void afterInsert() {
-		OpportunityService.enablePartnerTeacher(newOpportunities);
+		if (!isTriggerExecuting) {
+			OpportunityService.enablePartnerTeacher(newOpportunities);
+		}
 	}
 
 	public override void afterUpdate() {
-		OpportunityService.GH_SendReminderForPlacementAgreementHandler(
-			newOpportunities,
-			oldOpportunitiesMap,
-			'After Update'
-		);
+		if (!isTriggerExecuting) {
+			OpportunityService.GH_SendReminderForPlacementAgreementHandler(
+				newOpportunities,
+				oldOpportunitiesMap,
+				'After Update'
+			);
+		}
 	}
 }
