@@ -57,7 +57,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	// Alert Messages
 	REQUIRED_FIELDS = 'Required fields are missing.';
 	POST_FIELDS_JSON_PARSE = 'Please contact your Salesforce Administrator. The JSON ';
-	FLOW_SUCCESS = 'Successfully completed the flow.';
+	FLOW_SUCCESS = 'Thank you for completing this form!';
 
 	// # LIFECYCLE HOOKS
 
