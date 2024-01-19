@@ -1,4 +1,10 @@
 public with sharing class CommunityUtility {
+	public static final Map<String, String> TYPE_TO_PUBLIC_GROUP = new Map<String, String>{
+		'Teacher' => 'Teach_USA_Teachers',
+		'School' => 'Teach_USA_Host_School',
+		'Partner' => 'Teach_USA_Partners'
+	};
+
 	public static User buildPartnerUser(Contact con, Id accountId, String profileName) {
 		// Create a user for the account
 		List<Profile> portalProfiles = getPartnerProfileFromName(profileName);
@@ -9,7 +15,7 @@ public with sharing class CommunityUtility {
 				'The profile \'' +
 					profileName +
 					'\' does not exist. ' +
-					'Please contact your developer and ask them to review the enablePartnerUser class in the CommunityUtility class to ensure the correct profile is being returned by the query.'
+					'Please contact your developer and ask them to review the enablePartnerUser method in the CommunityUtility class to ensure the correct profile is being returned by the query.'
 			);
 		}
 
@@ -53,6 +59,42 @@ public with sharing class CommunityUtility {
 			WHERE UserType = 'PowerPartner' AND Name = :profileName
 			WITH USER_MODE
 		];
+	}
+
+	@future
+	public static void assignToGroup(List<Id> userIds, String userType) {
+		//userType should be Teacher, School, or Partner. See Map: TYPE_TO_PUBLIC_GROUP
+		List<GroupMember> membersToInsert = new List<GroupMember>();
+		if (String.isBlank(userType)) {
+			// if userType is null or blank, no action is taken.
+			return;
+		}
+
+		String groupName = TYPE_TO_PUBLIC_GROUP.get(userType);
+		if (groupName != null) {
+			Group g = [SELECT Id, Name FROM Group WHERE DeveloperName = :groupName];
+
+			for (Id uId : userIds) {
+				GroupMember member = new GroupMember();
+				member.GroupId = g.Id;
+				member.UserOrGroupId = uId;
+
+				membersToInsert.add(member);
+			}
+
+			// insert Group Members
+			if (membersToInsert.size() > 0) {
+				SObjectHelper.objInsert(membersToInsert);
+			}
+		} else {
+			// if userType passed does not map to anything in the TYPE_TO_PUBLIC_GROUP
+			throw new CommunityUtilityException(
+				'The userType \'' +
+					userType +
+					'\' was unexpected. ' +
+					'Please contact your developer and ask them to review the assignToGroup method in the CommunityUtility class to ensure a correct userType is being passed from the Trigger.'
+			);
+		}
 	}
 
 	public class CommunityUtilityException extends Exception {
