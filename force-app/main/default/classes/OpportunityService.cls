@@ -286,23 +286,23 @@ public with sharing class OpportunityService {
 			}
 
 			if (oppplacementFPDList.size() > 0) {
-				addProductsAndPayments(oppplacementFPDList, 'Program Fee - Full-Placement - Direct');
+				addProductsAndPayments(oppplacementFPDList, 'Program Fee FP - Direct');
 			}
 
 			if (oppplacementSPDList.size() > 0) {
-				addProductsAndPayments(oppplacementSPDList, 'Program Fee - Self-placement - Direct');
+				addProductsAndPayments(oppplacementSPDList, 'Program Fee SP - Direct');
 			}
 
 			if (oppplacementSPPList.size() > 0) {
-				addProductsAndPayments(oppplacementSPPList, 'Program Fee - Self-Placement - Partner');
+				addProductsAndPayments(oppplacementSPPList, 'Program Fee SP - Partner');
 			}
 
 			if (oppplacementFPPList.size() > 0) {
-				addProductsAndPayments(oppplacementFPPList, 'Program Fee - Full-Placement - Partner');
+				addProductsAndPayments(oppplacementFPPList, 'Program Fee FP - Partner');
 			}
 
 			if (oppIAGList.size() > 0) {
-				addProductsAndPayments(oppIAGList, 'Program Fee - Self-Placement - IAG');
+				addProductsAndPayments(oppIAGList, 'Program Fee SP - IAG');
 			}
 
 			if (sevisFeeOpp.size() > 0) {
@@ -375,11 +375,11 @@ public with sharing class OpportunityService {
 	public static void addProductsAndPayments(List<Opportunity> listOfOpportunity, String productName) {
 		String invoiceNumber;
 		List<String> productNameForInvoiceList = new List<String>{
-			'Program Fee - Full-Placement - Direct',
-			'Program Fee - Self-placement - Direct',
-			'Program Fee - Self-Placement - Partner',
-			'Program Fee - Full-Placement - Partner',
-			'Program Fee - Self-Placement - IAG',
+			'Program Fee FP - Direct',
+			'Program Fee SP - Direct',
+			'Program Fee SP - Partner',
+			'Program Fee FP - Partner',
+			'Program Fee SP - IAG',
 			'Program Renewal - IAG',
 			'Program Renewal',
 			'Program Extension - IAG',
