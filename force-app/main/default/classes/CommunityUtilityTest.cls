@@ -49,4 +49,51 @@ private class CommunityUtilityTest {
 
 		Test.stopTest();
 	}
+
+	@isTest
+	private static void verifyGroupNamesExist() {
+		Map<String, String> groupMap = CommunityUtility.TYPE_TO_PUBLIC_GROUP;
+		List<String> publicGroupNames = new List<String>();
+		for (String groupName : groupMap.values()) {
+			publicGroupNames.add(groupName);
+		}
+
+		if (publicGroupNames != null || publicGroupNames.size() > 0) {
+			List<Group> publicGroups = [
+				SELECT Id, Name, DeveloperName
+				FROM Group
+				WHERE DeveloperName IN :publicGroupNames
+			];
+			Assert.areEqual(
+				publicGroupNames.size(),
+				publicGroups.size(),
+				'Unable to find all listed Public Groups: ' + publicGroupNames
+			);
+		} else {
+			Assert.fail('Error getting Public Group Map from Community Utility');
+		}
+	}
+
+	@IsTest
+	private static void buildGroupMember() {
+		Account acc = (Account) new SObjectBuilder(Account.SObjectType).create().getRecord();
+
+		Contact con = (Contact) new SObjectBuilder(Contact.SObjectType)
+			.put(Contact.AccountId, acc.Id)
+			.put(Contact.Email, 'test' + Math.random() + '@buildGroupMember.com')
+			.create()
+			.getRecord();
+
+		User user = CommunityUtility.buildPartnerUser(con, acc.Id, 'Greenheart Teacher Community User');
+		insert user;
+
+		Integer existingGroupsCount = [SELECT COUNT() FROM GroupMember WHERE UserOrGroupId = :user.Id];
+
+		Test.startTest();
+		CommunityUtility.assignToGroup(new List<Id>{ user.Id }, 'Teacher');
+		Test.stopTest();
+
+		Integer currentGroupsCount = [SELECT COUNT() FROM GroupMember WHERE UserOrGroupId = :user.Id];
+		Assert.areEqual(existingGroupsCount + 1, currentGroupsCount, 'User was not added to Public Group as expected');
+	}
 }

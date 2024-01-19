@@ -62,7 +62,15 @@ public with sharing class OpportunityService {
 		}
 		// Update the contact records, respecting CRUD/FLS
 		SObjectHelper.objUpdate(contactsToUpdate);
-		SObjectHelper.objInsert(partnerUsersToInsert);
+		List<User> partnerUsers = SObjectHelper.objInsert(partnerUsersToInsert);
+
+		List<Id> partnerUserIds = new List<Id>();
+		for (User u : partnerUsers) {
+			partnerUserIds.add(u.Id);
+		}
+
+		// Add inserted users to Groups
+		CommunityUtility.assignToGroup(partnerUserIds, 'Teacher');
 	}
 
 	public static void removeSpecialCharacterOpty(
