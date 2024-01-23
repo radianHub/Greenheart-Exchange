@@ -3,6 +3,26 @@
     <label>T&amp;C Public Health Conditions 2</label>
     <protected>false</protected>
     <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>DisplayByDefault__c</field>
         <value xsi:type="xsd:boolean">true</value>
     </values>
@@ -12,7 +32,11 @@
     </values>
     <values>
         <field>Page__c</field>
-        <value xsi:type="xsd:double">5.0</value>
+        <value xsi:type="xsd:double">4.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Section_Body__c</field>
@@ -37,7 +61,7 @@
     </values>
     <values>
         <field>Section_Field_Set__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
     </values>
     <values>
         <field>Section_Header__c</field>
@@ -54,5 +78,9 @@
     <values>
         <field>conditionalRequire__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
 </CustomMetadata>
