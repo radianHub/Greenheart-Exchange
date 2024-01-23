@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Terms and Conditions</label>
+    <label>Terms and Conditions - Teacher</label>
     <protected>false</protected>
     <values>
         <field>Boolean_Field__c</field>
@@ -35,11 +35,19 @@
         <value xsi:nil="true"/>
     </values>
     <values>
+        <field>ParentAcctField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>ParentOppField__c</field>
         <value xsi:type="xsd:string">Id</value>
     </values>
     <values>
         <field>Post_Submit_Fields__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>vfPageRedirect__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
 </CustomMetadata>
