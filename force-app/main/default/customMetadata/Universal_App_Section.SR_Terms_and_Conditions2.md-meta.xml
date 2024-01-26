@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SR: Terms and Conditions 2</label>
+    <protected>false</protected>
+    <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">29.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=&quot;padding-left:20px;padding-right:20px;margin-bottom:-20px;&quot;&gt;
+&lt;h2&gt;HOST SCHOOL RESPONSIBILITIES&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I am authorized by my school or district to offer teaching positions to exchange teachers. &lt;/li&gt;
+&lt;li&gt;Cultural engagement is a fundamental component of the J-1 Teacher program, and of Greenheart Exchange’s mission. The host school will support the teacher in their efforts to perform the two mandatory cross-cultural activities each year during their program. &lt;/li&gt;
+&lt;li&gt;The host school must contact Greenheart Exchange if there are any changes to the teacher’s placement; if there is an emergency involving an exchange teacher, including health issues or legal issues; or if an exchange teacher is fired, elects to quit, or leaves the program early. &lt;/li&gt;
+&lt;li&gt;Each teacher placed at the host school will receive continuous on-site direct supervision and mentoring by experienced and knowledgeable staff. Not providing this support may result in a negative effect on the participant’s program status in the U.S. &lt;/li&gt;
+&lt;li&gt;Host school staff commit to reviewing the Host School Orientation and any relevant Greenheart Exchange resources, which contain further information about program regulations. &lt;/li&gt;
+&lt;li&gt;If the host school provides housing, teachers must be provided a standalone bed on a bedframe or box spring, in a single or twin room, and housing costs should reflect the local market and not be predatory. &lt;/li&gt;
+&lt;li&gt;Per IRS Publication 515, participants on a J-1 visa are considered non-resident aliens who are not subject to Social Security, Medicare, or federal unemployment withholding taxes (FUTA/FICA). The hos school should consult a tax professional regarding state unemployment tax exemptions. &lt;/li&gt;
+&lt;li&gt;After a teacher provides proof of application for a Social Security number, the host school may legally assign them a “dummy number” to start paying them. &lt;/li&gt;
+&lt;li&gt;If a teacher receives a stipend, the host school will pay the stipend even if the Social Security number has not been issued. If the host school is unable to do this, they must communicate this to Greenheart Exchange immediately. &lt;/li&gt;
+&lt;li&gt;Greenheart Exchange has the right to use photos and videos taken with permission on school property in their promotional materials so long as students and teachers provide consent. Greenheart Exchange will not use photos and videos of minors without permission. &lt;/li&gt;
+&lt;li&gt;The host school must abide by the terms listed in the job offer letter or contract and the Placement Agreement provided by Greenheart Exchange. &lt;/li&gt;
+&lt;li&gt;Exchange teacher appointments to positions within accredited primary or secondary schools are temporary, even if the teaching positions are permanent, and do not lead to tenure. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">2</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">School_Renewal</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>
