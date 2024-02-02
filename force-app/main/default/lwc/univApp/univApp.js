@@ -12,6 +12,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	@api recordId;
 	@api oppId; //J1 Opportunity that this UA data is related to
 	@api acctId; //Account Id to relate this record to. Primarily for Host Schools to relate records to their account.
+	@api isLoadParentId = null;
 	@api appDevName;
 	@api canShowRestart;
 
@@ -65,6 +66,16 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	connectedCallback() {
 		console.log('Connected Callback');
 		console.log('Connected Id: ' + this.recordId);
+		console.log(`User's Contact: ` + this.userContact);
+		console.log(`User's Account: ` + this.userAccount);
+		console.log(`User's Opp: ` + this.userOpportunity);
+		/*if (this.isLoadParentOpp) {
+			console.log('Set userOpp as recordId: ' + this.userOpportunity);
+			this.recordId = this.userOpportunity;
+		} else if (this.isLoadParentAcct) {
+			console.log('Set userAcct as recordId: ' + this.userAccount);
+			this.recordId = this.userAccount;
+		}*/
 		this.getApp();
 	}
 
@@ -121,7 +132,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	}
 
 	getApp() {
-		getApp({ appDevName: this.appDevName, recordId: this.recordId })
+		getApp({ appDevName: this.appDevName, recordId: this.recordId, isLoadParentId: this.isLoadParentId })
 			.then((result) => {
 				console.log(this.appDevName);
 				if (result.error) {
@@ -226,6 +237,8 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 								this.alert = JSON.stringify(error);
 								this.alertType = 'error';
 							});
+					} else if (this.appData.Page_Redirect__c) {
+						this.lwcRedirect(this.appData.Page_Redirect__c);
 					}
 					this.showSpinner = false;
 				} else if (result.error) {
@@ -246,8 +259,17 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 
 	// # PRIVATE METHODS
 
+	//* DIRECTS TO VF OR COMMUNITY PAGE BASED ON APP SETTING
+	lwcRedirect(page) {
+		if (this.appData.vfPageRedirect__c) {
+			this.lwcVfRedirect(page);
+		} else {
+			this.lwcCommPageRedirect(page);
+		}
+	}
+
 	// * REDIRECTS TO DIFFERENT APP/VF_PAGE
-	lwcRedirect(/*recordId, */ vfPage) {
+	lwcVfRedirect(/*recordId, */ vfPage) {
 		console.log('Redirecting to VF Page: ' + vfPage);
 		this.pageUrl = window.location.origin + '/apex/' + vfPage /*+ '?id=' + recordId*/;
 		window.location.assign(this.pageUrl);
@@ -699,6 +721,15 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		}
 		// Handle both true and false calls (twice per field)
 		return this.sObj.hasOwnProperty(this._pageFields[Math.floor(this._hasValueIndex++ / 2)]);
+	}
+
+	// * DETERMINES IF THE USER'S RELATED OPP/ACCOUNT SHOULD BE USED AS RECORDID
+	get isLoadParentOpp() {
+		return this.appData?.ParentOppField__c === 'Id' && this.isLoadParentId && this.userOpportunity;
+	}
+
+	get isLoadParentAcct() {
+		return this.appData?.ParentAcctField__c === 'Id' && this.isLoadParentId && this.userAccount;
 	}
 
 	// * RETURNS THE CURRENT PAGE

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>SR: Long-Term Housing Type Other</label>
-    <protected>false</protected>
+    <label>Profile: Community Public Transport Form</label>
+    <protected>true</protected>
     <values>
         <field>Accepted_File_Types__c</field>
         <value xsi:nil="true"/>
@@ -12,11 +12,11 @@
     </values>
     <values>
         <field>Expected_Field_Label__c</field>
-        <value xsi:type="xsd:string">If you selected &quot;other&quot;, please describe the type of housing in detail.</value>
+        <value xsi:type="xsd:string">What forms of public transportation are available?</value>
     </values>
     <values>
         <field>Field_Name__c</field>
-        <value xsi:type="xsd:string">Housing_Type_Other__c</value>
+        <value xsi:type="xsd:string">Forms_of_Public_transportation__c</value>
     </values>
     <values>
         <field>Type__c</field>
@@ -24,6 +24,6 @@
     </values>
     <values>
         <field>Universal_App_Section__c</field>
-        <value xsi:type="xsd:string">SR_Long_Term_Housing</value>
+        <value xsi:type="xsd:string">Profile_Community_Public_Transport</value>
     </values>
 </CustomMetadata>
