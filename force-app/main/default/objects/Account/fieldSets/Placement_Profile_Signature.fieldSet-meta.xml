@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Housing_Deposit_Details_Refundable_Field</fullName>
-    <description>Fields shown if refund is available in the Host School Renewal Universal App Form.</description>
+    <fullName>Placement_Profile_Signature</fullName>
+    <description>Used in the Placement Profile Universal App Form, on the Teach USA portal for Host Schools</description>
     <displayedFields>
-        <field>How_will_the_deposit_be_refunded__c</field>
+        <field>Placement_Profile_Full_Name__c</field>
         <isFieldManaged>false</isFieldManaged>
         <isRequired>true</isRequired>
     </displayedFields>
     <displayedFields>
-        <field>Refund_Deposit_Criteria__c</field>
+        <field>Placement_Profile_Date__c</field>
         <isFieldManaged>false</isFieldManaged>
         <isRequired>true</isRequired>
     </displayedFields>
-    <label>Housing Deposit Details - Refundable Fields</label>
+    <label>Placement Profile Signature</label>
 </FieldSet>

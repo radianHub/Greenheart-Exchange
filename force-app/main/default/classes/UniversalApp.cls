@@ -143,7 +143,7 @@ public without sharing class UniversalApp {
 	// Input    - String DeveloperName of CustomMetadata 'Universal App'
 	// Output   - Map<String, Object> {'data' -> [{api -> fieldAPI__c, options...}, ...], 'error' -> 'String'}
 	@AuraEnabled(cacheable=true)
-	public static Map<String, Object> retrieveApp(String appDevName, Id recordId) {
+	public static Map<String, Object> retrieveApp(String appDevName, Id recordId, Boolean isLoadParentId) {
 		Map<String, Object> ret = new Map<String, Object>();
 
 		try {
@@ -223,6 +223,24 @@ public without sharing class UniversalApp {
 
 						Set<String> nullFieldSets = new Set<String>();
 						sObject fieldValues = null;
+
+						// * if we should and can load a Opp or Account Id from User's record, assign it to recordId 
+						if (
+							recordId == null && isLoadParentId && (
+								application.Object__c == 'Opportunity' || application.Object__c == 'Account' || application.Object__c == 'Contact'
+							)
+						) {
+							User curUser = UsersService.getCurrentUser();
+							
+							//* If we have an Id to assign, assign it
+							if(application.Object__c == 'Opportunity' && curUser?.Contact?.J1_Opportunity__c != null){
+								recordId = curUser.Contact.J1_Opportunity__c;
+							} else if (application.Object__c == 'Account' && curUser?.Contact?.AccountId != null){
+								recordId = curUser.Contact.AccountId;
+							} else if (application.Object__c == 'Contact' && curUser?.ContactId != null){
+								recordId = curUser.ContactId;
+							}
+						}
 
 						if (recordId != null) {
 							fieldValues = queryRecord(recordId, application.Object__c);
