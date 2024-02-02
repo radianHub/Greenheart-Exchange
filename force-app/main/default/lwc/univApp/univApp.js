@@ -12,7 +12,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	@api recordId;
 	@api oppId; //J1 Opportunity that this UA data is related to
 	@api acctId; //Account Id to relate this record to. Primarily for Host Schools to relate records to their account.
-	@api isLoadParentId = null;
+	@api isLoadParentId = false;
 	@api appDevName;
 	@api canShowRestart;
 

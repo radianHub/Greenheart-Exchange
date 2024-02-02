@@ -17,7 +17,8 @@
         <targetConfig
             targets="lightningCommunity__Default,lightning__AppPage,lightning__FlowScreen,lightning__HomePage,lightning__RecordPage,lightning__UtilityBar">
             <property name="recordId" type="String"></property>
-            <property label="Use Parent Record as recordId?" name="isLoadParentId" type="Boolean"></property>
+            <property label="Use Parent Record as recordId?" name="isLoadParentId" type="Boolean"
+                default="false"></property>
             <property label="J1 Opportunity Id" name="oppId" type="String"></property>
             <property label="Parent Account Id" name="acctId" type="String"></property>
             <property label="App MDT API Name" name="appDevName" type="String"></property>
