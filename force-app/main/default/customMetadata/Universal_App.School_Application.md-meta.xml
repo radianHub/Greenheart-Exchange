@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>Page_Redirect__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Host_School_Placement_Profile__c</value>
     </values>
     <values>
         <field>Page_Redirect_if_False__c</field>
