@@ -16,6 +16,8 @@
     <targetConfigs>
         <targetConfig
             targets="lightningCommunity__Default,lightning__AppPage,lightning__FlowScreen,lightning__HomePage,lightning__RecordPage,lightning__UtilityBar">
+            <property label="Use Parent Record as recordId?" name="isLoadParentId" type="Boolean"
+                default="false"></property>
             <property label="J1 Opportunity Id" name="providedOppId" type="String"></property>
             <property label="Displayed at Stages" name="stages" type="String" placeholder="stage1, stage2, etc" required="true"></property>
             <property label="Dev Mode (always shows slot)" name="devMode" type="Boolean"></property>
