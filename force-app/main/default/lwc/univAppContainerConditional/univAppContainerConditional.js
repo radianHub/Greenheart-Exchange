@@ -13,6 +13,7 @@ export default class UnivAppContainerConditional extends LightningElement {
 	@api devMode;
 	@api appDevName;
 	@api canShowRestart;
+	@api isLoadParentId = false;
 
 	userOpportunity;
 	oppId;
@@ -25,7 +26,9 @@ export default class UnivAppContainerConditional extends LightningElement {
 	wiredUser({ error, data }) {
 		if (data) {
 			//this.user = data;
-			this.userOpportunity = data?.Contact?.J1_Opportunity__c;
+			if (data?.Contact?.J1_Opportunity__c && !this.providedOppId) {
+				this.oppId = data?.Contact?.J1_Opportunity__c;
+			}
 
 			this.error = undefined;
 		} else if (error) {
@@ -37,7 +40,7 @@ export default class UnivAppContainerConditional extends LightningElement {
 	}
 
 	connectedCallback() {
-		this.oppId = this.providedOppId ? this.providedOppId : this.userOpportunity;
+		//this.oppId = this.providedOppId ? this.providedOppId : this.userOpportunity;
 		this.stageList = this.stages.split(',');
 	}
 
