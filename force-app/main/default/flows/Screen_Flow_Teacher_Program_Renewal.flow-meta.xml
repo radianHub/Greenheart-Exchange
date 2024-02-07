@@ -224,6 +224,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Program_Renewal__c</field>
+            <value>
+                <elementReference>programRenewal.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Type__c</field>
             <value>
                 <stringValue>Contract Letter</stringValue>
@@ -285,6 +291,7 @@
         <object>Contact</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>could_not_find_opp</name>
         <label>could not find opp</label>
