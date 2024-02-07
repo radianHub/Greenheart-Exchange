@@ -75,6 +75,13 @@
             </value>
         </assignmentItems>
         <assignmentItems>
+            <assignToReference>docToCreate.Program_Extension__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>programExtension.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
             <assignToReference>documents</assignToReference>
             <operator>Add</operator>
             <value>
@@ -105,6 +112,13 @@
             </value>
         </assignmentItems>
         <assignmentItems>
+            <assignToReference>docToCreate.Program_Extension__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>programExtension.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
             <assignToReference>documents</assignToReference>
             <operator>Add</operator>
             <value>
@@ -132,6 +146,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>Find_My_Opportunity.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>docToCreate.Program_Extension__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>programExtension.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -546,6 +567,7 @@
         <object>Contact</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>complete</name>
         <label>complete</label>
