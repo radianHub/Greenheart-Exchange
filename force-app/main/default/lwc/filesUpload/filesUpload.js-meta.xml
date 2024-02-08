@@ -25,7 +25,7 @@
         <targetConfig
             targets="lightning__AppPage">
             <property name="cardTitle" label="Card Title" type="String" default="Upload Files" />
-            <property name="buttonLabel" type="String" label="Button label" default="Upload" />
+            <property name="buttonLabel" type="String" label="Button label" default="Select File" />
             <property name="defaultDocumentType" type="String" label="Default Document Type"
                 default="" />
             <property name="hideDocumentType" type="Boolean" label="Hide Document Type"
@@ -33,11 +33,12 @@
             <property name="acceptedFileTypes" type="String"
                 label="Accepted File Formats (.pdf, .doc, etc)"
                 default="" />
+            <property name="oppId" label="Opportunity Id" type="String"></property>
         </targetConfig>
         <targetConfig
             targets="lightningCommunity__Default">
             <property name="cardTitle" label="Card Title" type="String" default="Upload Files" />
-            <property name="buttonLabel" type="String" label="Button label" default="Upload" />
+            <property name="buttonLabel" type="String" label="Button label" default="Select File" />
             <property name="defaultDocumentType" type="String" label="Default Document Type"
                 default="" />
             <property name="hideDocumentType" type="Boolean" label="Hide Document Type"
@@ -45,6 +46,7 @@
             <property name="acceptedFileTypes" type="String"
                 label="Accepted File Formats (.pdf, .doc, etc)"
                 default="" />
+            <property name="oppId" label="Opportunity Id" type="String"></property>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
