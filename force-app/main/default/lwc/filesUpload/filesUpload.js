@@ -6,12 +6,17 @@ import { LightningElement, api, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 // * LIGHTNING DATA SERVICE IMPORTS
+import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import DOCUMENT_OBJECT from '@salesforce/schema/Document__c';
 import NAME_FIELD from '@salesforce/schema/Document__c.Name';
 import TYPE_FIELD from '@salesforce/schema/Document__c.Type__c';
 import CONTACT_FIELD from '@salesforce/schema/Document__c.Contact__c';
 import ACCOUNT_FIELD from '@salesforce/schema/Document__c.Account__c';
 import OPPORTUNITY_FIELD from '@salesforce/schema/Document__c.Opportunity__c';
+
+// Opportunity getRecord
+import OPP_ACCOUNT_ID from '@salesforce/schema/Opportunity.AccountId';
+import OPP_CONTACT_ID from '@salesforce/schema/Opportunity.ContactId';
 
 // * RENDER TEMPLATE IMPORTS
 import filesUploadBase from './filesUpload.html';
@@ -91,6 +96,12 @@ export default class FilesUpload extends LightningElement {
 			this.user = undefined;
 		}
 	}
+
+	@wire(getRecord, {
+		recordId: '$oppId',
+		fields: [OPP_ACCOUNT_ID, OPP_CONTACT_ID],
+	})
+	opp;
 
 	// * IMPERATIVE APEX
 	deleteContentDocumentAndDocument() {
@@ -183,5 +194,13 @@ export default class FilesUpload extends LightningElement {
 
 	get opportunityId() {
 		return this.oppId ? this.oppId : this.userOpportunity;
+	}
+
+	get accountId() {
+		return this.oppId ? getFieldValue(this.opp.data, OPP_ACCOUNT_ID) : this.userAccount;
+	}
+
+	get contactId() {
+		return this.oppId ? getFieldValue(this.opp.data, OPP_CONTACT_ID) : this.userContact;
 	}
 }
