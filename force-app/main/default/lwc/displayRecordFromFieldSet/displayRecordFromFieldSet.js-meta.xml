@@ -13,13 +13,18 @@
     <targetConfigs>
         <targetConfig
             targets="lightning__AppPage,lightning__HomePage,lightning__RecordPage">
-            <property name="fieldSetApiName" type="String" label="Field Set Api Name"/>
+            <property name="recordId" type="String" label="Record ID"
+                description="Should be set to {!recordId}" />
+            <property name="fieldSetApiName" type="String" label="Field Set Api Name" />
             <property name="showTitle" type="Boolean" label="Show Title" default="true" />
             <property name="titleOverride" type="String" label="Title Override" />
             <property name="showIcon" type="Boolean" label="Show Icon" default="true" />
             <property name="titleIcon" type="String" label="Title Icon Override (SLDS Icons)"
                 default="standard:work_plan" />
             <property name="numberOfColumns" type="Integer" label="Number of Columns" default="2" />
+            <property name="loadFromUserRecord" type="String" label="Load from User's Record"
+                datasource="Account,Opportunity,Contact"
+                description="If this is populated, the fields displayed will load from selected related record." />
         </targetConfig>
         <targetConfig targets="lightningCommunity__Default">
             <property name="recordId" type="String" label="Record ID"
@@ -35,6 +40,9 @@
                 label="Conditionally Display Host School Info"
                 description="If this is set to true, the opportunity data will only display if the opportunity teacher is placed at the current users school"
                 default="false" />
+            <property name="loadFromUserRecord" type="String" label="Load from User's Record"
+                datasource="Account,Opportunity,Contact"
+                description="If this is populated, the fields displayed will load from selected related record." />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

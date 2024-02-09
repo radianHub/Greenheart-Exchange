@@ -1,5 +1,6 @@
 import { LightningElement, api, wire } from 'lwc';
 import getRecordData from '@salesforce/apex/DisplayRecordFromFieldSetController.getRecordData';
+import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUser';
 
 export default class DisplayRecordFromFieldSet extends LightningElement {
 	@api recordId;
@@ -10,6 +11,7 @@ export default class DisplayRecordFromFieldSet extends LightningElement {
 	@api titleIcon;
 	@api numberOfColumns;
 	@api conditionalHostSchool = false;
+	@api loadFromUserRecord;
 
 	wrapper;
 	record;
@@ -20,9 +22,37 @@ export default class DisplayRecordFromFieldSet extends LightningElement {
 
 	// # APEX
 
+	@wire(getCurrentUserRecords)
+	wiredUser({ error, data }) {
+		if (data) {
+			this.user = data;
+			const userAccountId = data?.Contact?.AccountId;
+			const userContactId = data?.ContactId;
+			const userOpportunityId = data?.Contact?.J1_Opportunity__c;
+
+			// assign recordId if
+			if (this.loadFromUserRecord) {
+				if (this.loadFromUserRecord == 'Account' && userAccountId) {
+					this.recordId = userAccountId;
+				} else if (this.loadFromUserRecord == 'Opportunity' && userOpportunityId) {
+					this.recordId = userOpportunityId;
+				} else if (this.loadFromUserRecord == 'Contact' && userContactId) {
+					this.recordId = userContactId;
+				}
+			}
+
+			this.error = undefined;
+		} else if (error) {
+			console.log('getCurrentUserRecords error', error);
+			this.alert = `Hmm.. Something's not right. Please refresh the page or contact Greenheart directly for assistance.`;
+			this.alertType = 'error';
+			this.user = undefined;
+		}
+	}
+
 	// * RETRIEVES SPECIFIED RECORD
 	@wire(getRecordData, {
-		stringId: '$recordToView',
+		stringId: '$recordId',
 		fieldSetApiName: '$fieldSetApiName',
 		conditionalHostSchool: '$conditionalHostSchool',
 	})
@@ -44,12 +74,12 @@ export default class DisplayRecordFromFieldSet extends LightningElement {
 	// # GETTERS
 
 	// * DETERMINES IF THERE IS A RETURNED RECORD
-	get recordToView() {
+	/*get recordToView() {
 		if (this.recordId) {
 			return this.recordId;
 		}
 		return null;
-	}
+	}*/
 
 	// * GETS FIELDS FOR RECORD FORM
 	get fields() {
