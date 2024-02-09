@@ -19,7 +19,7 @@ import recordEditForm from './recordEditForm.html';
 
 // * APEX IMPORTS
 import deleteContentDocumentAndDocument from '@salesforce/apex/FilesUploadController.deleteContentDocumentAndDocument';
-import getCurrentUserAccountContactOpportunity from '@salesforce/apex/UsersService.getCurrentUser';
+import getCurrentUser from '@salesforce/apex/UsersService.getCurrentUser';
 
 // * CONSTANTS
 const ERROR_TITLE = 'An error occurred on upload';
@@ -43,6 +43,7 @@ export default class FilesUpload extends LightningElement {
 	@api defaultDocumentType;
 	@api hideDocumentType;
 	@api acceptedFileTypes;
+	@api oppId;
 
 	// Document__c recordId. Populated in the handleSuccess method
 	doumentId;
@@ -71,12 +72,12 @@ export default class FilesUpload extends LightningElement {
 		return this.selectedTemplate === 'filesUpload'
 			? filesUploadBase
 			: this.selectedTemplate === 'recordEditForm'
-			? recordEditForm
-			: finalTemplate;
+				? recordEditForm
+				: finalTemplate;
 	}
 
 	// * WIRED APEX
-	@wire(getCurrentUserAccountContactOpportunity)
+	@wire(getCurrentUser)
 	wiredUser({ error, data }) {
 		if (data) {
 			this.user = data;
@@ -178,5 +179,9 @@ export default class FilesUpload extends LightningElement {
 
 	get acceptedFormats() {
 		return this.acceptedFileTypes;
+	}
+
+	get opportunityId() {
+		return this.oppId ? this.oppId : this.userOpportunity;
 	}
 }
