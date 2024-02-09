@@ -1,43 +1,74 @@
 <template>
-    <lightning-card title={cardTitle} icon-name="utility:file">
-        <template lwc:if={isLoading}>
-            <!-- Show spinner when loading -->
-            <lightning-spinner 
-            alternative-text="Loading" 
-            size="large"
-            variant="brand"
-          ></lightning-spinner>
-        </template>
-        <template lwc:else>
-                <!-- Initial form creates a Document__c record to upload the file against -->
-                    <lightning-record-edit-form object-api-name={objectName} onsuccess={handleSuccess}
-                    onerror={handleError}>
-                        <lightning-messages> </lightning-messages>
-                            <div class="slds-grid slds-var-m-around_medium">
-                                <div class="slds-col slds-size_1-of-2">
-                                    <span><lightning-input-field field-name={fields.name} required> </lightning-input-field></span>
-                                </div>
-                                <div class="slds-col slds-size_1-of-2">
-                                    <span><lightning-input-field field-name={fields.type} required value={defaultDocumentType}> </lightning-input-field></span>
-                                </div>
-                                <span><lightning-input-field field-name={fields.contact} value={userContact} class="hide"> </lightning-input-field></span>
-                                <span><lightning-input-field field-name={fields.account} value={userAccount} class="hide"> </lightning-input-field></span>
-                                <span><lightning-input-field field-name={fields.opportunity} value={opportunityId} class="hide"> </lightning-input-field></span>
-                            </div>
-                            <div class="slds-grid slds-var-m-around_medium">
-                                <div class="slds-col slds-size_2-of-2 footerButton">
-                                    <span>
-                                        <lightning-button
-                                        class="slds-var-m-top_medium"
-                                        type="submit"
-                                        label={buttonLabel}
-                                        variant="brand"
-                                        >
-                                        </lightning-button>
-                                    </span>
-                                </div>
-                            </div>                
-                    </lightning-record-edit-form>
-        </template>
-    </lightning-card>
+	<lightning-card
+		title={cardTitle}
+		icon-name="utility:file">
+		<template lwc:if={isLoading}>
+			<!-- Show spinner when loading -->
+			<lightning-spinner
+				alternative-text="Loading"
+				size="large"
+				variant="brand"></lightning-spinner>
+		</template>
+		<template lwc:else>
+			<!-- Initial form creates a Document__c record to upload the file against -->
+			<lightning-record-edit-form
+				object-api-name={objectName}
+				onsuccess={handleSuccess}
+				onerror={handleError}>
+				<lightning-messages> </lightning-messages>
+				<div class="slds-grid slds-var-m-around_medium">
+					<div class="slds-col slds-size_1-of-2">
+						<span
+							><lightning-input-field
+								field-name={fields.name}
+								required>
+							</lightning-input-field
+						></span>
+					</div>
+					<div class="slds-col slds-size_1-of-2">
+						<span
+							><lightning-input-field
+								field-name={fields.type}
+								required
+								value={defaultDocumentType}>
+							</lightning-input-field
+						></span>
+					</div>
+					<span
+						><lightning-input-field
+							field-name={fields.contact}
+							value={contactId}
+							class="hide">
+						</lightning-input-field
+					></span>
+					<span
+						><lightning-input-field
+							field-name={fields.account}
+							value={accountId}
+							class="hide">
+						</lightning-input-field
+					></span>
+					<span
+						><lightning-input-field
+							field-name={fields.opportunity}
+							value={opportunityId}
+							class="hide">
+						</lightning-input-field
+					></span>
+				</div>
+				<div class="slds-grid slds-var-m-around_medium">
+					<div class="slds-col slds-size_2-of-2 footerButton">
+						<span>
+							<lightning-button
+								class="slds-var-m-top_medium"
+								type="submit"
+								label={buttonLabel}
+								variant="brand">
+							</lightning-button>
+						</span>
+					</div>
+				</div>
+			</lightning-record-edit-form>
+		</template>
+	</lightning-card>
 </template>
