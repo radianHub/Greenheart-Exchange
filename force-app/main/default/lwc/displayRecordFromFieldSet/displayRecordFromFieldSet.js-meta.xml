@@ -41,8 +41,8 @@
                 description="If this is set to true, the opportunity data will only display if the opportunity teacher is placed at the current users school"
                 default="false" />
             <property name="loadFromUserRecord" type="String" label="Load from User's Record"
-                datasource="Account,Opportunity,Contact"
-                description="If this is populated, the fields displayed will load from selected related record." />
+                datasource="none,Account,Opportunity,Contact"
+                description="If this is populated, recordId will be pulled from selected related record." />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
