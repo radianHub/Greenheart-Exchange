@@ -328,53 +328,28 @@ public without sharing class UniversalApp {
 		System.debug('filesString ' + filesString);
 
 		try {
-			/*switch on application {
-				when 'Registration' {
-					Contact newCommunityMember = (Contact) sObj;
+			switch on application {
+				when 'J2_Application' {
+					Opportunity oppJ2 = (Opportunity) sObj;
 
-					List<Contact> existingCommunityMember = [
-						SELECT Id
-						FROM Contact
-						WHERE Email = :newCommunityMember.Email
-					];
+					User curUser = UsersService.getCurrentUser();
+					oppJ2.J1_Opportunity_Name__c = curUser?.Contact?.J1_Opportunity__c;
+					
+					oppJ2.RecordTypeId = Schema.SObjectType.Opportunity.getRecordTypeInfosByDeveloperName().get('J_2').getRecordTypeId();
 
-					if (existingCommunityMember.size() > 0) {
-						throw new AuraHandledException('A a community member already exists under this email address');
-					}
+					
 
-					upsert newCommunityMember;
-					ret.put('data', newCommunityMember.Id);
+					upsert oppJ2;
+					ret.put('data', oppJ2.Id);
 
-					sObj = newCommunityMember;
+					sObj = oppJ2;
 				}
-				when 'Grant_Application' {
-					Opportunity newGrantApplication = (Opportunity) sObj;
 
-					List<Contact> existingCommunityMember = [
-						SELECT Id, Email, AccountId
-						FROM Contact
-						WHERE Email = :newGrantApplication.Email_Address__c
-					];
-
-					if (existingCommunityMember.size() == 0) {
-						throw new CustomException('No community member has been registered with this email address');
-					}
-
-					newGrantApplication.AccountId = existingCommunityMember[0].AccountId;
-					newGrantApplication.StageName = 'Application Received';
-					newGrantApplication.CloseDate = Date.today();
-					newGrantApplication.Community_Member__c = existingCommunityMember[0].Id;
-
-					upsert newGrantApplication;
-					ret.put('data', newGrantApplication.Id);
-
-					sObj = newGrantApplication;
+				when else {
+					upsert sObj;
+					ret.put('data', sObj.Id);
 				}
-				when else {*/
-			upsert sObj;
-			ret.put('data', sObj.Id);
-			//	}
-			//}
+			}
 
 			if (filesString != null) {
 				List<fileWrapper> filesList = (List<fileWrapper>) JSON.deserialize(

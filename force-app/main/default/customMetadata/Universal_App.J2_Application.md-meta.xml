@@ -54,13 +54,14 @@ padding-top: 15px;
     </values>
     <values>
         <field>ParentOppField__c</field>
-        <value xsi:type="xsd:string">Id</value>
+        <value xsi:type="xsd:string">J1_Opportunity_Name__c</value>
     </values>
     <values>
         <field>Post_Submit_Fields__c</field>
         <value xsi:type="xsd:string">{
 &quot;StageName&quot; : &quot;Pre-Approval&quot;,
-&quot;J2_Participant__c&quot; : true
+&quot;J2_Participant__c&quot; : true,
+&quot;CloseDate&quot; : &quot;2021-07-13&quot;
 }</value>
     </values>
     <values>
