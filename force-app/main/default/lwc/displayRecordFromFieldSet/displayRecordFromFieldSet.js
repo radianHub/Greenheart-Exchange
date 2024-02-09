@@ -30,7 +30,7 @@ export default class DisplayRecordFromFieldSet extends LightningElement {
 			const userContactId = data?.ContactId;
 			const userOpportunityId = data?.Contact?.J1_Opportunity__c;
 
-			// assign recordId if
+			// assign recordId
 			if (this.loadFromUserRecord) {
 				if (this.loadFromUserRecord == 'Account' && userAccountId) {
 					this.recordId = userAccountId;
