@@ -3,7 +3,7 @@
     <fullName>J2_App_General_Info</fullName>
     <description>Teacher Portal on the Universal App: J2 Application</description>
     <displayedFields>
-        <field>Name__c</field>
+        <field>Name</field>
         <isFieldManaged>false</isFieldManaged>
         <isRequired>true</isRequired>
     </displayedFields>
@@ -15,7 +15,7 @@
     <displayedFields>
         <field>Participant_Email__c</field>
         <isFieldManaged>false</isFieldManaged>
-        <isRequired>true</isRequired>
+        <isRequired>false</isRequired>
     </displayedFields>
     <displayedFields>
         <field>Gender_Identity__c</field>
