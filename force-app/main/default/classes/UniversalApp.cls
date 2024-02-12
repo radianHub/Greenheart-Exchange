@@ -31,7 +31,8 @@ public without sharing class UniversalApp {
 				Page_Redirect_if_False__c,
 				ParentOppField__c,
 				ParentAcctField__c,
-				vfPageRedirect__c
+				vfPageRedirect__c,
+				isSaveForLaterEnabled__c
 			FROM Universal_App__mdt
 			WHERE DeveloperName = :appDevName
 		];
