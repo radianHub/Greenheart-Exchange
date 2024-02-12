@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>Expected_Field_Label__c</field>
-        <value xsi:type="xsd:string">What is the earliest date teachers will start the school year?</value>
+        <value xsi:type="xsd:string">What is the latest date teacher will start the school year?</value>
     </values>
     <values>
         <field>Field_Name__c</field>
