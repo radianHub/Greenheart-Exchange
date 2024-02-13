@@ -14,6 +14,20 @@
                 <elementReference>Find_My_Opportunity.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>programRenewal.Will_your_position_be_same__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Same_Position</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>programRenewal.Is_this_your_correct_US_address_If_yes__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Is_this_your_current_address</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_New_Program_Record</targetReference>
         </connector>
@@ -356,21 +370,43 @@
             <objectFieldReference>programRenewal.Do_you_plan_to_continue_working_at_this__c</objectFieldReference>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Same_Position</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Same Position?</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>programRenewal.Will_your_position_be_same__c</objectFieldReference>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>checkbox_instructions_school</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Check the box if yes. If no, you will be prompted to enter your new position below.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Same_Position</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <objectFieldReference>programRenewal.New_Position_at_School__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Same_Position</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>udated_school_information</name>
@@ -515,21 +551,43 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Is_this_your_current_address</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Is this your current address?</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>programRenewal.Is_this_your_correct_US_address_If_yes__c</objectFieldReference>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>update_address</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;If no, please update your address information below. If this is still your address, continue to the next screen.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Update New Address&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong&gt;If yes, check the box above. If no, please update your address information below.&lt;/strong&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Update New Address&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Is_this_your_current_address</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <objectFieldReference>programRenewal.New_Housing_Address__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Is_this_your_current_address</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>program_renewal_information_Section4</name>
@@ -542,6 +600,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>programRenewal.New_Housing_City__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Is_this_your_current_address</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>false</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -559,6 +627,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>programRenewal.New_Housing_State__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Is_this_your_current_address</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>false</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -576,6 +654,16 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <objectFieldReference>programRenewal.New_Housing_Zip_Code__c</objectFieldReference>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Is_this_your_current_address</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>false</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
