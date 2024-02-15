@@ -258,6 +258,23 @@
             <targetReference>Loop_Through_School_Upload_Ids</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>TC_Error</name>
+        <label>TC Error</label>
+        <locationX>578</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>tcNoMatch</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>program_extension_upload</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>no</name>
         <choiceText>No</choiceText>
@@ -325,8 +342,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <isGoTo>true</isGoTo>
-                <targetReference>program_extension_upload</targetReference>
+                <targetReference>TC_Error</targetReference>
             </connector>
             <label>Name Does not Match and No Date</label>
         </rules>
@@ -595,7 +611,7 @@
             <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Thank You for Submitting!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your extension has been completed!&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
-        <showFooter>true</showFooter>
+        <showFooter>false</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
@@ -874,8 +890,23 @@
         </fields>
         <fields>
             <name>terms_conditions</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Conditions of Greenheart Program&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;By submitting my program renewal request, I understand that granting of this request is contingent on the approval of Greenheart Exchange and a Greenheart Exchange-approved Host School. If my request is approved, I understand that I am responsible for paying all applicable feeds (as detailed in the participant handbook), and that these fees are subject to change.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;em style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;Agreeing to the Terms and Conditions is Required to Submit&lt;/em&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Conditions of Greenheart Program&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;By submitting my program renewal request, I understand that granting of this request is contingent on the approval of Greenheart Exchange and a Greenheart Exchange-approved Host School. If my request is approved, I understand that I am responsible for paying all applicable feeds (as detailed in the participant handbook), and that these fees are subject to change.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>TC_error_message</name>
+            <fieldText>&lt;p&gt;&lt;em style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;Agreeing to the Terms and Conditions is Required to Submit. Please make sure your full name matches the name on your application.&lt;/em&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>tcNoMatch</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>program_extension_upload_Section1</name>
@@ -1046,6 +1077,13 @@
         <name>schoolDocumentIds</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>tcNoMatch</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
