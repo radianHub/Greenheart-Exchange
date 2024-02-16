@@ -1,10 +1,17 @@
 <template>
 	<div class="rh_style"></div>
 	<article class="rh_page slds-card">
-		<lightning-spinner lwc:if={showSpinner} alternative-text="Loading" size="medium"></lightning-spinner>
+		<lightning-spinner
+			lwc:if={showSpinner}
+			alternative-text="Loading"
+			size="medium"></lightning-spinner>
 		<div class="rh_page-header slds-card__header slds-grid">
-			<header if:true={appData} class="slds-media slds-media_center slds-has-flexi-truncate">
-				<div if:true={appData.Logo_URL__c} class="slds-media__figure">
+			<header
+				if:true={appData}
+				class="slds-media slds-media_center slds-has-flexi-truncate">
+				<div
+					if:true={appData.Logo_URL__c}
+					class="slds-media__figure">
 					<img src={appData.Logo_URL__c} />
 				</div>
 				<div class="slds-media__body">
@@ -14,10 +21,19 @@
 		</div>
 
 		<div class="rh_page-inner slds-card__body slds-card__body_inner">
-			<div if:true={alert} class={alertClass} role="status">
+			<div
+				if:true={alert}
+				class={alertClass}
+				role="status">
 				<div class="slds-media__figure">
-					<span class={alertSpan} title="alert">
-						<lightning-icon alternative-text="Alert Icon" icon-name={alertIcon} size="x-small" variant="inverse"></lightning-icon>
+					<span
+						class={alertSpan}
+						title="alert">
+						<lightning-icon
+							alternative-text="Alert Icon"
+							icon-name={alertIcon}
+							size="x-small"
+							variant="inverse"></lightning-icon>
 					</span>
 				</div>
 				<div class="slds-media__body">
@@ -27,10 +43,19 @@
 
 			<template if:true={page}>
 				<lightning-record-edit-form object-api-name={appData.Object__c}>
-					<template for:each={currentPage} for:item="section">
-						<div lwc:if={section.data.DisplayByDefault__c} key={section.data.Id} class="rh_section-div slds-m-vertical_large">
-							<header if:true={section.data.Section_Header__c} class="slds-text-heading_medium">
-								<h2 class="rh_section-h2 slds-align_absolute-center slds-hyphenate">{section.data.Section_Header__c}</h2>
+					<template
+						for:each={currentPage}
+						for:item="section">
+						<div
+							lwc:if={section.data.DisplayByDefault__c}
+							key={section.data.Id}
+							class="rh_section-div slds-m-vertical_large">
+							<header
+								if:true={section.data.Section_Header__c}
+								class="slds-text-heading_medium">
+								<h2 class="rh_section-h2 slds-align_absolute-center slds-hyphenate">
+									{section.data.Section_Header__c}
+								</h2>
 							</header>
 							<lightning-formatted-rich-text
 								if:true={section.data.Section_Body__c}
@@ -49,31 +74,49 @@
 								</div>
 							</template>
 
-							
-
-
 							<!-- Wrap input fields in SLDS Grid -->
 							<template if:true={section.rows}>
-								<template for:each={section.rows} for:item="row">
-									<div key={row.id} class="rh_field-row slds-grid slds-gutters slds-wrap">
-										<template for:each={row.fields} for:item="field">
-											<div key={field.api} class={section.columnClass}>
+								<template
+									for:each={section.rows}
+									for:item="row">
+									<div
+										key={row.id}
+										class="rh_field-row slds-grid slds-gutters slds-wrap">
+										<template
+											for:each={row.fields}
+											for:item="field">
+											<div
+												key={field.api}
+												class={section.columnClass}>
 												<template if:true={field.hasAltLabel}>
 													<template if:true={hasValue}>
 														<div class="altLabelContainer">
 															<!-- ALT LABEL FOR EXPERIENCE SITE -->
 															<div class="altLabel slds-form-element__label">
 																<div if:false={field.isBool}>
-																	<div if:true={field.req} class="req">*</div>
+																	<div
+																		if:true={field.req}
+																		class="req">
+																		*
+																	</div>
 																</div>
 																<label> {field.altLabel} </label>
 															</div>
 															<template lwc:if={field.isFile}>
-																<c-univ-app-file field={field} onfileselected={handleSelectFile}></c-univ-app-file>
+																<c-univ-app-file
+																	field={field}
+																	onfileselected={handleSelectFile}></c-univ-app-file>
 															</template>
 															<template lwc:else>
-																<lightning-input-field id={field.api} class="slds-grow hideHelpText" field-name={field.api} required={field.req}
-																	variant="label-hidden" value={value} onchange={onChangeHandler} disabled={finished}></lightning-input-field>
+																<lightning-input-field
+																	id={field.api}
+																	class="slds-grow hideHelpText"
+																	field-name={field.api}
+																	required={field.req}
+																	variant="label-hidden"
+																	value={value}
+																	onchange={onChangeHandler}
+																	disabled={finished}></lightning-input-field>
 															</template>
 															<!-- ALT LABEL FOR LIGHTNING APP PAGE -->
 															<!--div class="altLabel slds-form-element__label">
@@ -82,7 +125,6 @@
 																</div>
 																<label for={field.api}>{field.altLabel}</label>
 															</div-->
-													
 														</div>
 													</template>
 													<template if:false={hasValue}>
@@ -90,7 +132,11 @@
 															<!-- ALT LABEL FOR EXPERIENCE SITE -->
 															<div class="altLabel slds-form-element__label">
 																<div if:false={field.isBool}>
-																	<div if:true={field.req} class="req">*</div>
+																	<div
+																		if:true={field.req}
+																		class="req">
+																		*
+																	</div>
 																</div>
 																<label> {field.altLabel} </label>
 															</div>
@@ -102,18 +148,20 @@
 																<label for={field.api}>{field.altLabel}</label>
 															</div-->
 															<template lwc:if={field.isFile}>
-																<c-univ-app-file field={field} onfileselected={handleSelectFile}></c-univ-app-file>
+																<c-univ-app-file
+																	field={field}
+																	onfileselected={handleSelectFile}></c-univ-app-file>
 															</template>
 															<template lwc:else>
 																<lightning-input-field
-																			class="slds-grow hideHelpText"
-																			id={field.api}
-																			field-name={field.api}
-																			required={field.req}
-																			variant="label-hidden"
-																			value={field.value}
-																			onchange={onChangeHandler}
-																			disabled={finished}></lightning-input-field>
+																	class="slds-grow hideHelpText"
+																	id={field.api}
+																	field-name={field.api}
+																	required={field.req}
+																	variant="label-hidden"
+																	value={field.value}
+																	onchange={onChangeHandler}
+																	disabled={finished}></lightning-input-field>
 															</template>
 														</div>
 													</template>
@@ -135,8 +183,8 @@
 															required={field.req}
 															value={field.value}
 															onchange={onChangeHandler}
-														disabled={finished}></lightning-input-field>
-												</template>
+															disabled={finished}></lightning-input-field>
+													</template>
 												</template>
 											</div>
 										</template>
@@ -151,19 +199,43 @@
 
 		<div class="rh_page-footer slds-modal__footer slds-grid slds-grid_align-end">
 			<div if:true={showRestart}>
-				<lightning-button label="Restart" name="restart" onclick={restart}></lightning-button>
+				<lightning-button
+					label="Restart"
+					name="restart"
+					onclick={restart}></lightning-button>
 			</div>
 			<div if:true={showPrevious}>
-				<lightning-button label="Previous" name="previous" onclick={previous}></lightning-button>
+				<lightning-button
+					label="Previous"
+					name="previous"
+					onclick={previous}></lightning-button>
 			</div>
-			<div class="slds-col_bump-left" if:true={showNext}> 
-				<lightning-button label="Save for Later" name="saveForLater" onclick={finish} variant="brand"></lightning-button>
+			<div
+				class="slds-col_bump-left"
+				if:true={showSaveForLater}>
+				<lightning-button
+					label="Save for Later"
+					name="saveForLater"
+					onclick={finish}
+					variant="brand"></lightning-button>
 			</div>
-			<div class="slds-col slds-var-p-left_x-small" if:true={showNext}>
-				<lightning-button label="Next" name="next" onclick={next}></lightning-button>
+			<div
+				class="slds-col slds-var-p-left_x-small"
+				if:true={showNext}>
+				<lightning-button
+					label="Next"
+					name="next"
+					onclick={next}></lightning-button>
 			</div>
-			<div class="slds-col slds-var-p-left_x-small" if:true={showFinish}>
-				<lightning-button label="Finish" name="finish" onclick={finish} variant="brand" disabled={finished}></lightning-button>
+			<div
+				class="slds-col slds-var-p-left_x-small"
+				if:true={showFinish}>
+				<lightning-button
+					label={finishLabel}
+					name="finish"
+					onclick={finish}
+					variant="brand"
+					disabled={finished}></lightning-button>
 			</div>
 			<!-- TODO add a close button? -->
 		</div>

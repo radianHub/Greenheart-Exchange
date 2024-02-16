@@ -9,12 +9,13 @@ import getCurrentUserRecords from '@salesforce/apex/UsersService.getCurrentUser'
 
 export default class UnivApp extends NavigationMixin(LightningElement) {
 	// # PUBLIC PROPERTIES
-	@api recordId;
+	@api recordId = null;
 	@api oppId; //J1 Opportunity that this UA data is related to
 	@api acctId; //Account Id to relate this record to. Primarily for Host Schools to relate records to their account.
 	@api isLoadParentId = false;
 	@api appDevName;
 	@api canShowRestart;
+	@api finishLabel = 'Finish';
 
 	// # APP DATA
 	appData;
@@ -103,7 +104,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	// # APEX
 
 	// * GET RECORD ID IF PASSED IN A PARAMETER
-	@wire(CurrentPageReference)
+	/*@wire(CurrentPageReference)
 	getStateParameters(currentPageReference) {
 		const urlValue = currentPageReference.state.c__recordId;
 		if (urlValue) {
@@ -111,7 +112,7 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 		} else {
 			this.recordId = null;
 		}
-	}
+	}*/
 
 	// * WIRED APEX
 	@wire(getCurrentUserRecords)
@@ -671,6 +672,11 @@ export default class UnivApp extends NavigationMixin(LightningElement) {
 	// * DETERMINES WETHER OR NOT TO SHOW THE NEXT BUTTON
 	get showNext() {
 		return this.pageCurrent < this.pageTotal;
+	}
+
+	// * DETERMINES WETHER OR NOT TO SHOW THE SAVE FOR LATER BUTTON
+	get showSaveForLater() {
+		return this.showNext && this.appData.isSaveForLaterEnabled__c;
 	}
 
 	// * DETERMINES WETHER OR NOT TO SHOW THE FINISH BUTTON
