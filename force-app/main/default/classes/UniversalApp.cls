@@ -335,6 +335,7 @@ public without sharing class UniversalApp {
 
 					User curUser = UsersService.getCurrentUser();
 					oppJ2.J1_Opportunity_Name__c = curUser?.Contact?.J1_Opportunity__c;
+					oppJ2.AccountId = curUser?.Contact?.AccountId;
 					
 					oppJ2.RecordTypeId = Schema.SObjectType.Opportunity.getRecordTypeInfosByDeveloperName().get('J_2').getRecordTypeId();
 
