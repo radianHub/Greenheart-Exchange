@@ -210,7 +210,7 @@
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>ContactId</field>
+            <field>Id</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Get_Opportunity.Id</elementReference>
@@ -224,6 +224,7 @@
         </inputAssignments>
         <object>Opportunity</object>
     </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>Quiz</name>
         <label>Quiz</label>
@@ -402,7 +403,7 @@
             <targetReference>Get_Opportunity</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>isValid</name>
         <dataType>Boolean</dataType>
