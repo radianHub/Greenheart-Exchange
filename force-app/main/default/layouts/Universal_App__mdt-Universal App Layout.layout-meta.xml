@@ -24,7 +24,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>ParentAcctField__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>CSS__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>isSaveForLaterEnabled__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -70,6 +78,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Page_Redirect_if_False__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>vfPageRedirect__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
