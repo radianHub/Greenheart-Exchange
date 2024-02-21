@@ -2,10 +2,42 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>59.0</apiVersion>
     <assignments>
+        <name>Assign_Checkbox_Value</name>
+        <label>Assign Checkbox Value</label>
+        <locationX>1106</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>programRenewal.Will_your_position_be_same__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Same_Position</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Program_Record</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_False</name>
+        <label>Assign False</label>
+        <locationX>842</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>programRenewal.Will_your_position_be_same__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_New_Program_Record</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>Assigning the opportunity to the Program Renewal variable to prep for record creation</description>
         <name>Assign_Opportunity_to_Program_Renewal</name>
         <label>Assign Opportunity to Program Renewal</label>
-        <locationX>930</locationX>
+        <locationX>974</locationX>
         <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>programRenewal.J1_Opportunity_Name__c</assignToReference>
@@ -15,28 +47,28 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>programRenewal.Will_your_position_be_same__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Same_Position</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>programRenewal.Is_this_your_correct_US_address_If_yes__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Is_this_your_current_address</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>programRenewal.Do_you_plan_to_continue_working_at_this__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Do_you_wish_to_continue_at_the_same_school</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>Create_New_Program_Record</targetReference>
+            <targetReference>Is_Checkbox_Null</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_to_Variable</name>
         <label>Assign to Variable</label>
-        <locationX>1018</locationX>
-        <locationY>1214</locationY>
+        <locationX>1062</locationX>
+        <locationY>1514</locationY>
         <assignmentItems>
             <assignToReference>cdlRecord.LinkedEntityId</assignToReference>
             <operator>Assign</operator>
@@ -101,17 +133,23 @@
         <name>no</name>
         <choiceText>No</choiceText>
         <dataType>String</dataType>
+        <value>
+            <stringValue>No</stringValue>
+        </value>
     </choices>
     <choices>
         <name>yes</name>
         <choiceText>Yes</choiceText>
         <dataType>String</dataType>
+        <value>
+            <stringValue>Yes</stringValue>
+        </value>
     </choices>
     <decisions>
         <description>Checking to see if the variable that holds the document Id from the previous screen is blank to create a validation rule</description>
         <name>Did_file_upload</name>
         <label>Did file upload?</label>
-        <locationX>622</locationX>
+        <locationX>644</locationX>
         <locationY>674</locationY>
         <defaultConnector>
             <targetReference>Assign_Opportunity_to_Program_Renewal</targetReference>
@@ -158,7 +196,7 @@
     <decisions>
         <name>Failed_to_Find_Records</name>
         <label>Failed to Find Records?</label>
-        <locationX>336</locationX>
+        <locationX>347</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>program_renewal_information</targetReference>
@@ -180,6 +218,31 @@
             <label>No Records Found</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Is_Checkbox_Null</name>
+        <label>Is Checkbox Null?</label>
+        <locationX>974</locationX>
+        <locationY>890</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Checkbox_Value</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Null_Value</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Same_Position</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Null_Value</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_False</targetReference>
+            </connector>
+            <label>Null Value</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <formulas>
         <name>lengthOfUploadedFiles</name>
@@ -197,8 +260,8 @@
     <loops>
         <name>Loop_Through_Ids</name>
         <label>Loop Through Ids</label>
-        <locationX>930</locationX>
-        <locationY>1106</locationY>
+        <locationX>974</locationX>
+        <locationY>1406</locationY>
         <collectionReference>contract_letter.contentDocIds</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -230,8 +293,8 @@
     <recordCreates>
         <name>Create_CDL</name>
         <label>Create CDL</label>
-        <locationX>930</locationX>
-        <locationY>1406</locationY>
+        <locationX>974</locationX>
+        <locationY>1706</locationY>
         <connector>
             <targetReference>renewal_complete_screen</targetReference>
         </connector>
@@ -241,8 +304,8 @@
         <description>Creating a document record for the contract letter file upload</description>
         <name>Create_Document_Record</name>
         <label>Create Document Record</label>
-        <locationX>930</locationX>
-        <locationY>998</locationY>
+        <locationX>974</locationX>
+        <locationY>1298</locationY>
         <assignRecordIdToReference>documentRecordId</assignRecordIdToReference>
         <connector>
             <targetReference>Loop_Through_Ids</targetReference>
@@ -271,8 +334,8 @@
         <description>Creating a new Program Record linked the the opportunity</description>
         <name>Create_New_Program_Record</name>
         <label>Create New Program Record</label>
-        <locationX>930</locationX>
-        <locationY>890</locationY>
+        <locationX>974</locationX>
+        <locationY>1190</locationY>
         <connector>
             <targetReference>Create_Document_Record</targetReference>
         </connector>
@@ -282,7 +345,7 @@
         <description>Finding the opportunity linked to the current user via contact id</description>
         <name>Find_My_Opportunity</name>
         <label>Find My Opportunity</label>
-        <locationX>336</locationX>
+        <locationX>347</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -303,7 +366,7 @@
     <recordLookups>
         <name>Get_Contact</name>
         <label>Get Contact</label>
-        <locationX>336</locationX>
+        <locationX>347</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -346,7 +409,7 @@
         <description>Program extension introduction and confirmation</description>
         <name>program_renewal</name>
         <label>program renewal</label>
-        <locationX>336</locationX>
+        <locationX>347</locationX>
         <locationY>134</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -366,7 +429,7 @@
         <description>Required Contract Letter upload component</description>
         <name>program_renewal_information</name>
         <label>program renewal information</label>
-        <locationX>622</locationX>
+        <locationX>644</locationX>
         <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -380,10 +443,14 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Do_you_wish_to_continue_at_the_same_school</name>
+            <choiceReferences>yes</choiceReferences>
+            <choiceReferences>no</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Do you wish to continue at the same school?</fieldText>
+            <fieldType>DropdownBox</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>programRenewal.Do_you_plan_to_continue_working_at_this__c</objectFieldReference>
         </fields>
         <fields>
             <name>Same_Position</name>
@@ -392,6 +459,16 @@
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Do_you_wish_to_continue_at_the_same_school</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Yes</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>checkbox_instructions_school</name>
@@ -404,6 +481,13 @@
                     <operator>EqualTo</operator>
                     <rightValue>
                         <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Do_you_wish_to_continue_at_the_same_school</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Yes</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -420,6 +504,13 @@
                     <operator>EqualTo</operator>
                     <rightValue>
                         <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Do_you_wish_to_continue_at_the_same_school</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Yes</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -845,27 +936,28 @@
             <isRequired>false</isRequired>
             <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
+        <nextOrFinishButtonLabel>Submit</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
         <name>renewal_complete_screen</name>
         <label>renewal complete screen</label>
-        <locationX>930</locationX>
-        <locationY>1514</locationY>
+        <locationX>974</locationX>
+        <locationY>1814</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
             <name>renewal_complete</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 28px; color: rgb(68, 68, 68);&quot;&gt;Thank You for Submitting!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your Renewal is Complete!&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: rgb(68, 68, 68); font-size: 28px; background-color: rgb(255, 255, 255);&quot;&gt;Thank You for Submitting!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your renewal is complete!&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>false</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>210</locationX>
+        <locationX>221</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>program_renewal</targetReference>
