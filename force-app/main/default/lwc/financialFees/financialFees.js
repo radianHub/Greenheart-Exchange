@@ -1,7 +1,7 @@
 import { LightningElement, wire } from 'lwc';
 
 // * APEX IMPORTS
-import getCurrentUserAccountContactOpportunity from '@salesforce/apex/UsersService.getCurrentUserAccountContactOpportunity';
+import getCurrentUserAccountContactOpportunity from '@salesforce/apex/UsersService.getCurrentUser';
 
 // * TOAST EVENT
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
