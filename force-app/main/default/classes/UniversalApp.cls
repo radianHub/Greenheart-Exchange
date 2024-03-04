@@ -31,7 +31,9 @@ public without sharing class UniversalApp {
 				Page_Redirect_if_False__c,
 				ParentOppField__c,
 				ParentAcctField__c,
-				vfPageRedirect__c
+				vfPageRedirect__c,
+				isSaveForLaterEnabled__c,
+				isHideFinishButton__c
 			FROM Universal_App__mdt
 			WHERE DeveloperName = :appDevName
 		];
@@ -334,6 +336,7 @@ public without sharing class UniversalApp {
 
 					User curUser = UsersService.getCurrentUser();
 					oppJ2.J1_Opportunity_Name__c = curUser?.Contact?.J1_Opportunity__c;
+					oppJ2.AccountId = curUser?.Contact?.AccountId;
 					
 					oppJ2.RecordTypeId = Schema.SObjectType.Opportunity.getRecordTypeInfosByDeveloperName().get('J_2').getRecordTypeId();
 
@@ -343,6 +346,16 @@ public without sharing class UniversalApp {
 					ret.put('data', oppJ2.Id);
 
 					sObj = oppJ2;
+				} 
+				when 'Monthly_Check_In' {
+					Monthly_Check_In__c mci = (Monthly_Check_In__c) sObj;
+
+					mci.Name = 'Monthly Check In - ' + Date.today().format();
+
+					upsert mci;
+					ret.put('data', mci.Id);
+
+					sObj = mci;
 				}
 
 				when else {

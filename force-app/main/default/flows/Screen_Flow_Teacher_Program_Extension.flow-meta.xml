@@ -21,6 +21,20 @@
                 <elementReference>new_position</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>programExtension.Is_Address_Correct__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Is_Your_Address_the_Same</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>programExtension.Will_your_position_be_same__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Position_the_Same</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Create_New_Program_Record</targetReference>
         </connector>
@@ -244,6 +258,23 @@
             <targetReference>Loop_Through_School_Upload_Ids</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>TC_Error</name>
+        <label>TC Error</label>
+        <locationX>578</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>tcNoMatch</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>program_extension_upload</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>no</name>
         <choiceText>No</choiceText>
@@ -311,8 +342,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <isGoTo>true</isGoTo>
-                <targetReference>program_extension_upload</targetReference>
+                <targetReference>TC_Error</targetReference>
             </connector>
             <label>Name Does not Match and No Date</label>
         </rules>
@@ -581,7 +611,7 @@
             <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Thank You for Submitting!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your extension has been completed!&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
-        <showFooter>true</showFooter>
+        <showFooter>false</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <screens>
@@ -637,19 +667,31 @@
         </connector>
         <fields>
             <name>current_school_information</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 24px;&quot;&gt;School Information&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Name of Host School: &lt;/strong&gt; {!Find_My_Opportunity.Current_Placement__r.School__r.Name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Host School Address:  &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!Find_My_Opportunity.Current_Placement__r.School__r.BillingStreet}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Find_My_Opportunity.Current_Placement__r.School__r.BillingCity}, {!Find_My_Opportunity.Current_Placement__r.School__r.BillingState} &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;{!Find_My_Opportunity.Current_Placement__r.School__r.BillingPostalCode}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Current Position: &lt;/strong&gt;{!Find_My_Opportunity.Current_Placement__r.Positions__r.Name}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;School Information&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Name of Host School: &lt;/strong&gt; {!Find_My_Opportunity.Current_Placement__r.School__r.Name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Host School Address:  &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!Find_My_Opportunity.Current_Placement__r.School__r.BillingStreet}&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!Find_My_Opportunity.Current_Placement__r.School__r.BillingCity}, {!Find_My_Opportunity.Current_Placement__r.School__r.BillingState} &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;﻿{!Find_My_Opportunity.Current_Placement__r.School__r.BillingPostalCode}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Current Position: &lt;/strong&gt;{!Find_My_Opportunity.Current_Placement__r.Positions__r.Name}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Position_the_Same</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Position the Same</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>programExtension.Will_your_position_be_same__c</objectFieldReference>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>checkbox_directions_school</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Check the box if yes. If no, you will be prompted to enter your new position below.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Position_the_Same</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>new_position</name>
@@ -658,6 +700,16 @@
             <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Position_the_Same</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>current_us_address</name>
@@ -665,21 +717,43 @@
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>
-            <fieldType>ObjectProvided</fieldType>
+            <name>Is_Your_Address_the_Same</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Is Your Address the Same?</fieldText>
+            <fieldType>InputField</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-            <isRequired>false</isRequired>
-            <objectFieldReference>programExtension.Is_Address_Correct__c</objectFieldReference>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>new_school_information</name>
-            <fieldText>&lt;p&gt;&lt;strong&gt;If no, please update your address information below. If this is still your address, continue to the next screen.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Update New Address&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Check the box above if yes. If no, please update your address information below. &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Update New Address&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Is_Your_Address_the_Same</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <objectFieldReference>programExtension.Updated_US_Address__c</objectFieldReference>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Is_Your_Address_the_Same</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>required_documents</name>
@@ -816,8 +890,23 @@
         </fields>
         <fields>
             <name>terms_conditions</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Conditions of Greenheart Program&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;By submitting my program renewal request, I understand that granting of this request is contingent on the approval of Greenheart Exchange and a Greenheart Exchange-approved Host School. If my request is approved, I understand that I am responsible for paying all applicable feeds (as detailed in the participant handbook), and that these fees are subject to change.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;em style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;Agreeing to the Terms and Conditions is Required to Submit&lt;/em&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 28px;&quot;&gt;Conditions of Greenheart Program&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;By submitting my program renewal request, I understand that granting of this request is contingent on the approval of Greenheart Exchange and a Greenheart Exchange-approved Host School. If my request is approved, I understand that I am responsible for paying all applicable feeds (as detailed in the participant handbook), and that these fees are subject to change.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>TC_error_message</name>
+            <fieldText>&lt;p&gt;&lt;em style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;Agreeing to the Terms and Conditions is Required to Submit. Please make sure your full name matches the name on your application.&lt;/em&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>tcNoMatch</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>program_extension_upload_Section1</name>
@@ -988,6 +1077,13 @@
         <name>schoolDocumentIds</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>tcNoMatch</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
