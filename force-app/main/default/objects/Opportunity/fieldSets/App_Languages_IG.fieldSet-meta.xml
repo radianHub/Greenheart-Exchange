@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>App_Languages_IG</fullName>
+    <description>Teacher Portal via the Universal App: Teach USA Application page</description>
+    <displayedFields>
+        <field>Spoken_Lan__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Instagram_Name__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>App: Languages &amp; IG</label>
+</FieldSet>

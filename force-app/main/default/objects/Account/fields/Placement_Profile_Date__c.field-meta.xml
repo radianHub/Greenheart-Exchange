@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Placement_Profile_Date__c</fullName>
+    <description>Date Signed from the Placement Profile on the Teach USA Portal</description>
+    <externalId>false</externalId>
+    <label>Placement Profile Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Date</type>
+</CustomField>

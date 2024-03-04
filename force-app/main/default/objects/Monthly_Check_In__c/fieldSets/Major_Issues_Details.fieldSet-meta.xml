@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Major_Issues_Details</fullName>
+    <description>Teacher Portal on the Universal App: Monthly Check-In</description>
+    <displayedFields>
+        <field>Major_issues_Type__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Details_on_Major_Issue__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Major Issues Details</label>
+</FieldSet>

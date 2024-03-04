@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Rule Violations</label>
+    <protected>false</protected>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">5.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25px;&gt;&lt;p&gt;&lt;b&gt;Consequences of Rule Violation&lt;/b&gt;&lt;/p&gt;&lt;br&gt;&lt;p&gt;(a) Greenheart Exchange may terminate my program sponsorship for any of the following reasons.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;I fail to notify Greenheart Exchange that I will arrive in the United States after my program start date.&lt;/li&gt;
+  &lt;li&gt;I fail to validate my program within seven days after my arrival to the United States.&lt;/li&gt;
+  &lt;li&gt;I fail to maintain contact with Greenheart, whether in my 30 days check-ins or when I am on additional monitoring.&lt;/li&gt;
+  &lt;li&gt;I fail to submit the Department of State required Cross-Cultural Activity (CCA) reports (two per academic year).&lt;/li&gt;
+  &lt;li&gt;I leave my teaching position without prior consent from Greenheart Exchange in writing.&lt;/li&gt;
+  &lt;li&gt;I start to work at a second job.&lt;/li&gt;
+  &lt;li&gt;I fail to report a change in my housing address or telephone number.&lt;/li&gt;
+  &lt;li&gt;I am found guilty of or plead guilty to violating any local, state, or federal law.&lt;/li&gt;
+  &lt;li&gt;I engage in behavior that may bring disrepute to the J-1 Teacher program.&lt;/li&gt;
+  &lt;li&gt;I violate any Greenheart Exchange program rule.&lt;/li&gt;
+  &lt;li&gt;I misrepresent my personal or medical information to Greenheart Exchange.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(b) If Greenheart Exchange terminates my program sponsorship, I must return to my home country at my own expense immediately. If my program is terminated because I violated U.S. law, I will be subject to repatriation as soon as I fulfill any legal obligations in the U.S.
+&lt;br&gt;&lt;br&gt;
+(c) If Greenheart Exchange terminates my program sponsorship, I will not receive a refund for my program.
+&lt;br&gt;&lt;br&gt;
+(d) If my program sponsorship is terminated, it will negatively affect my chances and the chances of my family members to receive a visa to the U.S. in the future.
+&lt;br&gt;&lt;br&gt;
+(e) Greenheart Exchange is required to report to the U.S. Department of State and/or U.S. Homeland Security any activity that is interpreted as being in defiance of visa or program regulations.&lt;/p&gt;
+&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>
