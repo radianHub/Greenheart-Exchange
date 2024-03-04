@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;Cs - HS - Responsibilities 2</label>
+    <protected>false</protected>
+    <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=&quot;padding-left:20px;padding-right:20px;&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;Teaching positions including duties, responsibilities, hours of employment, and compensation, must be commensurate with those of similarly situated U.S. teachers in the school district or host school where the exchange teacher is assigned to teach. &lt;/li&gt;
+&lt;li&gt;Teachers are employed by and under the direct supervision and guidance of their host school and, where applicable, their host school district. &lt;/li&gt;
+&lt;li&gt;The host school is an accredited institution and will remain so throughout the length of the academic year. If the accreditation status is under threat of revocation, we will inform Greenheart Exchange immediately. &lt;/li&gt;
+&lt;li&gt;If the teacher is placed at the pre- kindergarten level, they will only be placed in a language immersion program offered as a regular course of study at the accredited primary school. &lt;/li&gt;
+&lt;li&gt;Teachers do not displace full-time, part-time, temporary or permanent U.S. teachers. &lt;/li&gt;
+&lt;li&gt;The host school has not experienced layoffs in the past 120 days due to school budget and/or financial difficulties and does not have any workers currently on lockout or on strike. &lt;/li&gt;
+&lt;li&gt;All positions filled by Greenheart teachers are full-time, lead teacher roles, with a minimum of 32 hours per week of teaching or teaching related activities. The host school must contact Greenheart Exchange if they are unable to provide enough teaching hours for the teacher. &lt;/li&gt;
+&lt;li&gt;Exchange teachers must be monitored in the classroom and in carrying out official responsibilities. &lt;/li&gt;
+&lt;li&gt;The relationship between the host school and teacher must comply with all federal, state and local laws. &lt;/li&gt;
+&lt;li&gt;The program length for a J-1 Teacher is three years, with a possible extension of up to two years. &lt;/li&gt;
+&lt;li&gt;Greenheart Exchange must be granted access to the host school to conduct a site visit in compliance with program regulations, if applicable. &lt;/li&gt;
+&lt;li&gt;U.S. Department of State representatives may also visit the host school at any point throughout a teacher’s program. &lt;/li&gt;
+&lt;li&gt;Greenheart Exchange prohibits teachers from changing their visa status while in the U.S. on their program. If a host school files for an in-country change of status for an exchange teacher, the host school will be barred from hosting future Greenheart participants. &lt;/li&gt;
+&lt;li&gt;The host school may not utilize a staffing agency or third party to recruit and hire exchange teachers. &lt;/li&gt;
+&lt;li&gt;The host school may elect to pay the participant’s program and administrative fees on their behalf. Those payments must be made before the form DS-2019 is released to the participant, or in the event of a program renewal, at least 60 days before the end of the academic year (July 1st). &lt;/li&gt;
+&lt;li&gt;Host schools electing to pay participant’s program fees will be invoiced by Greenheart International or our financial services partner, CET Management. All invoices are due within 7 days of receipt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions_Host_Schools</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

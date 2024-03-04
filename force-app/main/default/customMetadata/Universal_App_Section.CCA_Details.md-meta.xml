@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CCA Details</label>
+    <protected>false</protected>
+    <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">You are required to complete two (2) cross-cultural activities each academic school year in order to maintain your program status. There are two (2) categories of cross-cultural activity, and all teachers must complete one of each. (It is not acceptable to complete two local cross-cultural activities, or two international cross-cultural activities. One local and one international cross-cultural activity must be completed.)&lt;br/&gt;
+Local Cross-cultural Activity: You must complete an activity for your classroom, host school, host district, or host community designed to share the history, traditions, heritage, culture, economy, educational system or another aspect of your home country. If you are placed at an international school, you MUST complete this activity outside of the host school- for example in the host community, or with a nearby school district.&lt;br/&gt;
+International Cross-cultural Activity: You must complete an activity that involves U.S. Students connecting and speaking directly with students, classes, or schools from another country, preferably your home country. This activity can be through a virtual exchange or other means.&lt;br/&gt;
+If you have questions about completing your cross-cultural activity please contact TeachUSA@greenheart.org BEFORE completing your activity.</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">2</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Activity_Details</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:type="xsd:string">Cross-cultural Activity Information</value>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Cross_cultural_Activity</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:type="xsd:string">{
+	&quot;Fields&quot;: [
+		{
+			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
+			&quot;controllingValue&quot;: &quot;Local&quot;,
+			&quot;actionSections&quot;: [
+				&quot;CCA_Local_Activity&quot;
+			]
+		},
+		{
+			&quot;controllingField&quot;: &quot;Category_of_Cross_cultural_Activity__c&quot;,
+			&quot;controllingValue&quot;: &quot;International&quot;,
+			&quot;actionSections&quot;: [
+				&quot;CCA_International_Activity&quot;
+			]
+		}
+	]
+}</value>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

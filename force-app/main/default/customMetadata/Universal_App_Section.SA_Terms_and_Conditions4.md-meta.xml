@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SA: Terms and Conditions 4 &amp; Signature</label>
+    <protected>false</protected>
+    <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">15.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=&quot;padding-left:20px;padding-right:20px;margin-top:-20px;padding-bottom:20px;&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;Host schools must notify Greenheart Exchange of any financial agreements made with participants in relation to program related fees paid on their behalf, for example a loan to cover yearly program fees with payments deducted from future pay, or other repayment arrangement. In the event of such an arrangement, the host school agrees to provide Greenheart with the terms and any details upon request. &lt;/li&gt;
+&lt;li&gt;I understand that no other agreements with the teachers shall supersede what is outlined in the school contract, official job offer letter and placement agreement. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h2&gt;PROGRAM TERMINATION AND OTHER RELATED REGULATIONS:&lt;/h2&gt;
+&lt;p&gt;I understand that Greenheart Exchange is obligated by U.S. Department of State regulations to revoke program sponsorship of Teach USA participants at any time if ECA/DOS program regulations are violated. Reasons for program termination may include, but are not limited to, the following. &lt;/p&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;The exchange teacher fails to pursue the purpose of the J-1 program. &lt;/li&gt;
+&lt;li&gt;The exchange teacher violates the BridgeUSA regulations and/or the sponsor&apos;s rules governing the program. &lt;/li&gt;
+&lt;li&gt;The exchange teacher willfully fails to maintain the insurance coverage required under §62.14 of these regulations. &lt;/li&gt;
+&lt;li&gt;The exchange teacher engages in unauthorized employment. &lt;/li&gt;
+&lt;li&gt;If a participant attempts to apply for a change in visa status while on the BridgeUSA Program, the host school must notify Greenheart Exchange as soon as possible. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Consent&lt;/h2&gt;
+
+&lt;p&gt;All parties agree that any material breach of this agreement shall entitle the prevailing party to recover litigation fees incurred in prosecuting such a claim. All parties further agree that any such litigation may be brought by the Teach USA participant, Greenheart Exchange, or the organization named in this agreement, in the city of Chicago, to the extent permissible (Illinois law) to govern any such dispute.
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;&lt;i&gt;I attest that all information is truthful and accurate to the best of my knowledge.&lt;/i&gt; &lt;/b&gt;
+&lt;/p&gt;&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">2</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">T_Cs_Name_and_Date</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">School_Application</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,33 @@
+<template>
+	<lightning-card
+		lwc:if={displayRecord}
+		class="slds-is-relative"
+		title={title}
+		icon-name={iconName}>
+		<div class="body">
+			<lightning-spinner
+				lwc:if={isLoading}
+				alternative-text="Loading"
+				size="medium"></lightning-spinner>
+
+			<template if:true={error}>
+				<c-error-panel
+					type="banner"
+					errors={error}></c-error-panel>
+			</template>
+
+			<lightning-record-form
+				lwc:if={showRecordForm}
+				record-id={record.Id}
+				object-api-name={objectApiName}
+				columns={numberOfColumns}
+				mode="readonly"
+				fields={fields}></lightning-record-form>
+			<div
+				lwc:else
+				class="slds-text-align--center">
+				The specified field set does not exist or has no fields
+			</div>
+		</div>
+	</lightning-card>
+</template>

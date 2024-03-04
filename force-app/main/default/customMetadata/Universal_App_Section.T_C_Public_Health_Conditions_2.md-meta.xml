@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>T&amp;C Public Health Conditions 2</label>
+    <protected>false</protected>
+    <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">4.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">4.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:25;&gt;&lt;p&gt;
+(e) I take responsibility for updating my program budget sheet in the Greenheart Exchange GEO system to reflect a realistic budget based on any changes that have occurred since I completed the budget sheet the first time. These changes may include changes to the program duration, the average number of work hours per week, the rate of pay, and/or the cost of housing or transportation. I confirm that I can manage my finances and that I understand the implications that program changes may have on my financial situation.
+&lt;br&gt;&lt;br&gt;
+(f) I will comply with all government, work, and housing policies related to pandemic prevention. This may include washing my hands frequently, not leaving my housing and/or moving to isolated housing if I am sick or exposed to the virus, avoiding large group gatherings, observing social distancing, and using a face mask and gloves as preventative measures.
+&lt;br&gt;&lt;br&gt;
+(g) I will bring a personal supply of face masks/coverings that I can use throughout my entire time in the United States. These may be washable cloth or disposable masks. If I bring disposable masks or masks that require filters, I will bring enough for the entire period of my program.
+&lt;br&gt;&lt;br&gt;
+(h) I understand that my host organization may choose to dismiss me from my teaching if I do not follow the required safety instructions that are in place to avoid the spread of an epidemic or pandemic. If this were to happen, I understand that Greenheart Exchange will not find me an alternative placement and that Greenheart Exchange may shorten or terminate my visa sponsorship.
+&lt;br&gt;&lt;br&gt;
+(i) I understand that cultural activities may be limited or restricted due to social distancing guidelines, limitations on group gatherings, and other precautions for reducing the risk of infection. I acknowledge that it is still my intention to maximize my exposure to U.S. culture throughout my program in whatever way I can safely do so and that I will report my cultural interactions to Greenheart Exchange in my monthly check-ins.&lt;/p&gt;&lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">1</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">Terms_and_Conditions</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

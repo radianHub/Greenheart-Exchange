@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Display Record From Field Set</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig
+            targets="lightning__AppPage,lightning__HomePage,lightning__RecordPage">
+            <property name="recordId" type="String" label="Record ID"
+                description="Should be set to {!recordId}" />
+            <property name="fieldSetApiName" type="String" label="Field Set Api Name" />
+            <property name="showTitle" type="Boolean" label="Show Title" default="true" />
+            <property name="titleOverride" type="String" label="Title Override" />
+            <property name="showIcon" type="Boolean" label="Show Icon" default="true" />
+            <property name="titleIcon" type="String" label="Title Icon Override (SLDS Icons)"
+                default="standard:work_plan" />
+            <property name="numberOfColumns" type="Integer" label="Number of Columns" default="2" />
+            <property name="loadFromUserRecord" type="String" label="Load from User's Record"
+                datasource="Account,Opportunity,Contact"
+                description="If this is populated, the fields displayed will load from selected related record." />
+        </targetConfig>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="recordId" type="String" label="Record ID"
+                description="Should be set to {!recordId}" />
+            <property name="fieldSetApiName" type="String" label="Field Set Api Name" />
+            <property name="showTitle" type="Boolean" label="Show Title" default="true" />
+            <property name="titleOverride" type="String" label="Title Override" />
+            <property name="showIcon" type="Boolean" label="Show Icon" default="true" />
+            <property name="titleIcon" type="String" label="Title Icon Override (SLDS Icons)"
+                default="standard:work_plan" />
+            <property name="numberOfColumns" type="Integer" label="Number of Columns" default="2" />
+            <property name="conditionalHostSchool" type="Boolean"
+                label="Conditionally Display Host School Info"
+                description="If this is set to true, the opportunity data will only display if the opportunity teacher is placed at the current users school"
+                default="false" />
+            <property name="loadFromUserRecord" type="String" label="Load from User's Record"
+                datasource="none,Account,Opportunity,Contact"
+                description="If this is populated, recordId will be pulled from selected related record." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

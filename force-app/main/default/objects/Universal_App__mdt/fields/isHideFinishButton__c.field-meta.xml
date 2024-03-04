@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isHideFinishButton__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Added to support Display-Only Conditional text on Teacher Checklist page of Teach USA portal.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>If enabled, Form will not be able to submit.
+Suitable only for Display Text.</inlineHelpText>
+    <label>Hide Finish Button</label>
+    <type>Checkbox</type>
+</CustomField>

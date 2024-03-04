@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Housing_Deposit_Details_Section</fullName>
+    <description>The Housing Deposit Details section in the Host School Renewal Universal App Form.</description>
+    <displayedFields>
+        <field>Deposit_required_upon_arrival__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>How_to_pay_housing_deposit__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>Deposit_Refundable__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <label>Housing Deposit Details Section</label>
+</FieldSet>

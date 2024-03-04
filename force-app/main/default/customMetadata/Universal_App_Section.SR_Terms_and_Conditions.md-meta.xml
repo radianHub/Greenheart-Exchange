@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SR: Terms and Conditions</label>
+    <protected>false</protected>
+    <values>
+        <field>AddChildButtonLabel__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildFieldSet__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObjectRecordLimit__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildObject__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ChildTableTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DisplayByDefault__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:double">28.0</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>ParentField__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Section_Body__c</field>
+        <value xsi:type="xsd:string">&lt;div style=padding:20px&gt;&lt;h2 style=text-align:center;&gt;Terms and Conditions&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div style=&quot;padding:10px;&quot;&gt;
+&lt;br&gt;
+&lt;p&gt;This agreement is not valid until Greenheart Exchange has fully screened, vetted, and approved the host school named in the participant’s job offer letter. &lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The Teach USA Program is a cultural exchange program. Greenheart Exchange is a U.S. Department of State designated sponsor, herein referred to as the Sponsor, for the BridgeUSA Program (formerly the Exchange Visitor Program).
+&lt;br&gt;
+&lt;br&gt;
+For purposes of this agreement, “teacher” or “participant” refer to the international J-1 Teacher entering the U.S. temporarily under Greenheart Exchange’s Teach USA program sponsorship and “host school” refers to the school where the Teach USA participant will work.
+&lt;br&gt;
+&lt;br&gt;
+This document serves as an agreement between the business and the Teach USA host school. Though it is not a signatory on this agreement, Greenheart Exchange is a party to it.
+&lt;br&gt;
+&lt;br&gt;
+Continued cooperation with the host school is contingent upon adherence to all Greenheart Exchange program rules and U.S. Department of State Teacher regulations (Title 22 CFR part 62.24) and directives.
+&lt;br&gt;
+&lt;br&gt;
+Greenheart Exchange cannot be held responsible for the actions of participants under Greenheart Exchange sponsorship, including employment performance, nor any liabilities created, assumed, or incurred by the participants.
+&lt;br&gt;
+&lt;br&gt;
+By signing this agreement, I, a representative of the host school, agree to adhere to the goals, objectives, government regulations and sponsor guidelines of the Greenheart BridgeUSA Teacher program (Title 22 CFR part 62.24) including, but not limited to the following:&lt;/p&gt; &lt;/div&gt;</value>
+    </values>
+    <values>
+        <field>Section_Field_Columns__c</field>
+        <value xsi:type="xsd:string">2</value>
+    </values>
+    <values>
+        <field>Section_Field_Flow__c</field>
+        <value xsi:type="xsd:string">Left Right</value>
+    </values>
+    <values>
+        <field>Section_Field_Set__c</field>
+        <value xsi:type="xsd:string">Blank_Field_Set</value>
+    </values>
+    <values>
+        <field>Section_Header__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Universal_App__c</field>
+        <value xsi:type="xsd:string">School_Renewal</value>
+    </values>
+    <values>
+        <field>conditionalRender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>conditionalRequire__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isEnableChildRecords__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+</CustomMetadata>

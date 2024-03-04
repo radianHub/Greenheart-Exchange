@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Host_School</fullName>
+    <active>true</active>
+    <label>Host School</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Academic Salary Schedule</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certificate of Liability Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Medical Insurance Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proof of Accreditation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proof of Insurance</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
