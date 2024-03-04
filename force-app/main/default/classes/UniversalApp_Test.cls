@@ -3,7 +3,7 @@ public class UniversalApp_Test {
 	@isTest
 	static void retrieveCustomMetadata() {
 		// Error scenario -- no app found
-		Map<String, Object> ret = UniversalApp.retrieveApp('Testing_Not_Found', null);
+		Map<String, Object> ret = UniversalApp.retrieveApp('Testing_Not_Found', null, false);
 
 		System.assertEquals(
 			UniversalApp.NOT_FOUND,
@@ -14,13 +14,13 @@ public class UniversalApp_Test {
 		// Error scenario -- catch error
 		UniversalApp.apps = new List<Universal_App__mdt>();
 
-		ret = UniversalApp.retrieveApp('FindThisApp', null);
+		ret = UniversalApp.retrieveApp('FindThisApp', null, false);
 
 		// Error scenario -- no sections found
 		Universal_App__mdt app = new Universal_App__mdt(DeveloperName = 'FindThisApp', Object__c = 'Account');
 		UniversalApp.apps = new List<Universal_App__mdt>{ app };
 
-		ret = UniversalApp.retrieveApp('FindThisApp', null);
+		ret = UniversalApp.retrieveApp('FindThisApp', null, false);
 
 		System.assertEquals(
 			UniversalApp.NO_SECTION,
@@ -39,7 +39,7 @@ public class UniversalApp_Test {
 		);
 		UniversalApp.sects = new List<Universal_App_Section__mdt>{ sect };
 
-		ret = UniversalApp.retrieveApp('FindThisApp', null);
+		ret = UniversalApp.retrieveApp('FindThisApp', null, false);
 
 		System.assertEquals(true, ret.containsKey('data'), 'Did not successfully return the app & section data.');
 
@@ -47,7 +47,7 @@ public class UniversalApp_Test {
 		app = new Universal_App__mdt(DeveloperName = 'FindThisApp', Object__c = 'NOT_FOUND____c');
 		UniversalApp.apps = new List<Universal_App__mdt>{ app };
 
-		ret = UniversalApp.retrieveApp('FindThisApp', null);
+		ret = UniversalApp.retrieveApp('FindThisApp', null, false);
 
 		System.assertEquals(
 			true,
@@ -70,7 +70,7 @@ public class UniversalApp_Test {
 		);
 		UniversalApp.sects = new List<Universal_App_Section__mdt>{ sect };
 
-		ret = UniversalApp.retrieveApp('FindThisApp', appObj.Id);
+		ret = UniversalApp.retrieveApp('FindThisApp', appObj.Id, false);
 
 		System.assertEquals(true, ret.containsKey('data'), 'Did not successfully return the app & section data.');
 
@@ -81,7 +81,7 @@ public class UniversalApp_Test {
 
 		sObject qry = UniversalApp.queryForBoolean(fld, obj, objId);
 		system.debug(qry.get(fld) + ' ' + appObj.get(fld));
-		System.assertEquals(true, qry.get(fld) == appObj.get(fld), 'Queried field does not equal actual');
+		System.assertEquals(true, qry.get(fld) == appObj.get(fld), 'Queried field does not equal actual');        
 	}
 
 	@isTest
@@ -140,4 +140,11 @@ public class UniversalApp_Test {
 
 		System.debug(conList);
 	}
+    
+    @IsTest
+    private static void testGetChildObjectFieldSets() {
+        Map<String, Object> ret = UniversalApp.getChildObjectFields('Account', 'Housing_Section');
+        
+        System.assertEquals(true, ret.containsKey('fielddata'), 'Did not successfully return Child Object Fields.');
+    }
 }
