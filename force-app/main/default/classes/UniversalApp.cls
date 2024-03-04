@@ -32,7 +32,8 @@ public without sharing class UniversalApp {
 				ParentOppField__c,
 				ParentAcctField__c,
 				vfPageRedirect__c,
-				isSaveForLaterEnabled__c
+				isSaveForLaterEnabled__c,
+				isHideFinishButton__c
 			FROM Universal_App__mdt
 			WHERE DeveloperName = :appDevName
 		];
@@ -345,6 +346,16 @@ public without sharing class UniversalApp {
 					ret.put('data', oppJ2.Id);
 
 					sObj = oppJ2;
+				} 
+				when 'Monthly_Check_In' {
+					Monthly_Check_In__c mci = (Monthly_Check_In__c) sObj;
+
+					mci.Name = 'Monthly Check In - ' + Date.today().format();
+
+					upsert mci;
+					ret.put('data', mci.Id);
+
+					sObj = mci;
 				}
 
 				when else {
